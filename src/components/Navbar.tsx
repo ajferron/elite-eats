@@ -90,14 +90,8 @@ export function Navbar() {
             </div>
           </div>
 
-          {/* Right Side - Cart & CTA */}
+          {/* Right Side - CTA */}
           <div className="hidden md:flex md:items-center md:gap-6">
-            <Link
-              href="#"
-              className="font-[family-name:var(--font-radnika)] text-sm font-medium text-zinc-600 transition-colors hover:text-zinc-900"
-            >
-              Cart (0)
-            </Link>
             <Link
               href="#"
               className="rounded-full bg-zinc-900 px-6 py-2.5 font-[family-name:var(--font-radnika)] text-sm font-medium text-white transition-colors hover:bg-zinc-800"
@@ -180,12 +174,6 @@ export function Navbar() {
                 Blog
               </Link>
               <div className="flex flex-col gap-3 pt-4 border-t border-zinc-100">
-                <Link
-                  href="#"
-                  className="font-[family-name:var(--font-radnika)] text-base font-medium text-zinc-600"
-                >
-                  Cart (0)
-                </Link>
                 <Link
                   href="#"
                   className="rounded-full bg-zinc-900 px-5 py-2.5 text-center font-[family-name:var(--font-radnika)] text-sm font-medium text-white"
