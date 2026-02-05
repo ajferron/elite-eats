@@ -40,7 +40,7 @@ export function Hero() {
     <section className="px-6 lg:px-8">
       <div className="mx-auto max-w-7xl">
         {/* Hero Container with rounded corners */}
-        <div className="relative min-h-[600px] overflow-hidden rounded-3xl bg-dark-azure lg:min-h-[700px]">
+        <div className="relative h-[600px] overflow-hidden rounded-3xl bg-dark-azure lg:h-[700px]">
           {/* Background Image */}
           <div className="absolute inset-0">
             <Image
@@ -56,7 +56,7 @@ export function Hero() {
           </div>
 
           {/* Content Overlay */}
-          <div className="relative z-10 flex h-full min-h-[600px] flex-col justify-between p-8 lg:min-h-[700px] lg:p-12">
+          <div className="relative z-10 flex h-full flex-col justify-between p-8 lg:p-12">
             {/* Top Section */}
             <div className="flex items-start justify-between">
               {/* Headline - Top Left */}
