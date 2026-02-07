@@ -62,14 +62,14 @@ export function ValueProposition() {
                         {feature.headline}
                       </h3>
 
-                      {/* Tags - more muted */}
+                      {/* Tags - with azure accent */}
                       <div className="mt-6 flex flex-wrap gap-2">
                         {feature.tags.map((tag) => (
                           <span
                             key={tag}
-                            className="inline-flex items-center gap-1.5 rounded-full bg-sage-light px-3 py-1.5 font-[family-name:var(--font-radnika)] text-xs text-text-secondary"
+                            className="inline-flex items-center gap-1.5 rounded-full bg-azure/10 px-3 py-1.5 font-[family-name:var(--font-radnika)] text-xs text-text-secondary"
                           >
-                            <span className="h-1 w-1 rounded-full bg-sage"></span>
+                            <span className="h-1.5 w-1.5 rounded-full bg-azure"></span>
                             {tag}
                           </span>
                         ))}

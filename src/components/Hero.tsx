@@ -73,11 +73,11 @@ export function Hero() {
                   {slides[activeSlide].cardDescription}
                 </p>
 
-                {/* CTA Button - more restrained */}
+                {/* CTA Button - yellow-green accent */}
                 <div className="mt-10 flex items-center gap-4">
                   <a
                     href="#"
-                    className="inline-block rounded-full bg-cream px-7 py-3.5 font-[family-name:var(--font-radnika)] text-sm text-charcoal transition-all hover:bg-white"
+                    className="inline-block rounded-full bg-yellow-green px-7 py-3.5 font-[family-name:var(--font-radnika)] text-sm text-charcoal transition-all hover:bg-yellow-green/90"
                   >
                     Get Started
                   </a>

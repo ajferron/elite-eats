@@ -64,8 +64,8 @@ function TestimonialCard({
 }) {
   return (
     <div className="flex flex-col">
-      <div className="mb-4 flex h-12 w-12 items-center justify-center overflow-hidden rounded-full bg-cream">
-        <span className="font-[family-name:var(--font-radnika)] text-sm text-text-secondary">
+      <div className="mb-4 flex h-12 w-12 items-center justify-center overflow-hidden rounded-full bg-azure/10">
+        <span className="font-[family-name:var(--font-radnika)] text-sm text-dark-azure">
           {getInitials(testimonial.name)}
         </span>
       </div>

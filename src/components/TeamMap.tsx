@@ -128,10 +128,10 @@ export function TeamMap() {
                 <feColorMatrix
                   in="blur"
                   type="matrix"
-                  values="0 0 0 0 0.55
-                          0 0 0 0 0.60
-                          0 0 0 0 0.49
-                          0 0 0 0.4 0"
+                  values="0 0 0 0 0.62
+                          0 0 0 0 0.78
+                          0 0 0 0 0.18
+                          0 0 0 0.5 0"
                   result="glow"
                 />
                 <feMerge>
@@ -163,7 +163,7 @@ export function TeamMap() {
               <Marker key={name} coordinates={coordinates}>
                 <circle
                   r={3}
-                  fill="#8B9A7D"
+                  fill="#9fc72e"
                   filter="url(#pin-glow)"
                 />
               </Marker>

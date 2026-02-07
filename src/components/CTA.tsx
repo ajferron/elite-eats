@@ -15,7 +15,7 @@ export function CTA() {
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <a
               href="#"
-              className="rounded-full bg-charcoal px-8 py-3.5 font-[family-name:var(--font-radnika)] text-sm text-white transition-colors hover:bg-text-primary"
+              className="rounded-full bg-yellow-green px-8 py-3.5 font-[family-name:var(--font-radnika)] text-sm text-charcoal transition-colors hover:bg-yellow-green/90"
             >
               Get Started
             </a>
