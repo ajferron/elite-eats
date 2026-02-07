@@ -106,8 +106,7 @@ export function Hero() {
               </div>
 
               {/* Info Card - Bottom Right */}
-              <div className="hidden max-w-xs rounded-2xl bg-azure/20 p-4 backdrop-blur-md sm:block lg:max-w-sm lg:p-6">
-                {/* Card Image Placeholder */}
+              {/* <div className="hidden max-w-xs rounded-2xl bg-azure/20 p-4 backdrop-blur-md sm:block lg:max-w-sm lg:p-6">
                 <div className="mb-4 h-24 overflow-hidden rounded-xl bg-azure/30 lg:h-32">
                   <div className="flex h-full w-full items-center justify-center">
                     <span className="font-[family-name:var(--font-radnika)] text-xs text-white/50">
@@ -122,7 +121,7 @@ export function Hero() {
                 <p className="mt-1 font-[family-name:var(--font-radnika)] text-xs leading-relaxed text-white/70 lg:text-sm">
                   {slides[activeSlide].cardDescription}
                 </p>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
