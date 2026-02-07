@@ -61,14 +61,14 @@ export function HowItWorks() {
       className="relative bg-background"
       style={{ height: `${steps.length * 100}vh` }}
     >
-      <div className="sticky top-20 flex h-[calc(100vh-5rem)] flex-col justify-center px-6 py-12 lg:px-8 lg:py-16">
+      <div className="sticky top-20 flex h-[calc(100vh-5rem)] flex-col justify-center px-4 py-6 sm:px-6 sm:py-12 lg:px-8 lg:py-16">
         {/* Section Header */}
-        <div className="mx-auto mb-8 flex w-full max-w-7xl items-start justify-between lg:mb-12">
+        <div className="mx-auto mb-4 flex w-full max-w-7xl items-start justify-between sm:mb-8 lg:mb-12">
           <div>
-            <p className="mb-3 font-[family-name:var(--font-radnika)] text-sm tracking-wide text-text-tertiary">
+            <p className="mb-2 font-[family-name:var(--font-radnika)] text-xs tracking-wide text-text-tertiary sm:mb-3 sm:text-sm">
               How It Works
             </p>
-            <h2 className="font-[family-name:var(--font-radnika)] text-3xl font-medium -tracking-[0.02em] text-text-primary sm:text-4xl lg:text-5xl">
+            <h2 className="font-[family-name:var(--font-radnika)] text-2xl font-medium -tracking-[0.02em] text-text-primary sm:text-3xl md:text-4xl lg:text-5xl">
               Simple. Streamlined. Scalable.
             </h2>
           </div>
@@ -78,9 +78,9 @@ export function HowItWorks() {
         </div>
 
         {/* Card Container */}
-        <div className="mx-auto grid w-full max-w-7xl flex-1 grid-cols-1 gap-6 overflow-hidden lg:grid-cols-2">
-          {/* Image Side */}
-          <div className="relative min-h-[300px] overflow-hidden rounded-2xl bg-cream lg:min-h-0">
+        <div className="mx-auto grid w-full max-w-7xl flex-1 grid-cols-1 gap-4 overflow-hidden lg:gap-6 lg:grid-cols-2">
+          {/* Image Side - hidden on mobile to give more room for content */}
+          <div className="relative hidden overflow-hidden rounded-2xl bg-cream lg:block">
             {steps.map((step, index) => (
               <div
                 key={step.number}
@@ -99,11 +99,11 @@ export function HowItWorks() {
           </div>
 
           {/* Content Side */}
-          <div className="relative flex flex-col justify-center overflow-hidden rounded-2xl bg-cream p-8 lg:p-12">
+          <div className="relative flex min-h-[380px] flex-col justify-center overflow-hidden rounded-2xl bg-cream p-6 sm:p-8 lg:min-h-0 lg:p-12">
             {steps.map((step, index) => (
               <div
                 key={step.number}
-                className={`absolute inset-0 flex flex-col justify-between p-8 transition-all duration-500 lg:p-12 ${
+                className={`absolute inset-0 flex flex-col justify-between p-6 transition-all duration-500 sm:p-8 lg:p-12 ${
                   index === activeIndex
                     ? "translate-y-0 opacity-100"
                     : "translate-y-4 opacity-0 pointer-events-none"
@@ -117,12 +117,12 @@ export function HowItWorks() {
                 {/* Main Content */}
                 <div>
                   {/* Title */}
-                  <h3 className="mb-6 font-[family-name:var(--font-radnika)] text-2xl font-medium -tracking-[0.02em] text-text-primary lg:text-3xl">
+                  <h3 className="mb-4 font-[family-name:var(--font-radnika)] text-xl font-medium -tracking-[0.02em] text-text-primary sm:mb-6 sm:text-2xl lg:text-3xl">
                     {step.title}
                   </h3>
 
                   {/* Tags */}
-                  <div className="mb-6 flex flex-wrap gap-2">
+                  <div className="mb-4 flex flex-wrap gap-2 sm:mb-6">
                     {step.tags.map((tag) => (
                       <span
                         key={tag}
@@ -135,7 +135,7 @@ export function HowItWorks() {
                   </div>
 
                   {/* Description */}
-                  <p className="mb-6 font-[family-name:var(--font-radnika)] text-base leading-relaxed text-text-tertiary lg:text-lg">
+                  <p className="mb-4 font-[family-name:var(--font-radnika)] text-sm leading-relaxed text-text-tertiary sm:mb-6 sm:text-base lg:text-lg">
                     {step.description}
                   </p>
 
@@ -150,7 +150,7 @@ export function HowItWorks() {
         </div>
 
         {/* Progress Dots */}
-        <div className="mx-auto mt-8 flex justify-center gap-2">
+        <div className="mx-auto mt-4 flex justify-center gap-2 sm:mt-8">
           {steps.map((_, index) => (
             <div
               key={index}
