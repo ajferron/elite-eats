@@ -2,6 +2,7 @@ export { Navbar } from "./Navbar";
 export { Hero } from "./Hero";
 export { TrustBar } from "./TrustBar";
 export { ValueProposition } from "./ValueProposition";
+export { HowItWorks } from "./HowItWorks";
 export { Testimonials } from "./Testimonials";
 export { TeamMap } from "./TeamMap";
 export { CTA } from "./CTA";
