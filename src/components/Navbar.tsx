@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import Link from "next/link";
 
 export function Navbar() {
@@ -21,10 +22,14 @@ export function Navbar() {
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="flex h-20 items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2">
-            <span className="font-[family-name:var(--font-boston-angel)] text-xl font-bold tracking-tight text-zinc-900">
-              Elite Eats
-            </span>
+          <Link href="/" className="flex items-center">
+            <Image
+              src="/logo.svg"
+              alt="Elite Eats"
+              width={160}
+              height={40}
+              priority
+            />
           </Link>
 
           {/* Desktop Navigation - Centered */}
