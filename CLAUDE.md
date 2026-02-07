@@ -29,6 +29,40 @@ Elite Eats is a **sports nutrition catering marketplace** connecting professiona
 - **Team dietitians/staff** - Primary users who order catering for athletes
 - **Athlete catering** - Food service tailored to professional athletes' nutritional requirements
 
+## Design Direction
+
+Target aesthetic: **"Clean Wellness" / "Premium Minimalism" / "Performance Minimalism"**
+
+Reference brands: sweetgreen, AG1, Alphalete
+
+### Visual Language
+
+- **Color palette:** Muted, desaturated tones—greens, creams, blacks, sage. Avoid bold or saturated colors.
+- **Typography:** Geometric sans-serif. Confident but not cold.
+- **Whitespace:** Generous. Let elements breathe.
+- **Photography style:** Crisp, almost documentary-feeling. Not glossy or aspirational in the old fitness-magazine way.
+
+### Brand Message
+
+We're selling **optimization and intentionality**, not transformation or escape.
+
+- **Not this:** "Change your life" / before-after imagery / bold aggressive typography
+- **This:** "Refine your system" / assumes the user already gets it and just needs the right inputs
+
+### Cultural Positioning
+
+The design borrows credibility signifiers from three places:
+
+1. **Silicon Valley** — Data-driven, functional
+2. **Scandinavia** — Understated quality, design-forward
+3. **Medicine/Pharma** — Precision, efficacy (AG1's packaging feels almost pharmaceutical; sweetgreen's stores feel like a WeWork for salads)
+
+### Implementation Notes
+
+- Avoid old-school fitness aesthetics (bold colors, aggressive type, transformation messaging)
+- Components should feel premium and restrained
+- UI should convey trust, expertise, and quiet confidence
+
 ## Build & Development Commands
 
 ```bash
