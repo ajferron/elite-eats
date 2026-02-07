@@ -1,14 +1,18 @@
 import Image from "next/image";
 
 const logos = [
-  { src: "/images/trust-bar/partner-logo-1.svg", alt: "Partner 1" },
-  { src: "/images/trust-bar/partner-logo-2.svg", alt: "Partner 2" },
-  { src: "/images/trust-bar/partner-logo-3.svg", alt: "Partner 3" },
-  { src: "/images/trust-bar/partner-logo-4.svg", alt: "Partner 4" },
-  { src: "/images/trust-bar/partner-logo-5.svg", alt: "Partner 5" },
-  { src: "/images/trust-bar/partner-logo-6.svg", alt: "Partner 6" },
-  { src: "/images/trust-bar/partner-logo-7.svg", alt: "Partner 7" },
-  { src: "/images/trust-bar/partner-logo-8.svg", alt: "Partner 8" },
+  { src: "/images/trust-bar/nfl-1.webp", alt: "NFL Team" },
+  { src: "/images/trust-bar/mlb-1.svg", alt: "MLB Team" },
+  { src: "/images/trust-bar/mls-1.webp", alt: "MLS Team" },
+  { src: "/images/trust-bar/nfl-2.webp", alt: "NFL Team" },
+  { src: "/images/trust-bar/mlb-2.svg", alt: "MLB Team" },
+  { src: "/images/trust-bar/mls-2.webp", alt: "MLS Team" },
+  { src: "/images/trust-bar/nfl-3.webp", alt: "NFL Team" },
+  { src: "/images/trust-bar/mlb-3.svg", alt: "MLB Team" },
+  { src: "/images/trust-bar/mls-3.webp", alt: "MLS Team" },
+  { src: "/images/trust-bar/nfl-4.webp", alt: "NFL Team" },
+  { src: "/images/trust-bar/mlb-4.svg", alt: "MLB Team" },
+  { src: "/images/trust-bar/mls-4.webp", alt: "MLS Team" },
 ];
 
 export function TrustBar() {
@@ -19,7 +23,7 @@ export function TrustBar() {
         {[...logos, ...logos].map((logo, index) => (
           <div
             key={index}
-            className="mx-8 flex h-7 w-24 flex-shrink-0 items-center justify-center opacity-40 grayscale transition-all hover:opacity-70 lg:mx-12 lg:h-9 lg:w-32"
+            className="mx-3 flex h-12 w-32 flex-shrink-0 items-center justify-center opacity-60 grayscale-[90%] transition-all hover:opacity-85 hover:grayscale-0 lg:mx-6 lg:h-14 lg:w-40"
           >
             <Image
               src={logo.src}

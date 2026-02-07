@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const features = [
   {
     id: 1,
@@ -6,7 +8,7 @@ const features = [
     tags: ["Credentialed", "Experienced", "Team-Approved"],
     description:
       "Every partner is credentialed, experienced, and team-recommended.",
-    image: "/images/value-prop/feature-1.jpg",
+    image: "/images/value-props/feature-1.jpg",
   },
   {
     id: 2,
@@ -14,16 +16,16 @@ const features = [
     headline: "One Platform, Zero Chaos",
     tags: ["Orders", "Dietary Specs", "Schedules"],
     description: "Orders, dietary specs, schedules—managed in one place.",
-    image: "/images/value-prop/feature-2.jpg",
+    image: "/images/value-props/feature-2.jpg",
   },
   {
     id: 3,
     number: "/003",
     headline: "Built by a Sports RD",
-    tags: ["18+ Years Experience", "Performance Focus", "Athlete-First"],
+    tags: ["Performance Focus", "Athlete-First"],
     description:
       "Designed around how performance nutrition actually works.",
-    image: "/images/value-prop/feature-3.jpg",
+    image: "/images/value-props/feature-3.jpg",
   },
 ];
 
@@ -92,12 +94,26 @@ export function ValueProposition() {
                   {/* Image Card */}
                   <div className={`relative flex flex-col rounded-2xl bg-background p-5 ${index % 2 !== 0 ? "lg:order-1" : ""}`}>
                     <div className="relative h-64 w-full overflow-hidden rounded-xl bg-cream-dark lg:h-72">
-                      {/* Placeholder - replace with actual image */}
-                      <div className="flex h-full w-full items-center justify-center">
-                        <span className="font-[family-name:var(--font-radnika)] text-sm text-stone">
-                          Image Placeholder
-                        </span>
-                      </div>
+                      <Image
+                        src={feature.image}
+                        alt={feature.headline}
+                        fill
+                        className="object-cover"
+                      />
+                      {/* Founder overlay for "Built by a Sports RD" */}
+                      {feature.id === 3 && (
+                        <div className="absolute bottom-3 right-3 rounded-lg border border-stone/20 bg-cream/50 px-4 py-3 text-right shadow-sm backdrop-blur-lg">
+                          <p className="font-[family-name:var(--font-radnika)] text-xs font-medium text-text-primary">
+                            Jennifer Gibson MS, RD, CSSD
+                          </p>
+                          <p className="font-[family-name:var(--font-radnika)] text-[11px] text-text-secondary">
+                            Co-founder and CEO
+                          </p>
+                          <p className="font-[family-name:var(--font-radnika)] text-[11px] text-text-secondary">
+                            Performance Dietitian, 18 Years Experience
+                          </p>
+                        </div>
+                      )}
                     </div>
                     <p className="mt-auto pt-8 font-[family-name:var(--font-radnika)] text-xs tracking-wider text-stone">
                       {feature.number}

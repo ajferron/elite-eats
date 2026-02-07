@@ -62,6 +62,13 @@
   }
 }
 
+/* Faster scroll animation on mobile */
+@media (max-width: 1023px) {
+  .animate-scroll {
+    animation-duration: 12s;
+  }
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0f0f0f;
