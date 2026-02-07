@@ -110,7 +110,7 @@ export function TeamMap() {
         </div>
 
         {/* Map */}
-        <div className="relative my-[-100px] -mx-6 lg:-mx-8">
+        <div className="relative my-[-80px] -mx-6 lg:-mx-8">
           <ComposableMap
             projection="geoAlbersUsa"
             projectionConfig={{
