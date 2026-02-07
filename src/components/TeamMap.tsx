@@ -94,23 +94,23 @@ const teamCities: { name: string; coordinates: [number, number] }[] = [
 
 export function TeamMap() {
   return (
-    <section className="py-8 lg:py-12">
+    <section className="py-16 lg:py-24">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         {/* Section Header */}
-        <div className="mb-8">
-          <p className="mb-4 font-[family-name:var(--font-radnika)] text-sm text-dark-azure">
-            • Coverage
+        <div className="mb-12 lg:mb-16">
+          <p className="mb-3 font-[family-name:var(--font-radnika)] text-sm tracking-wide text-text-tertiary">
+            Coverage
           </p>
-          <h2 className="font-[family-name:var(--font-radnika)] text-3xl font-medium -tracking-[0.04em] text-text-primary sm:text-4xl lg:text-5xl">
+          <h2 className="font-[family-name:var(--font-radnika)] text-3xl font-medium -tracking-[0.02em] text-text-primary sm:text-4xl lg:text-5xl">
             Coast to Coast
           </h2>
-          <p className="mt-4 max-w-2xl font-[family-name:var(--font-radnika)] text-lg text-text-secondary/80">
+          <p className="mt-4 max-w-2xl font-[family-name:var(--font-radnika)] text-lg text-text-tertiary">
             Supporting 150+ professional teams across 65 cities nationwide
           </p>
         </div>
 
         {/* Map */}
-        <div className="relative my-[-80px] -mx-6 lg:-mx-8">
+        <div className="relative my-[-60px] -mx-6 lg:-mx-8">
           <ComposableMap
             projection="geoAlbersUsa"
             projectionConfig={{
@@ -122,35 +122,20 @@ export function TeamMap() {
             }}
           >
             <defs>
-              {/* Glow + shadow filter for pins */}
+              {/* Subtle glow filter for pins */}
               <filter id="pin-glow" x="-100%" y="-100%" width="300%" height="300%">
-                {/* Soft outer glow */}
-                <feGaussianBlur in="SourceGraphic" stdDeviation="2" result="blur" />
+                <feGaussianBlur in="SourceGraphic" stdDeviation="1.5" result="blur" />
                 <feColorMatrix
                   in="blur"
                   type="matrix"
-                  values="0 0 0 0 0.62
-                          0 0 0 0 0.78
-                          0 0 0 0 0.18
-                          0 0 0 0.6 0"
+                  values="0 0 0 0 0.55
+                          0 0 0 0 0.60
+                          0 0 0 0 0.49
+                          0 0 0 0.4 0"
                   result="glow"
                 />
-                {/* Drop shadow */}
-                <feGaussianBlur in="SourceAlpha" stdDeviation="1.5" result="shadow" />
-                <feOffset in="shadow" dx="0" dy="1" result="shadowOffset" />
-                <feColorMatrix
-                  in="shadowOffset"
-                  type="matrix"
-                  values="0 0 0 0 0
-                          0 0 0 0 0
-                          0 0 0 0 0
-                          0 0 0 0.2 0"
-                  result="shadowColor"
-                />
-                {/* Combine layers */}
                 <feMerge>
                   <feMergeNode in="glow" />
-                  <feMergeNode in="shadowColor" />
                   <feMergeNode in="SourceGraphic" />
                 </feMerge>
               </filter>
@@ -162,9 +147,9 @@ export function TeamMap() {
                     key={geo.rsmKey}
                     geography={geo}
                     fill="transparent"
-                    stroke="#084664"
+                    stroke="#a8a29e"
                     strokeWidth={0.5}
-                    strokeOpacity={0.3}
+                    strokeOpacity={0.4}
                     style={{
                       default: { outline: "none" },
                       hover: { outline: "none" },
@@ -177,8 +162,8 @@ export function TeamMap() {
             {teamCities.map(({ name, coordinates }) => (
               <Marker key={name} coordinates={coordinates}>
                 <circle
-                  r={3.5}
-                  fill="#9fc72e"
+                  r={3}
+                  fill="#8B9A7D"
                   filter="url(#pin-glow)"
                 />
               </Marker>

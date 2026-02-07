@@ -1,4 +1,4 @@
-import { Navbar, Hero, TrustBar, ValueProposition, Testimonials, TeamMap } from "@/components";
+import { Navbar, Hero, TrustBar, ValueProposition, Testimonials, TeamMap, CTA, Footer } from "@/components";
 
 export default function Home() {
   return (
@@ -9,6 +9,8 @@ export default function Home() {
       <ValueProposition />
       <Testimonials />
       <TeamMap />
+      <CTA />
+      <Footer />
     </>
   );
 }

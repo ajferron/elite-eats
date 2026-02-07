@@ -37,11 +37,11 @@ export function Hero() {
   const [activeSlide, setActiveSlide] = useState(0);
 
   return (
-    <section className="px-6 lg:px-8">
+    <section className="px-6 pt-8 lg:px-8 lg:pt-12">
       <div className="mx-auto max-w-7xl">
-        {/* Hero Container with rounded corners */}
-        <div className="relative h-[600px] overflow-hidden rounded-3xl bg-dark-azure lg:h-[700px]">
-          {/* Background Image */}
+        {/* Hero Container - lighter approach */}
+        <div className="relative min-h-[600px] overflow-hidden rounded-2xl bg-cream lg:min-h-[680px]">
+          {/* Background Image with softer treatment */}
           <div className="absolute inset-0">
             <Image
               src="/images/hero/hero-1_2560.jpg"
@@ -51,43 +51,55 @@ export function Hero() {
               sizes="(max-width: 768px) 100vw, (max-width: 1280px) 100vw, 2560px"
               className="object-cover"
             />
-            {/* Overlay for text readability */}
-            <div className="absolute inset-0 bg-dark-azure/30" />
+            {/* Softer gradient overlay */}
+            <div className="absolute inset-0 bg-gradient-to-r from-charcoal/70 via-charcoal/40 to-transparent" />
           </div>
 
           {/* Content Overlay */}
-          <div className="relative z-10 flex h-full flex-col justify-between p-8 lg:p-12">
+          <div className="relative z-10 flex h-full min-h-[600px] flex-col justify-between p-8 lg:min-h-[680px] lg:p-12">
             {/* Top Section */}
             <div className="flex items-start justify-between">
               {/* Headline - Top Left */}
-              <div className="max-w-lg">
-                <h1 className="font-[family-name:var(--font-radnika)] text-4xl font-medium leading-[1.1] -tracking-[0.08em] text-white sm:text-5xl lg:text-6xl">
+              <div className="max-w-xl">
+                <p className="mb-4 font-[family-name:var(--font-radnika)] text-sm tracking-wide text-white/70">
+                  {slides[activeSlide].categoryLabel}
+                </p>
+                <h1 className="font-[family-name:var(--font-radnika)] text-4xl font-medium leading-[1.1] -tracking-[0.04em] text-white sm:text-5xl lg:text-6xl">
                   {slides[activeSlide].headline}
                   <br />
-                  {slides[activeSlide].headlineAccent}
+                  <span className="text-cream">{slides[activeSlide].headlineAccent}</span>
                 </h1>
+                <p className="mt-6 max-w-md font-[family-name:var(--font-radnika)] text-base leading-relaxed text-white/80 lg:text-lg">
+                  {slides[activeSlide].cardDescription}
+                </p>
 
-                {/* CTA Button */}
-                <div className="mt-8">
+                {/* CTA Button - more restrained */}
+                <div className="mt-10 flex items-center gap-4">
                   <a
                     href="#"
-                    className="inline-block rounded-full bg-light-orange px-6 py-3 font-[family-name:var(--font-radnika)] text-sm font-medium text-text-primary transition-colors hover:bg-white"
+                    className="inline-block rounded-full bg-cream px-7 py-3.5 font-[family-name:var(--font-radnika)] text-sm text-charcoal transition-all hover:bg-white"
                   >
                     Get Started
+                  </a>
+                  <a
+                    href="#"
+                    className="inline-block font-[family-name:var(--font-radnika)] text-sm text-white/90 transition-colors hover:text-white"
+                  >
+                    Learn More →
                   </a>
                 </div>
               </div>
 
               {/* Carousel Dots - Top Right */}
-              <div className="flex items-center gap-2">
+              <div className="hidden items-center gap-2 sm:flex">
                 {slides.map((slide, index) => (
                   <button
                     key={slide.id}
                     onClick={() => setActiveSlide(index)}
-                    className={`h-3 w-3 rounded-full transition-all ${
+                    className={`h-2 w-2 rounded-full transition-all ${
                       activeSlide === index
-                        ? "bg-white"
-                        : "bg-white/40 hover:bg-white/60"
+                        ? "w-6 bg-cream"
+                        : "bg-white/30 hover:bg-white/50"
                     }`}
                   >
                     <span className="sr-only">Go to slide {index + 1}</span>
@@ -96,32 +108,24 @@ export function Hero() {
               </div>
             </div>
 
-            {/* Bottom Section */}
+            {/* Bottom Section - minimal */}
             <div className="flex items-end justify-between">
-              {/* Category Label - Bottom Left */}
-              <div>
-                <h2 className="font-[family-name:var(--font-radnika)] text-5xl font-medium -tracking-[0.08em] text-white sm:text-6xl lg:text-8xl">
-                  {slides[activeSlide].categoryLabel}
-                </h2>
-              </div>
-
-              {/* Info Card - Bottom Right */}
-              {/* <div className="hidden max-w-xs rounded-2xl bg-azure/20 p-4 backdrop-blur-md sm:block lg:max-w-sm lg:p-6">
-                <div className="mb-4 h-24 overflow-hidden rounded-xl bg-azure/30 lg:h-32">
-                  <div className="flex h-full w-full items-center justify-center">
-                    <span className="font-[family-name:var(--font-radnika)] text-xs text-white/50">
-                      Card Image
-                    </span>
-                  </div>
+              <div className="flex items-center gap-8">
+                <div className="text-center">
+                  <p className="font-[family-name:var(--font-radnika)] text-3xl font-medium text-white lg:text-4xl">150+</p>
+                  <p className="mt-1 font-[family-name:var(--font-radnika)] text-xs text-white/60">Pro Teams</p>
                 </div>
-
-                <h3 className="font-[family-name:var(--font-radnika)] text-sm font-semibold text-white lg:text-base">
-                  {slides[activeSlide].cardTitle}
-                </h3>
-                <p className="mt-1 font-[family-name:var(--font-radnika)] text-xs leading-relaxed text-white/70 lg:text-sm">
-                  {slides[activeSlide].cardDescription}
-                </p>
-              </div> */}
+                <div className="h-8 w-px bg-white/20"></div>
+                <div className="text-center">
+                  <p className="font-[family-name:var(--font-radnika)] text-3xl font-medium text-white lg:text-4xl">760</p>
+                  <p className="mt-1 font-[family-name:var(--font-radnika)] text-xs text-white/60">Fueling Partners</p>
+                </div>
+                <div className="h-8 w-px bg-white/20"></div>
+                <div className="text-center">
+                  <p className="font-[family-name:var(--font-radnika)] text-3xl font-medium text-white lg:text-4xl">65</p>
+                  <p className="mt-1 font-[family-name:var(--font-radnika)] text-xs text-white/60">Cities</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>

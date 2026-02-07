@@ -1,18 +1,24 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f6f1ec;
-  --foreground: #242424;
+  /* Clean wellness palette */
+  --background: #FAFAF8;
+  --foreground: #1a1a1a;
 
-  /* Brand Colors */
+  /* Brand Colors - used strategically */
   --color-dark-azure: #084664;
-  --color-yellow-green: #9fc72e;
   --color-azure: #26abc7;
-  --color-light-orange: #f6f1ec;
+  --color-yellow-green: #9fc72e;
 
-  /* Font Colors */
-  --color-text-dark-azure: #032130;
-  --color-text-dark-gray: #242424;
+  /* Surfaces - creamy warmth */
+  --color-cream: #f6f1ec;
+  --color-cream-dark: #efe9e2;
+
+  /* Neutral palette - Scandinavian feel */
+  --color-sage: #8B9A7D;
+  --color-sage-light: #E8EBE4;
+  --color-stone: #a8a29e;
+  --color-charcoal: #2d2d2d;
 }
 
 @theme inline {
@@ -25,11 +31,23 @@
 
   /* Brand Colors */
   --color-dark-azure: #084664;
-  --color-yellow-green: #9fc72e;
   --color-azure: #26abc7;
-  --color-light-orange: #f6f1ec;
-  --color-text-primary: #032130;
-  --color-text-secondary: #242424;
+  --color-yellow-green: #9fc72e;
+
+  /* Surfaces */
+  --color-cream: #f6f1ec;
+  --color-cream-dark: #efe9e2;
+
+  /* Neutrals */
+  --color-sage: #8B9A7D;
+  --color-sage-light: #E8EBE4;
+  --color-stone: #a8a29e;
+  --color-charcoal: #2d2d2d;
+
+  /* Text - restrained hierarchy */
+  --color-text-primary: #1a1a1a;
+  --color-text-secondary: #525252;
+  --color-text-tertiary: #737373;
 
   /* Animations */
   --animate-scroll: scroll 30s linear infinite;
@@ -46,8 +64,10 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #0f0f0f;
+    --foreground: #e5e5e5;
+    --color-cream: #1a1a1a;
+    --color-cream-dark: #141414;
   }
 }
 
@@ -55,4 +75,6 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }

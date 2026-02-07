@@ -13,13 +13,13 @@ const logos = [
 
 export function TrustBar() {
   return (
-    <section className="w-full overflow-hidden bg-background py-8">
+    <section className="w-full overflow-hidden py-12 lg:py-16">
       <div className="flex animate-scroll">
         {/* Render logos twice for seamless infinite loop */}
         {[...logos, ...logos].map((logo, index) => (
           <div
             key={index}
-            className="mx-6 flex h-8 w-24 flex-shrink-0 items-center justify-center grayscale opacity-60 transition-all hover:opacity-100 hover:grayscale-0 lg:mx-10 lg:h-10 lg:w-32"
+            className="mx-8 flex h-7 w-24 flex-shrink-0 items-center justify-center opacity-40 grayscale transition-all hover:opacity-70 lg:mx-12 lg:h-9 lg:w-32"
           >
             <Image
               src={logo.src}

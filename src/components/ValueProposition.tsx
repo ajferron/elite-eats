@@ -29,106 +29,84 @@ const features = [
 
 export function ValueProposition() {
   return (
-    <section className="py-16 lg:py-24">
+    <section className="py-20 lg:py-28">
       {/* Section Header */}
-      <div className="mx-auto mb-8 max-w-7xl px-6 lg:px-8">
-        <p className="mb-4 font-[family-name:var(--font-radnika)] text-sm text-dark-azure">
-          •  Why Elite Eats
+      <div className="mx-auto mb-12 max-w-7xl px-6 lg:mb-16 lg:px-8">
+        <p className="mb-3 font-[family-name:var(--font-radnika)] text-sm tracking-wide text-text-tertiary">
+          Why Elite Eats
         </p>
-        <h2 className="font-[family-name:var(--font-radnika)] text-3xl font-medium -tracking-[0.04em] text-text-primary sm:text-4xl lg:text-5xl">
+        <h2 className="font-[family-name:var(--font-radnika)] text-3xl font-medium -tracking-[0.02em] text-text-primary sm:text-4xl lg:text-5xl">
           The Elite Eats Advantage
         </h2>
       </div>
 
-      {/* Features Container with border */}
-      <div className="bg-[#f0ebe5]">
-        {/* Full-width border with + symbols */}
-        {/* <div className="relative w-full border-t border-text-secondary/20">
-          <div className="mx-auto flex max-w-7xl justify-around px-6 lg:px-8">
-            {[1, 2, 3, 4].map((i) => (
-              <span
-                key={i}
-                className="-mt-[15px] px-2 font-[family-name:var(--font-radnika)] text-lg text-text-secondary/30"
-              >
-                +
-              </span>
-            ))}
-          </div>
-        </div> */}
+      {/* Features Container - cream surface */}
+      <div className="bg-cream">
+        <div className="px-6 py-12 lg:px-8 lg:py-16">
+          <div className="mx-auto max-w-7xl">
+            {/* Feature Cards */}
+            <div className="space-y-8">
+              {features.map((feature, index) => (
+                <div
+                  key={feature.id}
+                  className={`grid gap-6 ${
+                    index % 2 === 0
+                      ? "lg:grid-cols-[6fr_4fr]"
+                      : "lg:grid-cols-[4fr_6fr]"
+                  }`}
+                >
+                  {/* Content Card */}
+                  <div className={`flex flex-col justify-between rounded-2xl bg-background p-8 lg:p-10 ${index % 2 !== 0 ? "lg:order-2" : ""}`}>
+                    <div>
+                      <h3 className="font-[family-name:var(--font-radnika)] text-2xl font-medium -tracking-[0.02em] text-text-primary lg:text-3xl">
+                        {feature.headline}
+                      </h3>
 
-        <div className="px-6 pb-6 pt-8 lg:px-8 lg:pb-10 lg:pt-12">
-        <div className="mx-auto max-w-7xl">
-          {/* Feature Cards */}
-          <div className="space-y-6">
-            {features.map((feature, index) => (
-              <div
-                key={feature.id}
-                className={`grid gap-6 ${
-                  index % 2 === 0
-                    ? "lg:grid-cols-[6fr_4fr]"
-                    : "lg:grid-cols-[4fr_6fr]"
-                }`}
-              >
-                {/* Content Card */}
-                <div className={`flex flex-col justify-between rounded-2xl bg-white p-8 lg:p-10 ${index % 2 !== 0 ? "lg:order-2" : ""}`}>
-                  <div>
-                    <h3 className="font-[family-name:var(--font-radnika)] text-2xl font-medium -tracking-[0.02em] text-dark-azure lg:text-4xl">
-                      {feature.headline}
-                    </h3>
+                      {/* Tags - more muted */}
+                      <div className="mt-6 flex flex-wrap gap-2">
+                        {feature.tags.map((tag) => (
+                          <span
+                            key={tag}
+                            className="inline-flex items-center gap-1.5 rounded-full bg-sage-light px-3 py-1.5 font-[family-name:var(--font-radnika)] text-xs text-text-secondary"
+                          >
+                            <span className="h-1 w-1 rounded-full bg-sage"></span>
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
 
-                    {/* Tags */}
-                    <div className="mt-6 flex flex-wrap gap-2">
-                      {feature.tags.map((tag) => (
-                        <span
-                          key={tag}
-                          className="inline-flex items-center gap-1.5 rounded-full bg-azure/10 border border-azure/0 px-3 py-1 font-[family-name:var(--font-radnika)] text-sm text-text-secondary"
-                        >
-                          <span className="h-1.5 w-1.5 rounded-full bg-azure"></span>
-                          {tag}
+                    <div className="mt-8">
+                      <p className="font-[family-name:var(--font-radnika)] text-base leading-relaxed text-text-tertiary lg:text-lg">
+                        {feature.description}
+                      </p>
+                      <a
+                        href="#"
+                        className="mt-6 inline-block font-[family-name:var(--font-radnika)] text-sm text-text-primary underline underline-offset-4 transition-colors hover:text-text-secondary"
+                      >
+                        Learn more →
+                      </a>
+                    </div>
+                  </div>
+
+                  {/* Image Card */}
+                  <div className={`relative flex flex-col rounded-2xl bg-background p-5 ${index % 2 !== 0 ? "lg:order-1" : ""}`}>
+                    <div className="relative h-64 w-full overflow-hidden rounded-xl bg-cream-dark lg:h-72">
+                      {/* Placeholder - replace with actual image */}
+                      <div className="flex h-full w-full items-center justify-center">
+                        <span className="font-[family-name:var(--font-radnika)] text-sm text-stone">
+                          Image Placeholder
                         </span>
-                      ))}
+                      </div>
                     </div>
-                  </div>
-
-                  <div className="mt-4">
-                    <p className="font-[family-name:var(--font-radnika)] text-base leading-relaxed text-text-secondary/70 lg:text-lg">
-                      {feature.description}
+                    <p className="mt-auto pt-8 font-[family-name:var(--font-radnika)] text-xs tracking-wider text-stone">
+                      {feature.number}
                     </p>
-                    <a
-                      href="#"
-                      className="mt-4 inline-block rounded-full bg-yellow-green px-6 py-3 font-[family-name:var(--font-radnika)] text-sm font-medium text-text-primary transition-colors hover:bg-yellow-green/80"
-                    >
-                      More Details
-                    </a>
                   </div>
                 </div>
-
-                {/* Image Card */}
-                <div className={`relative flex flex-col rounded-2xl bg-white p-4 ${index % 2 !== 0 ? "lg:order-1" : ""}`}>
-                  <div className="relative h-64 w-full overflow-hidden rounded-xl bg-dark-azure/10">
-                    {/* Placeholder - replace with actual image */}
-                    <div className="flex h-full w-full items-center justify-center">
-                      <span className="font-[family-name:var(--font-radnika)] text-sm text-text-secondary/40">
-                        Image Placeholder
-                      </span>
-                    </div>
-                    {/* Uncomment when images are available:
-                    <Image
-                      src={feature.image}
-                      alt={feature.headline}
-                      fill
-                      className="object-cover"
-                    />
-                    */}
-                  </div>
-                  <p className="mt-12 font-[family-name:var(--font-radnika)] text-sm text-text-secondary/50">
-                    {feature.number}
-                  </p>
-                </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
-        </div>
         </div>
       </div>
 

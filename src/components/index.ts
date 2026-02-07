@@ -4,3 +4,5 @@ export { TrustBar } from "./TrustBar";
 export { ValueProposition } from "./ValueProposition";
 export { Testimonials } from "./Testimonials";
 export { TeamMap } from "./TeamMap";
+export { CTA } from "./CTA";
+export { Footer } from "./Footer";

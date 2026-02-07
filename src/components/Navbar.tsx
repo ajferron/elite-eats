@@ -18,7 +18,7 @@ export function Navbar() {
   }, []);
 
   return (
-    <nav className={`sticky top-0 z-50 bg-light-orange transition-[border-color] duration-200 ${isScrolled ? "border-b border-zinc-200" : "border-b border-transparent"}`}>
+    <nav className={`sticky top-0 z-50 bg-background transition-all duration-300 ${isScrolled ? "border-b border-stone/20 shadow-sm" : "border-b border-transparent"}`}>
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="flex h-20 items-center justify-between">
           {/* Logo */}
@@ -33,44 +33,44 @@ export function Navbar() {
           </Link>
 
           {/* Desktop Navigation - Centered */}
-          <div className="hidden md:flex md:items-center md:gap-8">
+          <div className="hidden md:flex md:items-center md:gap-10">
             <Link
               href="#"
-              className="font-[family-name:var(--font-radnika)] text-sm font-medium text-zinc-600 transition-colors hover:text-zinc-900"
+              className="font-[family-name:var(--font-radnika)] text-sm text-text-secondary transition-colors hover:text-text-primary"
             >
               Getting Started
             </Link>
             <Link
               href="#"
-              className="font-[family-name:var(--font-radnika)] text-sm font-medium text-zinc-600 transition-colors hover:text-zinc-900"
+              className="font-[family-name:var(--font-radnika)] text-sm text-text-secondary transition-colors hover:text-text-primary"
             >
               About Us
             </Link>
             <Link
               href="#"
-              className="font-[family-name:var(--font-radnika)] text-sm font-medium text-zinc-600 transition-colors hover:text-zinc-900"
+              className="font-[family-name:var(--font-radnika)] text-sm text-text-secondary transition-colors hover:text-text-primary"
             >
               Press
             </Link>
             <Link
               href="#"
-              className="font-[family-name:var(--font-radnika)] text-sm font-medium text-zinc-600 transition-colors hover:text-zinc-900"
+              className="font-[family-name:var(--font-radnika)] text-sm text-text-secondary transition-colors hover:text-text-primary"
             >
               Contact
             </Link>
           </div>
 
           {/* Right Side - Auth Buttons */}
-          <div className="hidden md:flex md:items-center md:gap-4">
+          <div className="hidden md:flex md:items-center md:gap-6">
             <Link
               href="#"
-              className="font-[family-name:var(--font-radnika)] text-sm font-medium text-zinc-600 transition-colors hover:text-zinc-900"
+              className="font-[family-name:var(--font-radnika)] text-sm text-text-secondary transition-colors hover:text-text-primary"
             >
               Log In
             </Link>
             <Link
               href="#"
-              className="rounded-full bg-zinc-900 px-6 py-2.5 font-[family-name:var(--font-radnika)] text-sm font-medium text-white transition-colors hover:bg-zinc-800"
+              className="rounded-full bg-charcoal px-6 py-2.5 font-[family-name:var(--font-radnika)] text-sm text-white transition-colors hover:bg-text-primary"
             >
               Sign Up
             </Link>
@@ -79,7 +79,7 @@ export function Navbar() {
           {/* Mobile menu button */}
           <button
             type="button"
-            className="md:hidden p-2 text-zinc-600"
+            className="md:hidden p-2 text-text-secondary"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
             <span className="sr-only">Open menu</span>
@@ -117,42 +117,42 @@ export function Navbar() {
 
         {/* Mobile menu */}
         {mobileMenuOpen && (
-          <div className="md:hidden border-t border-zinc-100 py-4">
-            <div className="flex flex-col gap-4">
+          <div className="md:hidden border-t border-stone/20 py-6">
+            <div className="flex flex-col gap-5">
               <Link
                 href="#"
-                className="font-[family-name:var(--font-radnika)] text-base font-medium text-zinc-600 hover:text-zinc-900"
+                className="font-[family-name:var(--font-radnika)] text-base text-text-secondary hover:text-text-primary"
               >
                 Getting Started
               </Link>
               <Link
                 href="#"
-                className="font-[family-name:var(--font-radnika)] text-base font-medium text-zinc-600 hover:text-zinc-900"
+                className="font-[family-name:var(--font-radnika)] text-base text-text-secondary hover:text-text-primary"
               >
                 About Us
               </Link>
               <Link
                 href="#"
-                className="font-[family-name:var(--font-radnika)] text-base font-medium text-zinc-600 hover:text-zinc-900"
+                className="font-[family-name:var(--font-radnika)] text-base text-text-secondary hover:text-text-primary"
               >
                 Press
               </Link>
               <Link
                 href="#"
-                className="font-[family-name:var(--font-radnika)] text-base font-medium text-zinc-600 hover:text-zinc-900"
+                className="font-[family-name:var(--font-radnika)] text-base text-text-secondary hover:text-text-primary"
               >
                 Contact
               </Link>
-              <div className="flex flex-col gap-3 pt-4 border-t border-zinc-100">
+              <div className="flex flex-col gap-4 pt-5 border-t border-stone/20">
                 <Link
                   href="#"
-                  className="font-[family-name:var(--font-radnika)] text-base font-medium text-zinc-600 hover:text-zinc-900"
+                  className="font-[family-name:var(--font-radnika)] text-base text-text-secondary hover:text-text-primary"
                 >
                   Log In
                 </Link>
                 <Link
                   href="#"
-                  className="rounded-full bg-zinc-900 px-5 py-2.5 text-center font-[family-name:var(--font-radnika)] text-sm font-medium text-white"
+                  className="rounded-full bg-charcoal px-5 py-2.5 text-center font-[family-name:var(--font-radnika)] text-sm text-white"
                 >
                   Sign Up
                 </Link>
