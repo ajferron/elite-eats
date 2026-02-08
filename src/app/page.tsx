@@ -7,9 +7,9 @@ export default function Home() {
       <Hero />
       <TrustBar />
       <ValueProposition />
-      <HowItWorks />
       <Testimonials />
       <TeamMap />
+      <HowItWorks />
       <CTA />
       <Footer />
     </>

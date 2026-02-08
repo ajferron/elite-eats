@@ -70,7 +70,7 @@ export function Navbar() {
             </Link>
             <Link
               href="#"
-              className="rounded-full bg-charcoal px-6 py-2.5 font-[family-name:var(--font-radnika)] text-sm text-white transition-colors hover:bg-text-primary"
+              className="rounded-full bg-dark-azure px-6 py-2.5 font-[family-name:var(--font-radnika)] text-sm text-white transition-colors hover:bg-dark-azure/90"
             >
               Sign Up
             </Link>
@@ -152,7 +152,7 @@ export function Navbar() {
                 </Link>
                 <Link
                   href="#"
-                  className="rounded-full bg-charcoal px-5 py-2.5 text-center font-[family-name:var(--font-radnika)] text-sm text-white"
+                  className="rounded-full bg-dark-azure px-5 py-2.5 text-center font-[family-name:var(--font-radnika)] text-sm text-white"
                 >
                   Sign Up
                 </Link>

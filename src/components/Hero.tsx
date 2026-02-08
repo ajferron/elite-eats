@@ -20,7 +20,7 @@ const slides = [
     categoryLabel: "150+ Pro Teams",
     cardTitle: "Nationwide Coverage",
     cardDescription:
-      "From coast to coast, access elite fueling partners in 65 cities across 8 professional leagues.",
+      "From coast to coast, access elite fueling partners in 65 cities across 8 major leagues.",
   },
   {
     id: 3,

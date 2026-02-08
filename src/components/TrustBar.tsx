@@ -17,13 +17,18 @@ const logos = [
 
 export function TrustBar() {
   return (
-    <section className="w-full overflow-hidden py-12 lg:py-16">
+    <section className="w-full overflow-hidden py-10 lg:py-12">
+      {/* Subtle header */}
+      <p className="mb-8 text-center font-[family-name:var(--font-radnika)] text-xs tracking-widest uppercase text-text-tertiary lg:mb-10">
+        Trusted by teams across 8 major leagues
+      </p>
+
       <div className="flex animate-scroll">
         {/* Render logos twice for seamless infinite loop */}
         {[...logos, ...logos].map((logo, index) => (
           <div
             key={index}
-            className="mx-3 flex h-12 w-32 flex-shrink-0 items-center justify-center opacity-60 grayscale-[90%] transition-all hover:opacity-85 hover:grayscale-0 lg:mx-6 lg:h-14 lg:w-40"
+            className="mx-3 flex h-12 w-32 flex-shrink-0 items-center justify-center opacity-50 grayscale transition-all hover:opacity-100 hover:grayscale-0 lg:mx-6 lg:h-14 lg:w-40"
           >
             <Image
               src={logo.src}

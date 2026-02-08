@@ -84,7 +84,7 @@ export function Testimonials() {
   const secondRow = testimonials.slice(4, 8);
 
   return (
-    <section className="py-20 lg:py-28">
+    <section className="py-14 lg:pt-10 lg:pb-20">
       {/* Section Header */}
       <div className="mx-auto mb-12 flex max-w-7xl items-end justify-between px-6 lg:mb-16 lg:px-8">
         <div>

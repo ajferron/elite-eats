@@ -72,7 +72,7 @@ export function HowItWorks() {
               Simple. Streamlined. Scalable.
             </h2>
           </div>
-          <button className="hidden flex-shrink-0 rounded-full border border-text-primary px-6 py-3 font-[family-name:var(--font-radnika)] text-sm font-medium text-text-primary transition-colors hover:bg-text-primary hover:text-background md:block">
+          <button className="hidden flex-shrink-0 rounded-full bg-yellow-green px-6 py-3 font-[family-name:var(--font-radnika)] text-sm font-medium text-charcoal transition-colors hover:bg-yellow-green/90 md:block">
             Get Started
           </button>
         </div>
@@ -126,9 +126,9 @@ export function HowItWorks() {
                     {step.tags.map((tag) => (
                       <span
                         key={tag}
-                        className="inline-flex items-center gap-1.5 rounded-full bg-azure/10 px-3 py-1.5 font-[family-name:var(--font-radnika)] text-xs text-text-secondary"
+                        className="inline-flex items-center gap-1.5 rounded-full bg-dark-azure/10 px-3 py-1.5 font-[family-name:var(--font-radnika)] text-xs text-dark-azure"
                       >
-                        <span className="h-1.5 w-1.5 rounded-full bg-azure"></span>
+                        <span className="h-1.5 w-1.5 rounded-full bg-dark-azure"></span>
                         {tag}
                       </span>
                     ))}
@@ -156,8 +156,8 @@ export function HowItWorks() {
               key={index}
               className={`h-2 rounded-full transition-all duration-300 ${
                 index === activeIndex
-                  ? "w-7 bg-text-primary"
-                  : "w-2 bg-text-secondary/30"
+                  ? "w-7 bg-dark-azure"
+                  : "w-2 bg-dark-azure/20"
               }`}
             />
           ))}

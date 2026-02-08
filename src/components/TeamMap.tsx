@@ -94,17 +94,17 @@ const teamCities: { name: string; coordinates: [number, number] }[] = [
 
 export function TeamMap() {
   return (
-    <section className="py-16 lg:py-24">
+    <section className="bg-dark-azure py-16 lg:pt-18 lg:pb-10">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         {/* Section Header */}
         <div className="mb-12 lg:mb-16">
-          <p className="mb-3 font-[family-name:var(--font-radnika)] text-sm tracking-wide text-text-tertiary">
+          <p className="mb-3 font-[family-name:var(--font-radnika)] text-sm tracking-wide text-white/60">
             Coverage
           </p>
-          <h2 className="font-[family-name:var(--font-radnika)] text-3xl font-medium -tracking-[0.02em] text-text-primary sm:text-4xl lg:text-5xl">
+          <h2 className="font-[family-name:var(--font-radnika)] text-3xl font-medium -tracking-[0.02em] text-white sm:text-4xl lg:text-5xl">
             Coast to Coast
           </h2>
-          <p className="mt-4 max-w-2xl font-[family-name:var(--font-radnika)] text-lg text-text-tertiary">
+          <p className="mt-4 max-w-2xl font-[family-name:var(--font-radnika)] text-lg text-white/70">
             Supporting 150+ professional teams across 65 cities nationwide
           </p>
         </div>
@@ -147,9 +147,9 @@ export function TeamMap() {
                     key={geo.rsmKey}
                     geography={geo}
                     fill="transparent"
-                    stroke="#a8a29e"
+                    stroke="#ffffff"
                     strokeWidth={0.5}
-                    strokeOpacity={0.4}
+                    strokeOpacity={0.25}
                     style={{
                       default: { outline: "none" },
                       hover: { outline: "none" },
