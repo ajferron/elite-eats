@@ -61,9 +61,9 @@ export function HowItWorks() {
       className="relative bg-background"
       style={{ height: `${steps.length * 100}vh` }}
     >
-      <div className="sticky top-20 flex h-[calc(100vh-5rem)] flex-col justify-center px-4 py-6 sm:px-6 sm:py-12 lg:px-8 lg:py-16">
+      <div className="sticky top-20 flex h-[calc(100vh-5rem)] flex-col justify-center py-6 sm:py-12 lg:py-16">
         {/* Section Header */}
-        <div className="mx-auto mb-4 flex w-full max-w-7xl items-start justify-between sm:mb-8 lg:mb-12">
+        <div className="mx-auto mb-4 flex w-full max-w-7xl items-start justify-between px-6 sm:mb-8 lg:mb-12 lg:px-8">
           <div>
             <p className="mb-2 font-[family-name:var(--font-radnika)] text-xs tracking-wide text-text-tertiary sm:mb-3 sm:text-sm">
               How It Works
@@ -78,7 +78,7 @@ export function HowItWorks() {
         </div>
 
         {/* Card Container */}
-        <div className="mx-auto grid w-full max-w-7xl flex-1 grid-cols-1 gap-4 overflow-hidden lg:gap-6 lg:grid-cols-2">
+        <div className="mx-auto grid w-full max-w-7xl flex-1 grid-cols-1 gap-4 overflow-hidden px-6 lg:gap-6 lg:grid-cols-2 lg:px-8">
           {/* Image Side - hidden on mobile to give more room for content */}
           <div className="relative hidden overflow-hidden rounded-2xl bg-cream lg:block">
             {steps.map((step, index) => (
@@ -150,7 +150,7 @@ export function HowItWorks() {
         </div>
 
         {/* Progress Dots */}
-        <div className="mx-auto mt-4 flex justify-center gap-2 sm:mt-8">
+        {/* <div className="mx-auto mt-4 flex max-w-7xl justify-center gap-2 px-6 sm:mt-8 lg:px-8">
           {steps.map((_, index) => (
             <div
               key={index}
@@ -161,7 +161,7 @@ export function HowItWorks() {
               }`}
             />
           ))}
-        </div>
+        </div> */}
       </div>
     </section>
   );
