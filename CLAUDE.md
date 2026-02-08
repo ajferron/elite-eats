@@ -37,10 +37,35 @@ Reference brands: sweetgreen, AG1, Alphalete
 
 ### Visual Language
 
-- **Color palette:** Muted, desaturated tones—greens, creams, blacks, sage. Avoid bold or saturated colors.
 - **Typography:** Geometric sans-serif. Confident but not cold.
 - **Whitespace:** Generous. Let elements breathe.
 - **Photography style:** Crisp, almost documentary-feeling. Not glossy or aspirational in the old fitness-magazine way.
+
+### Color Strategy
+
+**Principle: Restrained base + strategic pops**
+
+The previous approach of "all muted, all the time" resulted in a bland, lifeless palette. Taking cues from sweetgreen's rebrand (by Collins), we now embrace **contrast through restraint + punctuation**:
+
+1. **Deep anchor color** — A rich, saturated dark tone (forest green, deep teal) that grounds the brand and conveys premium quality
+2. **Warm neutral foundation** — Cream/off-white backgrounds (not stark white) that feel organic and inviting
+3. **Electric accent** — One vibrant, unapologetic pop color used sparingly for CTAs, highlights, and energy
+
+**Sweetgreen reference palette:**
+- `#00473C` Aqua Deep (dark forest green) — depth, premium
+- `#F4F3E7` Spring Wood (warm cream) — welcoming, organic
+- `#E6FF55` Canary (electric yellow-green) — energy, freshness, action
+
+**Color usage principles:**
+- **Backgrounds:** Warm neutrals dominate. Use deep colors for section contrast, not grey.
+- **Text:** Near-black with warmth (not pure #000). Strong hierarchy through weight, not color variety.
+- **Accents:** One vibrant color, used intentionally. Buttons, highlights, hover states. Less is more.
+- **Avoid:** Multiple competing accent colors, grey-heavy sections, pure white backgrounds, pure black text.
+
+**What makes this work:**
+- The vibrant accent *earns* attention because everything else is restrained
+- Deep forest tones feel premium and food-adjacent (natural, organic)
+- Warm cream feels alive where stark white feels sterile
 
 ### Brand Message
 
@@ -59,9 +84,10 @@ The design borrows credibility signifiers from three places:
 
 ### Implementation Notes
 
-- Avoid old-school fitness aesthetics (bold colors, aggressive type, transformation messaging)
-- Components should feel premium and restrained
+- Avoid old-school fitness aesthetics (aggressive type, transformation messaging, gratuitous color)
+- Components should feel premium and restrained, but not lifeless
 - UI should convey trust, expertise, and quiet confidence
+- **Color rule of thumb:** If removing the accent color makes the page feel dead, you're using color correctly. If it barely changes anything, the accent isn't earning its place.
 
 ## Build & Development Commands
 
