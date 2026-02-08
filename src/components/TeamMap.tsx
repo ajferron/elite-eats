@@ -94,81 +94,83 @@ const teamCities: { name: string; coordinates: [number, number] }[] = [
 
 export function TeamMap() {
   return (
-    <section className="bg-dark-azure py-16 lg:pt-18 lg:pb-10">
+    <section className="bg-dark-azure py-16 lg:py-20">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        {/* Section Header */}
-        <div className="mb-12 lg:mb-16">
-          <p className="mb-3 font-[family-name:var(--font-radnika)] text-sm tracking-wide text-white/60">
-            Coverage
-          </p>
-          <h2 className="font-[family-name:var(--font-radnika)] text-3xl font-medium -tracking-[0.02em] text-white sm:text-4xl lg:text-5xl">
-            Coast to Coast
-          </h2>
-          <p className="mt-4 max-w-2xl font-[family-name:var(--font-radnika)] text-lg text-white/70">
-            Supporting 150+ professional teams across 65 cities nationwide
-          </p>
-        </div>
+        <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-12">
+          {/* Text Content */}
+          <div>
+            <p className="mb-3 font-[family-name:var(--font-radnika)] text-sm tracking-wide text-white/60">
+              Coverage
+            </p>
+            <h2 className="font-[family-name:var(--font-radnika)] text-3xl font-medium -tracking-[0.02em] text-white sm:text-4xl lg:text-5xl">
+              Coast to Coast
+            </h2>
+            <p className="mt-4 font-[family-name:var(--font-radnika)] text-lg text-white/70">
+              Supporting 150+ professional teams across 65 cities nationwide
+            </p>
+          </div>
 
-        {/* Map */}
-        <div className="relative my-[-60px] -mx-6 lg:-mx-8">
-          <ComposableMap
-            projection="geoAlbersUsa"
-            projectionConfig={{
-              scale: 1000,
-            }}
-            style={{
-              width: "100%",
-              height: "auto",
-            }}
-          >
-            <defs>
-              {/* Subtle glow filter for pins */}
-              <filter id="pin-glow" x="-100%" y="-100%" width="300%" height="300%">
-                <feGaussianBlur in="SourceGraphic" stdDeviation="1.5" result="blur" />
-                <feColorMatrix
-                  in="blur"
-                  type="matrix"
-                  values="0 0 0 0 0.62
-                          0 0 0 0 0.78
-                          0 0 0 0 0.18
-                          0 0 0 0.5 0"
-                  result="glow"
-                />
-                <feMerge>
-                  <feMergeNode in="glow" />
-                  <feMergeNode in="SourceGraphic" />
-                </feMerge>
-              </filter>
-            </defs>
-            <Geographies geography={geoUrl}>
-              {({ geographies }) =>
-                geographies.map((geo) => (
-                  <Geography
-                    key={geo.rsmKey}
-                    geography={geo}
-                    fill="transparent"
-                    stroke="#ffffff"
-                    strokeWidth={0.5}
-                    strokeOpacity={0.25}
-                    style={{
-                      default: { outline: "none" },
-                      hover: { outline: "none" },
-                      pressed: { outline: "none" },
-                    }}
+          {/* Map */}
+          <div className="relative lg:-my-12 lg:-mr-8">
+            <ComposableMap
+              projection="geoAlbersUsa"
+              projectionConfig={{
+                scale: 1000,
+              }}
+              style={{
+                width: "100%",
+                height: "auto",
+              }}
+            >
+              <defs>
+                {/* Subtle glow filter for pins */}
+                <filter id="pin-glow" x="-100%" y="-100%" width="300%" height="300%">
+                  <feGaussianBlur in="SourceGraphic" stdDeviation="1.5" result="blur" />
+                  <feColorMatrix
+                    in="blur"
+                    type="matrix"
+                    values="0 0 0 0 0.62
+                            0 0 0 0 0.78
+                            0 0 0 0 0.18
+                            0 0 0 0.5 0"
+                    result="glow"
                   />
-                ))
-              }
-            </Geographies>
-            {teamCities.map(({ name, coordinates }) => (
-              <Marker key={name} coordinates={coordinates}>
-                <circle
-                  r={3}
-                  fill="#9fc72e"
-                  filter="url(#pin-glow)"
-                />
-              </Marker>
-            ))}
-          </ComposableMap>
+                  <feMerge>
+                    <feMergeNode in="glow" />
+                    <feMergeNode in="SourceGraphic" />
+                  </feMerge>
+                </filter>
+              </defs>
+              <Geographies geography={geoUrl}>
+                {({ geographies }) =>
+                  geographies.map((geo) => (
+                    <Geography
+                      key={geo.rsmKey}
+                      geography={geo}
+                      fill="transparent"
+                      stroke="#ffffff"
+                      strokeWidth={0.5}
+                      strokeOpacity={0.25}
+                      style={{
+                        default: { outline: "none" },
+                        hover: { outline: "none" },
+                        pressed: { outline: "none" },
+                      }}
+                    />
+                  ))
+                }
+              </Geographies>
+              {teamCities.map(({ name, coordinates }) => (
+                <Marker key={name} coordinates={coordinates}>
+                  <circle
+                    r={3}
+                    fill="#9fc72e"
+                    filter="url(#pin-glow)"
+                  />
+                </Marker>
+              ))}
+            </ComposableMap>
+          </div>
         </div>
       </div>
     </section>
