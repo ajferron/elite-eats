@@ -21,11 +21,16 @@
   /* UTILITY — Secondary color, not competing for attention */
   --color-azure: #26abc7;          /* Links, hover states, subtle indicators */
 
+  /* TINTED SURFACES — Section backgrounds with color, not grey */
+  --color-surface-sage: #DCE6DA;   /* Cool green tint — fresh, organic feel */
+  --color-surface-sand: #E8DCCA;   /* Warm tan tint — cozy, inviting */
+  --color-surface-azure: #DEEAEF;  /* Cool blue tint — derived from dark-azure */
+
   /* NEUTRALS — Supporting cast */
   --color-sage: #8B9A7D;           /* Muted green for subtle accents */
   --color-sage-light: #E8EBE4;     /* Light sage for backgrounds */
   --color-stone: #9A9590;          /* Warmed up — borders, muted elements */
-  --color-charcoal: #2D2926;       /* Warmed up — secondary text weight */
+  --color-charcoal: #242424;       /* Warmed up — secondary text weight */
 }
 
 @theme inline {
@@ -48,6 +53,11 @@
   /* SURFACES */
   --color-cream: #F5F3EE;
   --color-cream-dark: #EBE8E2;
+
+  /* TINTED SURFACES — Section backgrounds */
+  --color-surface-sage: #DCE6DA;
+  --color-surface-sand: #E8DCCA;
+  --color-surface-azure: #DEEAEF;
 
   /* NEUTRALS */
   --color-sage: #8B9A7D;

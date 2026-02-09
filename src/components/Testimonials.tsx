@@ -1,88 +1,102 @@
+"use client";
+
+import Image from "next/image";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+
 const testimonials = [
   {
     id: 1,
     name: "Sarah Mitchell",
     quote:
       "Every order feels special—the vendors are outstanding, and the platform truly makes our job easier.",
+    logo: "/images/trust-bar/nfl-1.webp",
   },
   {
     id: 2,
     name: "Marcus Chen",
     quote:
       "Elite Eats completely changed our workflow. I'm more confident in our catering than ever before.",
+    logo: "/images/trust-bar/mlb-1.svg",
   },
   {
     id: 3,
     name: "Rachel Torres",
     quote:
       "The platform here completely reshaped our operations—my team, focus, and confidence have never been better.",
+    logo: "/images/trust-bar/nfl-2.webp",
   },
   {
     id: 4,
     name: "David Williams",
     quote:
       "Every meal feels like more than just catering, with vetted vendors and a network that makes you feel supported.",
+    logo: "/images/trust-bar/mlb-2.svg",
   },
   {
     id: 5,
     name: "Jennifer Park",
     quote:
       "The vendor matching was a highlight of my transition—well-organized, efficient, and filled with great partners.",
+    logo: "/images/trust-bar/nfl-3.webp",
   },
   {
     id: 6,
     name: "Michael Brooks",
     quote:
       "Joining Elite Eats has given me more than great vendors—it's given me lasting partnerships and peace of mind.",
+    logo: "/images/trust-bar/mlb-3.svg",
   },
   {
     id: 7,
     name: "Amanda Foster",
     quote:
       "From premium vendors to seamless ordering, everything about this platform feels first-class yet inviting.",
+    logo: "/images/trust-bar/nfl-4.webp",
   },
   {
     id: 8,
     name: "Chris Johnson",
     quote:
       "This platform blends top-notch service with a true sense of community—it's where nutrition meets trust.",
+    logo: "/images/trust-bar/mlb-4.svg",
   },
 ];
 
-function getInitials(name: string) {
-  return name
-    .split(" ")
-    .map((word) => word[0])
-    .join("")
-    .toUpperCase();
-}
-
-function TestimonialCard({
+function TestimonialSlide({
   testimonial,
 }: {
   testimonial: (typeof testimonials)[0];
 }) {
   return (
-    <div className="flex flex-col">
-      <div className="mb-4 flex h-12 w-12 items-center justify-center overflow-hidden rounded-full bg-azure/10">
-        <span className="font-[family-name:var(--font-radnika)] text-sm text-dark-azure">
-          {getInitials(testimonial.name)}
-        </span>
+    <div className="relative flex flex-col items-center px-2 pb-4 pt-8">
+      {/* Tilted Logo - Badge style */}
+      <div className="relative z-0 mb-[-80px] h-58 w-58 flex-shrink-0 rotate-[-10deg] transform">
+        <Image
+          src={testimonial.logo}
+          alt="Team logo"
+          width={224}
+          height={224}
+          className="h-full w-full object-contain"
+        />
       </div>
-      <h3 className="font-[family-name:var(--font-radnika)] text-lg font-medium text-text-primary">
-        {testimonial.name}
-      </h3>
-      <p className="mt-3 font-[family-name:var(--font-radnika)] text-sm leading-relaxed text-text-tertiary">
-        &ldquo;{testimonial.quote}&rdquo;
-      </p>
+
+      {/* Frosted Glass Card */}
+      <div className="relative z-10 w-64 rounded-2xl border border-white/20 bg-white/5 p-6 backdrop-blur-md">
+        <p className="font-[family-name:var(--font-radnika)] text-sm font-medium text-text-primary">
+          {testimonial.name}
+        </p>
+        <p className="mt-4 font-[family-name:var(--font-radnika)] text-sm leading-relaxed text-text-secondary">
+          &ldquo;{testimonial.quote}&rdquo;
+        </p>
+      </div>
     </div>
   );
 }
 
 export function Testimonials() {
-  const firstRow = testimonials.slice(0, 4);
-  const secondRow = testimonials.slice(4, 8);
-
   return (
     <section className="py-14 lg:pt-10 lg:pb-20">
       {/* Section Header */}
@@ -95,58 +109,78 @@ export function Testimonials() {
             What Teams Say
           </h2>
         </div>
-        <a
-          href="#"
-          className="hidden rounded-full border border-stone/30 px-6 py-3 font-[family-name:var(--font-radnika)] text-sm text-text-secondary transition-colors hover:border-stone/50 hover:text-text-primary sm:inline-block"
-        >
-          Get in Touch
-        </a>
+
+        {/* Navigation Arrows */}
+        <div className="hidden items-center gap-2 sm:flex">
+          <button
+            className="swiper-button-prev-custom flex h-12 w-12 items-center justify-center rounded-full border border-stone/30 text-text-secondary transition-colors hover:border-stone/50 hover:text-text-primary"
+            aria-label="Previous testimonial"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="currentColor"
+              className="h-5 w-5"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M15.75 19.5L8.25 12l7.5-7.5"
+              />
+            </svg>
+          </button>
+          <button
+            className="swiper-button-next-custom flex h-12 w-12 items-center justify-center rounded-full border border-stone/30 text-text-secondary transition-colors hover:border-stone/50 hover:text-text-primary"
+            aria-label="Next testimonial"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="currentColor"
+              className="h-5 w-5"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M8.25 4.5l7.5 7.5-7.5 7.5"
+              />
+            </svg>
+          </button>
+        </div>
       </div>
 
-      {/* Testimonials Grid */}
+      {/* Swiper Slider */}
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        {/* First Row */}
-        <div className="relative border-t border-stone/20">
-          {/* Vertical divider lines */}
-          <div className="absolute bottom-0 left-1/4 top-0 hidden w-px bg-stone/20 lg:block"></div>
-          <div className="absolute bottom-0 left-1/2 top-0 hidden w-px bg-stone/20 lg:block"></div>
-          <div className="absolute bottom-0 left-3/4 top-0 hidden w-px bg-stone/20 lg:block"></div>
-
-          {/* Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
-            {firstRow.map((testimonial, index) => (
-              <div
-                key={testimonial.id}
-                className={`py-10 ${index > 0 ? "lg:pl-8" : ""} ${index < 3 ? "lg:pr-8" : ""}`}
-              >
-                <TestimonialCard testimonial={testimonial} />
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Second Row */}
-        <div className="relative border-t border-stone/20">
-          {/* Vertical divider lines */}
-          <div className="absolute bottom-0 left-1/4 top-0 hidden w-px bg-stone/20 lg:block"></div>
-          <div className="absolute bottom-0 left-1/2 top-0 hidden w-px bg-stone/20 lg:block"></div>
-          <div className="absolute bottom-0 left-3/4 top-0 hidden w-px bg-stone/20 lg:block"></div>
-
-          {/* Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
-            {secondRow.map((testimonial, index) => (
-              <div
-                key={testimonial.id}
-                className={`py-10 ${index > 0 ? "lg:pl-8" : ""} ${index < 3 ? "lg:pr-8" : ""}`}
-              >
-                <TestimonialCard testimonial={testimonial} />
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Bottom border line */}
-        <div className="border-t border-stone/20"></div>
+        <Swiper
+          modules={[Navigation]}
+          navigation={{
+            prevEl: ".swiper-button-prev-custom",
+            nextEl: ".swiper-button-next-custom",
+          }}
+          spaceBetween={8}
+          slidesPerView={1.3}
+          breakpoints={{
+            640: {
+              slidesPerView: 2.5,
+              spaceBetween: 12,
+            },
+            1024: {
+              slidesPerView: 4,
+              spaceBetween: 16,
+            },
+          }}
+          className="overflow-visible"
+        >
+          {testimonials.map((testimonial) => (
+            <SwiperSlide key={testimonial.id}>
+              <TestimonialSlide testimonial={testimonial} />
+            </SwiperSlide>
+          ))}
+        </Swiper>
       </div>
     </section>
   );

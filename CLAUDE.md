@@ -67,6 +67,14 @@ The previous approach of "all muted, all the time" resulted in a bland, lifeless
 - Deep forest tones feel premium and food-adjacent (natural, organic)
 - Warm cream feels alive where stark white feels sterile
 
+**Tinted surfaces for section contrast:**
+Instead of grey sections, use softly tinted backgrounds to create visual rhythm:
+- `surface-sage` — Cool green tint, fresh and organic
+- `surface-sand` — Warm tan tint, cozy and inviting
+- `surface-azure` — Cool blue tint, derived from anchor color
+
+These add color without overwhelming. Alternate between cream and tinted sections to create depth.
+
 ### Brand Message
 
 We're selling **optimization and intentionality**, not transformation or escape.
