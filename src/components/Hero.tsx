@@ -67,7 +67,7 @@ export function Hero() {
                 <h1 className="font-[family-name:var(--font-radnika)] text-4xl font-medium leading-[1.1] -tracking-[0.04em] text-white sm:text-5xl lg:text-6xl">
                   {slides[activeSlide].headline}
                   <br />
-                  <span className="text-cream">{slides[activeSlide].headlineAccent}</span>
+                  {slides[activeSlide].headlineAccent}
                 </h1>
                 <p className="mt-6 max-w-md font-[family-name:var(--font-radnika)] text-base leading-relaxed text-white/80 lg:text-lg">
                   {slides[activeSlide].cardDescription}
@@ -98,7 +98,7 @@ export function Hero() {
                     onClick={() => setActiveSlide(index)}
                     className={`h-2 w-2 rounded-full transition-all ${
                       activeSlide === index
-                        ? "w-6 bg-cream"
+                        ? "w-6 bg-white"
                         : "bg-white/30 hover:bg-white/50"
                     }`}
                   >

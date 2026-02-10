@@ -38,6 +38,7 @@ export function Footer() {
                 alt="Elite Eats"
                 width={120}
                 height={30}
+                className="logo-adaptive"
               />
             </Link>
             <p className="mt-4 font-[family-name:var(--font-radnika)] text-sm leading-relaxed text-text-tertiary">

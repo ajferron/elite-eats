@@ -41,34 +41,34 @@
   --font-display: var(--font-boston-angel);
   --font-accent: var(--font-have-heart);
 
-  /* ANCHOR */
-  --color-dark-azure: #084664;
+  /* ANCHOR — uses CSS vars so dark mode works */
+  --color-dark-azure: var(--color-dark-azure);
 
   /* ACCENT */
-  --color-yellow-green: #C4E500;
+  --color-yellow-green: var(--color-yellow-green);
 
   /* UTILITY */
-  --color-azure: #26abc7;
+  --color-azure: var(--color-azure);
 
   /* SURFACES */
-  --color-cream: #F5F3EE;
-  --color-cream-dark: #EBE8E2;
+  --color-cream: var(--color-cream);
+  --color-cream-dark: var(--color-cream-dark);
 
   /* TINTED SURFACES — Section backgrounds */
-  --color-surface-sage: #DCE6DA;
-  --color-surface-sand: #E8DCCA;
-  --color-surface-azure: #DEEAEF;
+  --color-surface-sage: var(--color-surface-sage);
+  --color-surface-sand: var(--color-surface-sand);
+  --color-surface-azure: var(--color-surface-azure);
 
   /* NEUTRALS */
-  --color-sage: #8B9A7D;
-  --color-sage-light: #E8EBE4;
-  --color-stone: #9A9590;
-  --color-charcoal: #2D2926;
+  --color-sage: var(--color-sage);
+  --color-sage-light: var(--color-sage-light);
+  --color-stone: var(--color-stone);
+  --color-charcoal: var(--color-charcoal);
 
   /* TEXT — Warm hierarchy, not pure greys */
-  --color-text-primary: #1C1917;
-  --color-text-secondary: #57534E;
-  --color-text-tertiary: #78716C;
+  --color-text-primary: var(--color-text-primary);
+  --color-text-secondary: var(--color-text-secondary);
+  --color-text-tertiary: var(--color-text-tertiary);
 
   /* Animations */
   --animate-scroll: scroll 30s linear infinite;
@@ -92,13 +92,41 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #121210;
-    --foreground: #E7E5E4;
-    --color-cream: #1C1A17;
-    --color-cream-dark: #141311;
-    --color-text-primary: #E7E5E4;
-    --color-text-secondary: #A8A29E;
-    --color-text-tertiary: #78716C;
+    /* ==============================================
+       DARK MODE COLOR SYSTEM
+       Inverted foundation, same accent energy
+       ============================================== */
+
+    /* FOUNDATION — Deep, warm darks */
+    --background: #0F0E0C;           /* Very dark warm brown */
+    --foreground: #E7E5E4;           /* Warm off-white */
+    --color-cream: #1A1816;          /* Primary dark surface */
+    --color-cream-dark: #121110;     /* Secondary dark surface */
+
+    /* ANCHOR — Slightly lighter for dark backgrounds */
+    --color-dark-azure: #0A5A82;     /* Boosted for visibility on dark */
+
+    /* ACCENT — Stays vibrant, earns attention */
+    --color-yellow-green: #C4E500;   /* Same vibrant accent */
+
+    /* UTILITY */
+    --color-azure: #38BFD8;          /* Slightly boosted for dark bg */
+
+    /* TINTED SURFACES — Dark versions with subtle color */
+    --color-surface-sage: #1A211A;   /* Dark green tint */
+    --color-surface-sand: #221E18;   /* Dark tan tint */
+    --color-surface-azure: #141D24;  /* Dark blue tint */
+
+    /* NEUTRALS */
+    --color-sage: #7A8A6D;           /* Muted green, slightly lighter */
+    --color-sage-light: #252824;     /* Dark sage surface */
+    --color-stone: #6B6660;          /* Adjusted for dark mode */
+    --color-charcoal: #2A2724;       /* Elevated surface for cards/CTAs */
+
+    /* TEXT — Inverted hierarchy */
+    --color-text-primary: #E7E5E4;   /* Primary light text */
+    --color-text-secondary: #A8A29E; /* Secondary muted text */
+    --color-text-tertiary: #78716C;  /* Tertiary subtle text */
   }
 }
 
@@ -108,4 +136,11 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* Logo inversion for dark mode */
+@media (prefers-color-scheme: dark) {
+  .logo-adaptive {
+    filter: invert(1) hue-rotate(180deg);
+  }
 }

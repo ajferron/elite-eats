@@ -29,6 +29,7 @@ export function Navbar() {
               width={160}
               height={40}
               priority
+              className="logo-adaptive"
             />
           </Link>
 
