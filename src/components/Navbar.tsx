@@ -4,29 +4,60 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
+const BLUR_STEPS = [
+  { blur: 2, stop: "100%" },
+  { blur: 4, stop: "80%" },
+  { blur: 8, stop: "55%" },
+  { blur: 16, stop: "30%" },
+];
+
 export function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      // Consider "scrolled" once past the hero section (roughly 100vh)
-      setIsScrolled(window.scrollY > window.innerHeight - 100);
+      setIsScrolled(window.scrollY > window.innerHeight * 0.85);
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? "bg-background border-b border-stone/20 shadow-sm"
-          : "bg-transparent"
+      className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-300 ${
+        isScrolled ? "bg-background border-b border-stone/20" : ""
       }`}
     >
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+      {/* Progressive blur background — visible only over hero */}
+      <div
+        className="pointer-events-none absolute inset-x-0 top-0 -z-10 transition-opacity duration-300"
+        style={{ height: "7.5rem", opacity: isScrolled ? 0 : 1 }}
+      >
+        {BLUR_STEPS.map((step, i) => (
+          <div
+            key={i}
+            className="absolute inset-0"
+            style={{
+              backdropFilter: `blur(${step.blur}px)`,
+              WebkitBackdropFilter: `blur(${step.blur}px)`,
+              maskImage: `linear-gradient(to bottom, black 0%, transparent ${step.stop})`,
+              WebkitMaskImage: `linear-gradient(to bottom, black 0%, transparent ${step.stop})`,
+            }}
+          />
+        ))}
+        {/* Dark tint over hero for contrast */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(to bottom, rgba(0, 0, 0, 0.25) 30%, transparent 100%)",
+          }}
+        />
+      </div>
+
+      <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
         <div className="flex h-20 items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center">
@@ -156,8 +187,8 @@ export function Navbar() {
           <div
             className={`md:hidden py-6 ${
               isScrolled
-                ? "border-t border-stone/20"
-                : "border-t border-white/20 bg-charcoal/80 backdrop-blur-sm -mx-6 px-6"
+                ? "border-t border-stone/20 bg-background/90 backdrop-blur-md -mx-6 px-6"
+                : "border-t border-white/20 bg-charcoal/80 backdrop-blur-md -mx-6 px-6"
             }`}
           >
             <div className="flex flex-col gap-5">
