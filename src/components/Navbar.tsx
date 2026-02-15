@@ -33,7 +33,7 @@ export function Navbar() {
       {/* Progressive blur background — visible only over hero */}
       <div
         className="pointer-events-none absolute inset-x-0 top-0 -z-10 transition-opacity duration-300"
-        style={{ height: "7.5rem", opacity: isScrolled ? 0 : 1 }}
+        style={{ height: "10rem", opacity: isScrolled ? 0 : 1 }}
       >
         {BLUR_STEPS.map((step, i) => (
           <div
@@ -133,7 +133,7 @@ export function Navbar() {
               href="#"
               className={`rounded-full px-6 py-2.5 font-[family-name:var(--font-radnika)] text-sm transition-all ${
                 isScrolled
-                  ? "bg-dark-azure text-white hover:bg-dark-azure/90"
+                  ? "bg-charcoal text-white hover:bg-dark-azure/90"
                   : "bg-white text-charcoal hover:bg-white/90"
               }`}
             >
