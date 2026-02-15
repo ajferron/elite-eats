@@ -1,185 +1,188 @@
+"use client";
+
+import { useState } from "react";
 import Image from "next/image";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination } from "swiper/modules";
+import type { Swiper as SwiperType } from "swiper";
+import "swiper/css";
+import "swiper/css/pagination";
 
 const testimonials = [
   {
     id: 1,
-    name: "Sarah Mitchell",
-    role: "Head Dietitian",
+    name: "Margaret Hughes, RD",
+    role: "Performance Nutritionist",
+    team: "Dallas Mavericks, NBA",
+    image: "/images/testimonials/margaret-hughes_dallas-mavs-nba.jpg",
     quote:
-      "Every order feels special—the vendors are outstanding, and the platform truly makes our job easier.",
-    logo: "/images/trust-bar/nfl-1.webp",
-    featured: true,
+      "Elite Eats exceeds all expectations from start to finish when it comes to setting up catering for my team. From the booking process to the menu and vendor options; Elite Eats provides a seamless experience from start to finish. The platform makes communication simple, and the vendors are responsive, flexible, and genuinely invested in making our event a success.",
   },
   {
     id: 2,
-    name: "Marcus Chen",
-    role: "Nutrition Coordinator",
+    name: "Jake Anthony, MS, RD, CSSD",
+    role: "Director of Football Performance Nutrition",
+    team: "University of Illinois",
+    image: "/images/testimonials/jake-anthony_uofi.jpg",
     quote:
-      "Elite Eats completely changed our workflow. I'm more confident in our catering than ever before.",
-    logo: "/images/trust-bar/mlb-1.svg",
+      "Elite Eats was a game changer for streamlining all of our catering needs during our Bowl Game. ... The platform is intuitive to navigate and does an excellent job of keeping all of your catering details centralized in one place. Most importantly, the Elite Eats team keeps tabs on your orders throughout the process which gives you peace of mind in knowing that nothing will fall between the cracks.",
   },
   {
     id: 3,
-    name: "Rachel Torres",
-    role: "Team Dietitian",
+    name: "Petra Rack, MS, RD, CSSD",
+    role: "Head Sport Dietitian",
+    team: "Chicago Fire FC, MLS",
+    image: "/images/testimonials/petra-rack_chicago-fire-fc-mls.jpg",
     quote:
-      "The platform completely reshaped our operations—my team, focus, and confidence have never been better.",
-    logo: "/images/trust-bar/nfl-2.webp",
+      'Elite Eats has been a true saving grace for our team during a demanding travel season. Their reliability and flexibility in catering to multiple locations have been invaluable. This platform is a game changer for professional sports teams, making food service on the road seamless and stress-free. When I introduced it to our performance team, their immediate reaction said it all: "This is brilliant."',
   },
   {
     id: 4,
-    name: "David Williams",
-    role: "Director of Player Nutrition",
+    name: "Abbey Lathrop-Korn, MS, RD, CSSD",
+    role: "Head Performance Dietitian",
+    team: "Colorado Rapids, MLS",
+    image: "/images/testimonials/abbey-lathrop-korn_colorado-rapids-mls.jpg",
     quote:
-      "Every meal feels like more than just catering, with vetted vendors and a network that makes you feel supported.",
-    logo: "/images/trust-bar/mlb-2.svg",
+      "Elite Eats is changing the game of pro sport catering. Not all caterers are the same in regards to their professionalism & attention to detail & EE simplifies the process for you by vetting out those that don't make the cut. They provide you with the peace of mind that you're working with a caterer who have the experience of delivering to your specific stadium, arena or airport & understands professional sport expectations.",
   },
   {
     id: 5,
-    name: "Jennifer Park",
-    role: "Sports Dietitian",
+    name: "Maureen Stoecklein, RD",
+    role: "Major League Nutrition Coordinator",
+    team: "Detroit Tigers, MLB",
+    image: "/images/testimonials/maureen-stoecklein_detroit-tigers-mlb.jpg",
     quote:
-      "The vendor matching was a highlight of my transition—well-organized, efficient, and filled with great partners.",
-    logo: "/images/trust-bar/nfl-3.webp",
-  },
-  {
-    id: 6,
-    name: "Michael Brooks",
-    role: "Performance Nutritionist",
-    quote:
-      "Joining Elite Eats has given me more than great vendors—it's given me lasting partnerships and peace of mind.",
-    logo: "/images/trust-bar/mlb-3.svg",
+      'I appreciate the benefit of all communications in one landing spot, the invoicing is so simple and the reassurance of delivery. I have zero worries when I have order placed via Elite Eats. One of the easiest parts of the platform is sending a message like "here is my budget and what I need to feed - help!"',
   },
 ];
 
-function QuoteMark({ className = "" }: { className?: string }) {
+function ChevronLeft({ className = "" }: { className?: string }) {
   return (
     <svg
       className={className}
-      width="48"
-      height="48"
-      viewBox="0 0 48 48"
-      fill="currentColor"
-      xmlns="http://www.w3.org/2000/svg"
+      width="20"
+      height="20"
+      viewBox="0 0 20 20"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     >
-      <path d="M14.4 24H7.2C7.2 17.376 12.576 12 19.2 12V16.8C15.168 16.8 12 19.968 12 24V24.6C12 26.52 13.68 28.2 15.6 28.2H19.2C21.12 28.2 22.8 29.88 22.8 31.8V34.2C22.8 36.12 21.12 37.8 19.2 37.8H15.6C11.472 37.8 8.4 34.728 8.4 30.6V24H14.4ZM38.4 24H31.2C31.2 17.376 36.576 12 43.2 12V16.8C39.168 16.8 36 19.968 36 24V24.6C36 26.52 37.68 28.2 39.6 28.2H43.2C45.12 28.2 46.8 29.88 46.8 31.8V34.2C46.8 36.12 45.12 37.8 43.2 37.8H39.6C35.472 37.8 32.4 34.728 32.4 30.6V24H38.4Z" />
+      <path d="M12.5 15L7.5 10L12.5 5" />
     </svg>
   );
 }
 
-function FeaturedTestimonial({
-  testimonial,
-}: {
-  testimonial: (typeof testimonials)[0];
-}) {
+function ChevronRight({ className = "" }: { className?: string }) {
   return (
-    <div className="relative overflow-hidden rounded-3xl bg-azure p-8 sm:p-10 lg:col-span-2 lg:p-12">
-      {/* Decorative quote mark */}
-      <QuoteMark className="absolute -top-2 left-6 h-24 w-24 text-white/5 sm:left-8 sm:h-32 sm:w-32 lg:left-10" />
-
-      <div className="relative flex h-full flex-col justify-between">
-        {/* Quote */}
-        <blockquote className="mb-8 font-[family-name:var(--font-radnika)] text-xl leading-relaxed font-medium text-white/95 sm:text-2xl sm:leading-relaxed lg:text-3xl lg:leading-relaxed">
-          &ldquo;{testimonial.quote}&rdquo;
-        </blockquote>
-
-        {/* Attribution */}
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-4">
-            <div className="h-12 w-12 overflow-hidden rounded-full bg-white/10 sm:h-14 sm:w-14">
-              <Image
-                src={testimonial.logo}
-                alt="Team logo"
-                width={56}
-                height={56}
-                className="h-full w-full object-contain p-1"
-              />
-            </div>
-            <div>
-              <p className="font-[family-name:var(--font-radnika)] text-base font-medium text-white sm:text-lg">
-                {testimonial.name}
-              </p>
-              <p className="font-[family-name:var(--font-radnika)] text-sm text-white/60">
-                {testimonial.role}
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function TestimonialCard({
-  testimonial,
-}: {
-  testimonial: (typeof testimonials)[0];
-}) {
-  return (
-    <div className="group relative flex h-full flex-col justify-between rounded-2xl bg-cream p-6 transition-all hover:bg-cream-dark sm:p-8">
-      {/* Quote mark */}
-      <QuoteMark className="absolute mb-[-12px] -top-1 left-4 h-12 w-12 text-dark-azure/5 sm:left-6" />
-
-      {/* Quote */}
-      <blockquote className="relative mb-6 font-[family-name:var(--font-radnika)] text-base leading-relaxed text-text-secondary">
-        &ldquo;{testimonial.quote}&rdquo;
-      </blockquote>
-
-      {/* Attribution */}
-      <div className="flex items-center gap-3">
-        <div className="h-10 w-10 flex-shrink-0 overflow-hidden rounded-full bg-surface-sage">
-          <Image
-            src={testimonial.logo}
-            alt="Team logo"
-            width={40}
-            height={40}
-            className="h-full w-full object-contain p-0.5"
-          />
-        </div>
-        <div className="min-w-0">
-          <p className="truncate font-[family-name:var(--font-radnika)] text-sm font-medium text-text-primary">
-            {testimonial.name}
-          </p>
-          <p className="truncate font-[family-name:var(--font-radnika)] text-xs text-text-tertiary">
-            {testimonial.role}
-          </p>
-        </div>
-      </div>
-    </div>
+    <svg
+      className={className}
+      width="20"
+      height="20"
+      viewBox="0 0 20 20"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="M7.5 5L12.5 10L7.5 15" />
+    </svg>
   );
 }
 
 export function Testimonials() {
-  const featured = testimonials.find((t) => t.featured);
-  const others = testimonials.filter((t) => !t.featured);
+  const [swiperInstance, setSwiperInstance] = useState<SwiperType | null>(null);
+  const [isBeginning, setIsBeginning] = useState(true);
+  const [isEnd, setIsEnd] = useState(false);
+
+  const handleSlideChange = (swiper: SwiperType) => {
+    setIsBeginning(swiper.isBeginning);
+    setIsEnd(swiper.isEnd);
+  };
 
   return (
-    <section className="py-16 lg:py-24">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        {/* Section Header */}
-        <div className="mb-10 lg:mb-14">
-          <p className="mb-3 font-[family-name:var(--font-radnika)] text-sm tracking-wide text-text-tertiary">
+    <section className="overflow-x-clip bg-black py-16 lg:py-18">
+      {/* Section Header with Navigation — contained */}
+      <div className="mx-auto mb-10 flex max-w-7xl items-end justify-between px-6 lg:mb-14 lg:px-8">
+        <div>
+          <p className="mb-3 font-[family-name:var(--font-radnika)] text-sm tracking-wide text-white/50">
             Testimonials
           </p>
-          <h2 className="font-[family-name:var(--font-radnika)] text-3xl font-medium -tracking-[0.02em] text-text-primary sm:text-4xl lg:text-5xl">
+          <h2 className="font-[family-name:var(--font-radnika)] text-3xl font-medium -tracking-[0.02em] text-white sm:text-4xl lg:text-5xl">
             Trusted by the Best
           </h2>
         </div>
 
-        {/* Bento Grid */}
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6">
-          {/* Featured testimonial - spans 2 columns on large screens */}
-          {featured && <FeaturedTestimonial testimonial={featured} />}
-
-          {/* First card on featured row */}
-          {others[0] && <TestimonialCard testimonial={others[0]} />}
-
-          {/* Remaining cards */}
-          {others.slice(1).map((testimonial) => (
-            <TestimonialCard key={testimonial.id} testimonial={testimonial} />
-          ))}
+        {/* Ghost Navigation Buttons */}
+        <div className="flex gap-2">
+          <button
+            onClick={() => swiperInstance?.slidePrev()}
+            disabled={isBeginning}
+            className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 text-white/60 transition-all hover:border-white/50 hover:text-white disabled:cursor-default disabled:opacity-30 disabled:hover:border-white/20 disabled:hover:text-white/60"
+            aria-label="Previous testimonial"
+          >
+            <ChevronLeft />
+          </button>
+          <button
+            onClick={() => swiperInstance?.slideNext()}
+            disabled={isEnd}
+            className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 text-white/60 transition-all hover:border-white/50 hover:text-white disabled:cursor-default disabled:opacity-30 disabled:hover:border-white/20 disabled:hover:text-white/60"
+            aria-label="Next testimonial"
+          >
+            <ChevronRight />
+          </button>
         </div>
       </div>
+
+      {/* Swiper Carousel — full viewport width */}
+      <Swiper
+        modules={[Pagination]}
+        spaceBetween={20}
+        slidesPerView="auto"
+        pagination={{ clickable: true }}
+        onSwiper={(swiper) => {
+          setSwiperInstance(swiper);
+          setIsBeginning(swiper.isBeginning);
+          setIsEnd(swiper.isEnd);
+        }}
+        onSlideChange={handleSlideChange}
+        className="testimonials-swiper"
+      >
+        {testimonials.map((testimonial) => (
+          <SwiperSlide key={testimonial.id} className="testimonials-slide">
+            <div className="flex h-full flex-col overflow-hidden rounded-2xl">
+              {/* Dietitian Photo */}
+              <div className="relative aspect-[4/3] w-full flex-shrink-0">
+                <Image
+                  src={testimonial.image}
+                  alt={testimonial.name}
+                  fill
+                  sizes="(max-width: 640px) 85vw, (max-width: 1024px) 45vw, 32vw"
+                  className="object-cover object-top"
+                />
+              </div>
+
+              {/* Quote & Attribution */}
+              <div className="flex flex-1 flex-col bg-white/[0.06]">
+                <blockquote className="mb-4 flex-1 font-[family-name:var(--font-radnika)] text-md p-6 leading-relaxed text-white/75">
+                  &ldquo;{testimonial.quote}&rdquo;
+                </blockquote>
+
+                <div className="border-t border-white/10 p-5">
+                  <p className="font-[family-name:var(--font-boston-angel)] text-xl font-medium text-white">
+                    {testimonial.name}
+                  </p>
+                  <p className="font-[family-name:var(--font-radnika)] text-sm text-white/45">
+                    {testimonial.role} &middot; {testimonial.team}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </SwiperSlide>
+        ))}
+      </Swiper>
     </section>
   );
 }

@@ -144,3 +144,49 @@ body {
     filter: invert(1) hue-rotate(180deg);
   }
 }
+
+/* ============================================
+   TESTIMONIALS SWIPER OVERRIDES
+   ============================================ */
+.testimonials-swiper {
+  padding-bottom: 3rem !important;
+  padding-left: max(1.5rem, calc((100vw - 80rem) / 2 + 2rem)) !important;
+  padding-right: max(1.5rem, calc((100vw - 80rem) / 2 + 2rem)) !important;
+}
+
+.testimonials-swiper .swiper-wrapper {
+  align-items: stretch;
+}
+
+.testimonials-slide {
+  width: 360px !important;
+  height: auto !important;
+}
+
+@media (min-width: 640px) {
+  .testimonials-slide {
+    width: 440px !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  .testimonials-slide {
+    width: 500px !important;
+  }
+}
+
+/* Pagination dots */
+.testimonials-swiper .swiper-pagination-bullet {
+  width: 8px;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.3);
+  opacity: 1;
+  transition: all 0.3s ease;
+}
+
+.testimonials-swiper .swiper-pagination-bullet-active {
+  background: rgba(255, 255, 255, 0.9);
+  width: 24px;
+  border-radius: 4px;
+}
+
