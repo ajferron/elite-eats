@@ -27,7 +27,7 @@ const navigation = {
 
 export function Footer() {
   return (
-    <footer className="border-t border-stone/20 bg-background">
+    <footer className="bg-black">
       <div className="mx-auto max-w-7xl px-6 py-16 lg:px-8 lg:py-20">
         <div className="grid grid-cols-2 gap-8 lg:grid-cols-5">
           {/* Logo and tagline */}
@@ -38,17 +38,17 @@ export function Footer() {
                 alt="Elite Eats"
                 width={120}
                 height={30}
-                className="logo-adaptive"
+                className="brightness-0 invert"
               />
             </Link>
-            <p className="mt-4 font-[family-name:var(--font-radnika)] text-sm leading-relaxed text-text-tertiary">
+            <p className="mt-4 font-[family-name:var(--font-radnika)] text-sm leading-relaxed text-white/50">
               The sports nutrition catering marketplace for professional teams.
             </p>
           </div>
 
           {/* Navigation columns */}
           <div>
-            <h3 className="font-[family-name:var(--font-radnika)] text-sm font-medium text-text-primary">
+            <h3 className="font-[family-name:var(--font-radnika)] text-sm font-medium text-white">
               Platform
             </h3>
             <ul className="mt-4 space-y-3">
@@ -56,7 +56,7 @@ export function Footer() {
                 <li key={item.name}>
                   <Link
                     href={item.href}
-                    className="font-[family-name:var(--font-radnika)] text-sm text-text-tertiary transition-colors hover:text-text-secondary"
+                    className="font-[family-name:var(--font-radnika)] text-sm text-white/50 transition-colors hover:text-white/80"
                   >
                     {item.name}
                   </Link>
@@ -66,7 +66,7 @@ export function Footer() {
           </div>
 
           <div>
-            <h3 className="font-[family-name:var(--font-radnika)] text-sm font-medium text-text-primary">
+            <h3 className="font-[family-name:var(--font-radnika)] text-sm font-medium text-white">
               Company
             </h3>
             <ul className="mt-4 space-y-3">
@@ -74,7 +74,7 @@ export function Footer() {
                 <li key={item.name}>
                   <Link
                     href={item.href}
-                    className="font-[family-name:var(--font-radnika)] text-sm text-text-tertiary transition-colors hover:text-text-secondary"
+                    className="font-[family-name:var(--font-radnika)] text-sm text-white/50 transition-colors hover:text-white/80"
                   >
                     {item.name}
                   </Link>
@@ -84,7 +84,7 @@ export function Footer() {
           </div>
 
           <div>
-            <h3 className="font-[family-name:var(--font-radnika)] text-sm font-medium text-text-primary">
+            <h3 className="font-[family-name:var(--font-radnika)] text-sm font-medium text-white">
               Resources
             </h3>
             <ul className="mt-4 space-y-3">
@@ -92,7 +92,7 @@ export function Footer() {
                 <li key={item.name}>
                   <Link
                     href={item.href}
-                    className="font-[family-name:var(--font-radnika)] text-sm text-text-tertiary transition-colors hover:text-text-secondary"
+                    className="font-[family-name:var(--font-radnika)] text-sm text-white/50 transition-colors hover:text-white/80"
                   >
                     {item.name}
                   </Link>
@@ -102,7 +102,7 @@ export function Footer() {
           </div>
 
           <div>
-            <h3 className="font-[family-name:var(--font-radnika)] text-sm font-medium text-text-primary">
+            <h3 className="font-[family-name:var(--font-radnika)] text-sm font-medium text-white">
               Legal
             </h3>
             <ul className="mt-4 space-y-3">
@@ -110,7 +110,7 @@ export function Footer() {
                 <li key={item.name}>
                   <Link
                     href={item.href}
-                    className="font-[family-name:var(--font-radnika)] text-sm text-text-tertiary transition-colors hover:text-text-secondary"
+                    className="font-[family-name:var(--font-radnika)] text-sm text-white/50 transition-colors hover:text-white/80"
                   >
                     {item.name}
                   </Link>
@@ -121,8 +121,8 @@ export function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-12 border-t border-stone/20 pt-8">
-          <p className="font-[family-name:var(--font-radnika)] text-xs text-text-tertiary">
+        <div className="mt-12 border-t border-white/10 pt-8">
+          <p className="font-[family-name:var(--font-radnika)] text-xs text-white/40">
             &copy; {new Date().getFullYear()} Elite Eats Inc. All rights reserved.
           </p>
         </div>
