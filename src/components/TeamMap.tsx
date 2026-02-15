@@ -94,12 +94,12 @@ const teamCities: { name: string; coordinates: [number, number] }[] = [
 
 export function TeamMap() {
   return (
-    <section className="bg-dark-azure py-16 lg:py-20">
+    <section className="bg-dark-azure py-14 lg:py-8">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-12">
+        <div className="grid items-center gap-8 lg:grid-cols-4 lg:gap-0">
           {/* Text Content */}
           <div>
-            <p className="mb-3 font-[family-name:var(--font-radnika)] text-sm tracking-wide text-white/60">
+            <p className="mb-3 font-[family-name:var(--font-radnika)] text-sm tracking-wide text-white/80">
               Coverage
             </p>
             <h2 className="font-[family-name:var(--font-radnika)] text-3xl font-medium -tracking-[0.02em] text-white sm:text-4xl lg:text-5xl">
@@ -111,7 +111,7 @@ export function TeamMap() {
           </div>
 
           {/* Map */}
-          <div className="relative lg:-my-12 lg:-mr-8">
+          <div className="relative lg:col-span-3 lg:-my-12 lg:-mr-8">
             <ComposableMap
               projection="geoAlbersUsa"
               projectionConfig={{
@@ -149,8 +149,8 @@ export function TeamMap() {
                       geography={geo}
                       fill="transparent"
                       stroke="#ffffff"
-                      strokeWidth={0.5}
-                      strokeOpacity={0.25}
+                      strokeWidth={0.65}
+                      strokeOpacity={0.5}
                       style={{
                         default: { outline: "none" },
                         hover: { outline: "none" },
