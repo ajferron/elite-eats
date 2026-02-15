@@ -56,7 +56,7 @@ export function ValueProposition() {
         <div className="mb-6 overflow-hidden rounded-3xl bg-dark-azure">
           <div className="grid lg:grid-cols-2">
             {/* Content */}
-            <div className="flex flex-col justify-between p-8 lg:p-12">
+            <div className="flex flex-col justify-between p-6 lg:p-8">
               <div>
                 <span className="inline-flex items-center gap-2 rounded-full bg-yellow-green px-4 py-1.5 font-[family-name:var(--font-radnika)] text-xs font-medium text-charcoal">
                   <span className="h-1.5 w-1.5 rounded-full bg-charcoal"></span>
@@ -89,7 +89,7 @@ export function ValueProposition() {
                     <p className="font-[family-name:var(--font-radnika)] text-4xl font-medium text-yellow-green lg:text-5xl">
                       {stat.value}
                     </p>
-                    <p className="mt-1 font-[family-name:var(--font-radnika)] text-sm text-white/60">
+                    <p className="mt-1 font-[family-name:var(--font-radnika)] text-sm text-white/80">
                       {stat.label}
                     </p>
                   </div>
@@ -127,7 +127,7 @@ export function ValueProposition() {
                 </span>
               </div>
             </div>
-            <div className="p-8 border border-stone/30 rounded-b-3xl">
+            <div className="p-6 lg:p-8 border border-stone/30 rounded-b-3xl">
               <h3 className="font-[family-name:var(--font-radnika)] text-2xl font-medium -tracking-[0.02em] text-text-primary">
                 {features[1].headline}
               </h3>
@@ -173,7 +173,7 @@ export function ValueProposition() {
                 </div>
               </div>
             </div>
-            <div className="p-8 border border-stone/30 rounded-b-3xl">
+            <div className="p-6 lg:p-8 border border-stone/30 rounded-b-3xl">
               <h3 className="font-[family-name:var(--font-radnika)] text-2xl font-medium -tracking-[0.02em] text-text-primary">
                 {features[2].headline}
               </h3>

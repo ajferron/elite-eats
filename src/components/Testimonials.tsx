@@ -166,7 +166,7 @@ export function Testimonials() {
 
               {/* Quote & Attribution */}
               <div className="flex flex-1 flex-col bg-white/[0.06]">
-                <blockquote className="mb-4 flex-1 font-[family-name:var(--font-radnika)] text-md p-6 leading-relaxed text-white/75">
+                <blockquote className="mb-4 flex-1 font-[family-name:var(--font-radnika)] text-md p-5 leading-relaxed text-white/75">
                   &ldquo;{testimonial.quote}&rdquo;
                 </blockquote>
 
