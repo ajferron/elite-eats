@@ -94,7 +94,7 @@ const teamCities: { name: string; coordinates: [number, number] }[] = [
 
 export function TeamMap() {
   return (
-    <section className="bg-dark-azure py-14 lg:py-8">
+    <section className="overflow-hidden bg-dark-azure py-14 lg:py-8">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="grid items-center gap-8 lg:grid-cols-4 lg:gap-0">
           {/* Text Content */}
@@ -111,7 +111,7 @@ export function TeamMap() {
           </div>
 
           {/* Map */}
-          <div className="relative lg:col-span-3 lg:-my-12 lg:-mr-8">
+          <div className="relative w-[112vw] ml-[calc(50%-56vw)] lg:col-span-3 lg:-my-12 lg:-mr-8 lg:ml-0 lg:w-auto">
             <ComposableMap
               projection="geoAlbersUsa"
               projectionConfig={{
