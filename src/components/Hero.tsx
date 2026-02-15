@@ -58,12 +58,12 @@ export function Hero() {
             <p className="mb-4 font-[family-name:var(--font-radnika)] text-sm tracking-wide text-white/70">
               {slides[activeSlide].categoryLabel}
             </p>
-            <h1 className="font-[family-name:var(--font-radnika)] text-4xl font-medium leading-[1.1] -tracking-[0.04em] text-white sm:text-5xl lg:text-6xl xl:text-7xl">
+            <h1 className="font-[family-name:var(--font-boston-angel)] text-6xl font-semi leading-[1.1] tracking-[0.01em] text-white sm:text-5xl lg:text-6xl xl:text-7xl">
               {slides[activeSlide].headline}
               <br />
               {slides[activeSlide].headlineAccent}
             </h1>
-            <p className="mt-6 max-w-lg font-[family-name:var(--font-radnika)] text-base leading-relaxed text-white/80 lg:text-lg">
+            <p className="mt-4 max-w-lg font-[family-name:var(--font-radnika)] text-base leading-relaxed text-white/80 lg:text-lg">
               {slides[activeSlide].cardDescription}
             </p>
 
