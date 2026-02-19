@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { SectionHeader } from "./SectionHeader";
 
 const steps = [
   {
@@ -63,22 +64,19 @@ export function HowItWorks() {
     >
       <div className="sticky top-20 flex h-[calc(100vh-5rem)] flex-col justify-center py-6 sm:py-12 lg:py-16">
         {/* Section Header */}
-        <div className="mx-auto mb-4 flex w-full max-w-7xl items-start justify-between px-6 sm:mb-8 lg:mb-12 lg:px-8">
-          <div>
-            <p className="mb-2 font-[family-name:var(--font-radnika)] text-xs tracking-wide text-text-tertiary sm:mb-3 sm:text-sm">
-              How It Works
-            </p>
-            <h2 className="font-[family-name:var(--font-radnika)] text-2xl font-medium -tracking-[0.02em] text-text-primary sm:text-3xl md:text-4xl lg:text-5xl">
-              Simple. Streamlined. Scalable.
-            </h2>
-          </div>
-          <button className="hidden flex-shrink-0 rounded-full bg-yellow-green px-6 py-3 font-[family-name:var(--font-radnika)] text-sm font-medium text-charcoal transition-colors hover:bg-yellow-green/90 md:block">
-            Get Started
-          </button>
+        <div className="container-section mb-4 sm:mb-8 lg:mb-12">
+          <SectionHeader
+            label="How It Works"
+            heading="Simple. Streamlined. Scalable."
+          >
+            <button className="btn-primary hidden flex-shrink-0 md:block">
+              Get Started
+            </button>
+          </SectionHeader>
         </div>
 
         {/* Card Container */}
-        <div className="mx-auto grid w-full max-w-7xl flex-1 grid-cols-1 gap-4 overflow-hidden px-6 lg:gap-6 lg:grid-cols-2 lg:px-8">
+        <div className="container-section grid w-full flex-1 grid-cols-1 gap-4 overflow-hidden lg:gap-6 lg:grid-cols-2">
           {/* Image Side - hidden on mobile to give more room for content */}
           <div className="relative hidden overflow-hidden rounded-2xl bg-cream lg:block">
             {steps.map((step, index) => (
@@ -90,7 +88,7 @@ export function HowItWorks() {
               >
                 {/* Placeholder - replace with actual image */}
                 <div className="flex h-full w-full items-center justify-center bg-cream-dark">
-                  <span className="font-[family-name:var(--font-radnika)] text-sm text-stone">
+                  <span className="font-sans text-sm text-stone">
                     Step {step.number} Image
                   </span>
                 </div>
@@ -110,14 +108,14 @@ export function HowItWorks() {
                 }`}
               >
                 {/* Step Counter */}
-                <span className="font-[family-name:var(--font-radnika)] text-sm font-medium text-text-tertiary">
+                <span className="font-sans text-sm font-medium text-text-tertiary">
                   {step.number}/{String(steps.length).padStart(2, "0")}
                 </span>
 
                 {/* Main Content */}
                 <div>
                   {/* Title */}
-                  <h3 className="mb-4 font-[family-name:var(--font-radnika)] text-xl font-medium -tracking-[0.02em] text-text-primary sm:mb-6 sm:text-2xl lg:text-3xl">
+                  <h3 className="mb-4 font-sans text-xl font-medium -tracking-[0.02em] text-text-primary sm:mb-6 sm:text-2xl lg:text-3xl">
                     {step.title}
                   </h3>
 
@@ -126,7 +124,7 @@ export function HowItWorks() {
                     {step.tags.map((tag) => (
                       <span
                         key={tag}
-                        className="inline-flex items-center gap-1.5 rounded-full bg-dark-azure/10 px-3 py-1.5 font-[family-name:var(--font-radnika)] text-xs text-dark-azure"
+                        className="tag-azure"
                       >
                         <span className="h-1.5 w-1.5 rounded-full bg-dark-azure"></span>
                         {tag}
@@ -135,12 +133,12 @@ export function HowItWorks() {
                   </div>
 
                   {/* Description */}
-                  <p className="mb-4 font-[family-name:var(--font-radnika)] text-sm leading-relaxed text-text-tertiary sm:mb-6 sm:text-base lg:text-lg">
+                  <p className="mb-4 font-sans text-sm leading-relaxed text-text-tertiary sm:mb-6 sm:text-base lg:text-lg">
                     {step.description}
                   </p>
 
                   {/* CTA Button */}
-                  <button className="w-full rounded-full bg-dark-azure px-6 py-2.5 font-[family-name:var(--font-radnika)] text-sm font-medium text-white transition-colors hover:bg-dark-azure/90">
+                  <button className="btn-secondary w-full">
                     Learn More
                   </button>
                 </div>

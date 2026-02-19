@@ -138,6 +138,38 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* ============================================
+   REUSABLE UTILITIES
+   ============================================ */
+
+@utility container-section {
+  @apply mx-auto max-w-[88rem] px-6 lg:px-8;
+}
+
+@utility heading-section {
+  @apply font-sans text-3xl font-medium -tracking-[0.02em] sm:text-4xl lg:text-5xl;
+}
+
+@utility label-section {
+  @apply font-sans text-sm tracking-widest uppercase text-text-tertiary;
+}
+
+@utility btn-primary {
+  @apply rounded-full bg-yellow-green px-7 py-3.5 font-sans text-sm font-medium text-charcoal transition-all hover:bg-yellow-green/90 hover:shadow-lg hover:shadow-yellow-green/25;
+}
+
+@utility btn-secondary {
+  @apply rounded-full bg-dark-azure px-6 py-2.5 font-sans text-sm font-medium text-white transition-colors hover:bg-dark-azure/90;
+}
+
+@utility badge-accent {
+  @apply inline-flex items-center gap-2 rounded-full bg-yellow-green px-3 py-1 font-sans text-xs font-medium text-charcoal;
+}
+
+@utility tag-azure {
+  @apply inline-flex items-center gap-1.5 rounded-full bg-dark-azure/10 px-3 py-1.5 font-sans text-xs text-dark-azure;
+}
+
 /* Logo inversion for dark mode */
 @media (prefers-color-scheme: dark) {
   .logo-adaptive {

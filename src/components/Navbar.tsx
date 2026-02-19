@@ -11,6 +11,13 @@ const BLUR_STEPS = [
   { blur: 16, stop: "30%" },
 ];
 
+const NAV_LINKS = [
+  { label: "Getting Started", href: "#" },
+  { label: "About Us", href: "#" },
+  { label: "Press", href: "#" },
+  { label: "Contact", href: "#" },
+];
+
 export function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -23,6 +30,10 @@ export function Navbar() {
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const linkColor = isScrolled
+    ? "text-text-secondary hover:text-text-primary"
+    : "text-white/80 hover:text-white";
 
   return (
     <nav
@@ -57,7 +68,7 @@ export function Navbar() {
         />
       </div>
 
-      <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
+      <div className="container-section relative">
         <div className="flex h-20 items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center">
@@ -75,63 +86,28 @@ export function Navbar() {
 
           {/* Desktop Navigation - Centered */}
           <div className="hidden md:flex md:items-center md:gap-10">
-            <Link
-              href="#"
-              className={`font-[family-name:var(--font-radnika)] text-sm transition-colors ${
-                isScrolled
-                  ? "text-text-secondary hover:text-text-primary"
-                  : "text-white/80 hover:text-white"
-              }`}
-            >
-              Getting Started
-            </Link>
-            <Link
-              href="#"
-              className={`font-[family-name:var(--font-radnika)] text-sm transition-colors ${
-                isScrolled
-                  ? "text-text-secondary hover:text-text-primary"
-                  : "text-white/80 hover:text-white"
-              }`}
-            >
-              About Us
-            </Link>
-            <Link
-              href="#"
-              className={`font-[family-name:var(--font-radnika)] text-sm transition-colors ${
-                isScrolled
-                  ? "text-text-secondary hover:text-text-primary"
-                  : "text-white/80 hover:text-white"
-              }`}
-            >
-              Press
-            </Link>
-            <Link
-              href="#"
-              className={`font-[family-name:var(--font-radnika)] text-sm transition-colors ${
-                isScrolled
-                  ? "text-text-secondary hover:text-text-primary"
-                  : "text-white/80 hover:text-white"
-              }`}
-            >
-              Contact
-            </Link>
+            {NAV_LINKS.map((link) => (
+              <Link
+                key={link.label}
+                href={link.href}
+                className={`font-sans text-sm transition-colors ${linkColor}`}
+              >
+                {link.label}
+              </Link>
+            ))}
           </div>
 
           {/* Right Side - Auth Buttons */}
           <div className="hidden md:flex md:items-center md:gap-6">
             <Link
               href="#"
-              className={`font-[family-name:var(--font-radnika)] text-sm transition-colors ${
-                isScrolled
-                  ? "text-text-secondary hover:text-text-primary"
-                  : "text-white/80 hover:text-white"
-              }`}
+              className={`font-sans text-sm transition-colors ${linkColor}`}
             >
               Log In
             </Link>
             <Link
               href="#"
-              className={`rounded-full px-6 py-2.5 font-[family-name:var(--font-radnika)] text-sm transition-all ${
+              className={`rounded-full px-6 py-2.5 font-sans text-sm transition-all ${
                 isScrolled
                   ? "bg-charcoal text-white hover:bg-dark-azure/90"
                   : "bg-white text-charcoal hover:bg-white/90"
@@ -192,46 +168,15 @@ export function Navbar() {
             }`}
           >
             <div className="flex flex-col gap-5">
-              <Link
-                href="#"
-                className={`font-[family-name:var(--font-radnika)] text-base ${
-                  isScrolled
-                    ? "text-text-secondary hover:text-text-primary"
-                    : "text-white/80 hover:text-white"
-                }`}
-              >
-                Getting Started
-              </Link>
-              <Link
-                href="#"
-                className={`font-[family-name:var(--font-radnika)] text-base ${
-                  isScrolled
-                    ? "text-text-secondary hover:text-text-primary"
-                    : "text-white/80 hover:text-white"
-                }`}
-              >
-                About Us
-              </Link>
-              <Link
-                href="#"
-                className={`font-[family-name:var(--font-radnika)] text-base ${
-                  isScrolled
-                    ? "text-text-secondary hover:text-text-primary"
-                    : "text-white/80 hover:text-white"
-                }`}
-              >
-                Press
-              </Link>
-              <Link
-                href="#"
-                className={`font-[family-name:var(--font-radnika)] text-base ${
-                  isScrolled
-                    ? "text-text-secondary hover:text-text-primary"
-                    : "text-white/80 hover:text-white"
-                }`}
-              >
-                Contact
-              </Link>
+              {NAV_LINKS.map((link) => (
+                <Link
+                  key={link.label}
+                  href={link.href}
+                  className={`font-sans text-base ${linkColor}`}
+                >
+                  {link.label}
+                </Link>
+              ))}
               <div
                 className={`flex flex-col gap-4 pt-5 ${
                   isScrolled
@@ -241,17 +186,13 @@ export function Navbar() {
               >
                 <Link
                   href="#"
-                  className={`font-[family-name:var(--font-radnika)] text-base ${
-                    isScrolled
-                      ? "text-text-secondary hover:text-text-primary"
-                      : "text-white/80 hover:text-white"
-                  }`}
+                  className={`font-sans text-base ${linkColor}`}
                 >
                   Log In
                 </Link>
                 <Link
                   href="#"
-                  className={`rounded-full px-5 py-2.5 text-center font-[family-name:var(--font-radnika)] text-sm ${
+                  className={`rounded-full px-5 py-2.5 text-center font-sans text-sm ${
                     isScrolled
                       ? "bg-dark-azure text-white"
                       : "bg-white text-charcoal"

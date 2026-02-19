@@ -7,6 +7,7 @@ import { Pagination } from "swiper/modules";
 import type { Swiper as SwiperType } from "swiper";
 import "swiper/css";
 import "swiper/css/pagination";
+import { SectionHeader } from "./SectionHeader";
 
 const testimonials = [
   {
@@ -105,35 +106,32 @@ export function Testimonials() {
   return (
     <section className="overflow-x-clip bg-black py-16 lg:py-18">
       {/* Section Header with Navigation — contained */}
-      <div className="mx-auto mb-10 flex max-w-7xl items-end justify-between px-6 lg:mb-14 lg:px-8">
-        <div>
-          <p className="mb-3 font-[family-name:var(--font-radnika)] text-sm tracking-wide text-white/50">
-            Testimonials
-          </p>
-          <h2 className="font-[family-name:var(--font-radnika)] text-3xl font-medium -tracking-[0.02em] text-white sm:text-4xl lg:text-5xl">
-            Trusted by the Best
-          </h2>
-        </div>
-
-        {/* Ghost Navigation Buttons */}
-        <div className="flex gap-2">
-          <button
-            onClick={() => swiperInstance?.slidePrev()}
-            disabled={isBeginning}
-            className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 text-white/60 transition-all hover:border-white/50 hover:text-white disabled:cursor-default disabled:opacity-30 disabled:hover:border-white/20 disabled:hover:text-white/60"
-            aria-label="Previous testimonial"
-          >
-            <ChevronLeft />
-          </button>
-          <button
-            onClick={() => swiperInstance?.slideNext()}
-            disabled={isEnd}
-            className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 text-white/60 transition-all hover:border-white/50 hover:text-white disabled:cursor-default disabled:opacity-30 disabled:hover:border-white/20 disabled:hover:text-white/60"
-            aria-label="Next testimonial"
-          >
-            <ChevronRight />
-          </button>
-        </div>
+      <div className="container-section mb-10 lg:mb-14">
+        <SectionHeader
+          label="Testimonials"
+          heading="Trusted by the Best"
+          headingColor="text-white"
+          labelColor="text-white/50"
+        >
+          <div className="flex gap-2">
+            <button
+              onClick={() => swiperInstance?.slidePrev()}
+              disabled={isBeginning}
+              className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 text-white/60 transition-all hover:border-white/50 hover:text-white disabled:cursor-default disabled:opacity-30 disabled:hover:border-white/20 disabled:hover:text-white/60"
+              aria-label="Previous testimonial"
+            >
+              <ChevronLeft />
+            </button>
+            <button
+              onClick={() => swiperInstance?.slideNext()}
+              disabled={isEnd}
+              className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 text-white/60 transition-all hover:border-white/50 hover:text-white disabled:cursor-default disabled:opacity-30 disabled:hover:border-white/20 disabled:hover:text-white/60"
+              aria-label="Next testimonial"
+            >
+              <ChevronRight />
+            </button>
+          </div>
+        </SectionHeader>
       </div>
 
       {/* Swiper Carousel — full viewport width */}
@@ -166,15 +164,15 @@ export function Testimonials() {
 
               {/* Quote & Attribution */}
               <div className="flex flex-1 flex-col bg-white/[0.06]">
-                <blockquote className="mb-4 flex-1 font-[family-name:var(--font-radnika)] text-md p-5 leading-relaxed text-white/75">
+                <blockquote className="mb-4 flex-1 font-sans text-md p-5 leading-relaxed text-white/75">
                   &ldquo;{testimonial.quote}&rdquo;
                 </blockquote>
 
                 <div className="border-t border-white/10 p-5">
-                  <p className="font-[family-name:var(--font-boston-angel)] text-xl font-medium text-white">
+                  <p className="font-display text-xl font-medium text-white">
                     {testimonial.name}
                   </p>
-                  <p className="font-[family-name:var(--font-radnika)] text-sm text-white/45">
+                  <p className="font-sans text-sm text-white/45">
                     {testimonial.role} &middot; {testimonial.team}
                   </p>
                 </div>

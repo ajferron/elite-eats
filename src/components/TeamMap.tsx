@@ -6,6 +6,7 @@ import {
   Geography,
   Marker,
 } from "react-simple-maps";
+import { SectionHeader } from "./SectionHeader";
 
 // US Atlas TopoJSON - freely available from US Census
 const geoUrl = "https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json";
@@ -95,17 +96,17 @@ const teamCities: { name: string; coordinates: [number, number] }[] = [
 export function TeamMap() {
   return (
     <section className="overflow-hidden bg-dark-azure py-14 lg:py-8">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+      <div className="container-section">
         <div className="grid items-center gap-8 lg:grid-cols-4 lg:gap-0">
           {/* Text Content */}
           <div>
-            <p className="mb-3 font-[family-name:var(--font-radnika)] text-sm tracking-wide text-white/80">
-              Coverage
-            </p>
-            <h2 className="font-[family-name:var(--font-radnika)] text-3xl font-medium -tracking-[0.02em] text-white sm:text-4xl lg:text-5xl">
-              Coast to Coast
-            </h2>
-            <p className="mt-4 font-[family-name:var(--font-radnika)] text-lg text-white/70">
+            <SectionHeader
+              label="Coverage"
+              heading="Coast to Coast"
+              headingColor="text-white"
+              labelColor="text-white/80"
+            />
+            <p className="mt-4 text-lg text-white/70">
               Supporting 150+ professional teams across 65 cities nationwide
             </p>
           </div>

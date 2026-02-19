@@ -7,3 +7,4 @@ export { Testimonials } from "./Testimonials";
 export { TeamMap } from "./TeamMap";
 export { CTA } from "./CTA";
 export { Footer } from "./Footer";
+export { SectionHeader } from "./SectionHeader";

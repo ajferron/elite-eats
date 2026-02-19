@@ -55,29 +55,26 @@ export function Hero() {
         <div className="flex items-start justify-between">
           {/* Headline - Top Left */}
           <div className="max-w-3xl">
-            <p className="mb-4 font-[family-name:var(--font-radnika)] text-sm tracking-wide text-white/70">
+            <p className="mb-4 font-sans text-sm tracking-wide text-white/70">
               {slides[activeSlide].categoryLabel}
             </p>
-            <h1 className="font-[family-name:var(--font-boston-angel)] text-6xl font-semi leading-[1.1] tracking-[0.01em] text-white sm:text-5xl lg:text-6xl xl:text-7xl">
+            <h1 className="font-display text-6xl font-semi leading-[1.1] tracking-[0.01em] text-white sm:text-5xl lg:text-6xl xl:text-7xl">
               {slides[activeSlide].headline}
               <br />
               {slides[activeSlide].headlineAccent}
             </h1>
-            <p className="mt-4 max-w-lg font-[family-name:var(--font-radnika)] text-base leading-relaxed text-white/80 lg:text-lg">
+            <p className="mt-4 max-w-lg font-sans text-base leading-relaxed text-white/80 lg:text-lg">
               {slides[activeSlide].cardDescription}
             </p>
 
             {/* CTA Button - yellow-green accent */}
             <div className="mt-10 flex items-center gap-4">
-              <a
-                href="#"
-                className="inline-block rounded-full bg-yellow-green px-7 py-3.5 font-[family-name:var(--font-radnika)] text-sm text-charcoal transition-all hover:bg-yellow-green/90 hover:shadow-lg hover:shadow-yellow-green/25"
-              >
+              <a href="#" className="btn-primary inline-block">
                 Get Started
               </a>
               <a
                 href="#"
-                className="inline-block font-[family-name:var(--font-radnika)] text-sm text-white/90 transition-colors hover:text-white"
+                className="inline-block font-sans text-sm text-white/90 transition-colors hover:text-white"
               >
                 Learn More →
               </a>
@@ -106,28 +103,28 @@ export function Hero() {
         <div className="flex items-end justify-between">
           <div className="flex items-center gap-8">
             <div className="text-center">
-              <p className="font-[family-name:var(--font-radnika)] text-3xl font-medium text-white lg:text-4xl">
+              <p className="font-sans text-3xl font-medium text-white lg:text-4xl">
                 150+
               </p>
-              <p className="mt-1 mr-1 font-[family-name:var(--font-radnika)] text-sm text-white/80">
+              <p className="mt-1 mr-1 font-sans text-sm text-white/80">
                 Pro Teams
               </p>
             </div>
             <div className="h-8 w-px bg-white/20"></div>
             <div className="text-center">
-              <p className="font-[family-name:var(--font-radnika)] text-3xl font-medium text-white lg:text-4xl">
+              <p className="font-sans text-3xl font-medium text-white lg:text-4xl">
                 760
               </p>
-              <p className="mt-1 font-[family-name:var(--font-radnika)] text-sm text-white/80">
+              <p className="mt-1 font-sans text-sm text-white/80">
                 Fueling Partners
               </p>
             </div>
             <div className="h-8 w-px bg-white/20"></div>
             <div className="text-center">
-              <p className="font-[family-name:var(--font-radnika)] text-3xl font-medium text-white lg:text-4xl">
+              <p className="font-sans text-3xl font-medium text-white lg:text-4xl">
                 65
               </p>
-              <p className="mt-1 font-[family-name:var(--font-radnika)] text-sm text-white/80">
+              <p className="mt-1 font-sans text-sm text-white/80">
                 Cities
               </p>
             </div>
@@ -135,7 +132,7 @@ export function Hero() {
 
           {/* Scroll indicator */}
           <div className="hidden items-center gap-2 text-white/80 lg:flex">
-            <span className="font-[family-name:var(--font-radnika)] text-xs uppercase tracking-wider">
+            <span className="font-sans text-xs uppercase tracking-wider">
               Scroll
             </span>
             <svg

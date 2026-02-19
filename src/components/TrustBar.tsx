@@ -19,7 +19,7 @@ export function TrustBar() {
   return (
     <section className="w-full overflow-hidden py-10 lg:py-12">
       {/* Subtle header */}
-      <p className="mb-8 text-center font-[family-name:var(--font-radnika)] text-xs tracking-widest uppercase text-text-tertiary lg:mb-10">
+      <p className="label-section mb-8 text-center text-xs lg:mb-10">
         Trusted by teams across 8 major leagues
       </p>
 
