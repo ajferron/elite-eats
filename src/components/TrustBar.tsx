@@ -34,7 +34,7 @@ function LeagueItem({ abbr, name }: { abbr: string; name: string }) {
 
 export function TrustBar() {
   return (
-    <section className="w-full overflow-hidden py-10 lg:py-12">
+    <section className="w-full overflow-hidden pt-12 pb-6">
       <p className="label-section mb-8 text-center text-sm lg:mb-10">
         Trusted by teams across major professional &amp; collegiate leagues
       </p>
