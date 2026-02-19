@@ -1,42 +1,59 @@
-import Image from "next/image";
-
-const logos = [
-  { src: "/images/trust-bar/nfl-1.webp", alt: "NFL Team" },
-  { src: "/images/trust-bar/mlb-1.svg", alt: "MLB Team" },
-  { src: "/images/trust-bar/mls-1.webp", alt: "MLS Team" },
-  { src: "/images/trust-bar/nfl-2.webp", alt: "NFL Team" },
-  { src: "/images/trust-bar/mlb-2.svg", alt: "MLB Team" },
-  { src: "/images/trust-bar/mls-2.webp", alt: "MLS Team" },
-  { src: "/images/trust-bar/nfl-3.webp", alt: "NFL Team" },
-  { src: "/images/trust-bar/mlb-3.svg", alt: "MLB Team" },
-  { src: "/images/trust-bar/mls-3.webp", alt: "MLS Team" },
-  { src: "/images/trust-bar/nfl-4.webp", alt: "NFL Team" },
-  { src: "/images/trust-bar/mlb-4.svg", alt: "MLB Team" },
-  { src: "/images/trust-bar/mls-4.webp", alt: "MLS Team" },
+const LEAGUES = [
+  { abbr: "MLB", name: "Major League Baseball" },
+  { abbr: "NBA", name: "National Basketball Association" },
+  { abbr: "NHL", name: "National Hockey League" },
+  { abbr: "MLS", name: "Major League Soccer" },
+  { abbr: "NFL", name: "National Football League" },
+  { abbr: "WNBA", name: "Women's National Basketball Association" },
+  { abbr: "NWSL", name: "National Women's Soccer League" },
+  { abbr: "PWHL", name: "Professional Women's Hockey League" },
+  { abbr: "LOVB", name: "League One Volleyball" },
+  { abbr: "MLR", name: "Major League Rugby" },
+  { abbr: "NCAA", name: "National Collegiate Athletic Association" },
 ];
+
+function LeagueItem({ abbr, name }: { abbr: string; name: string }) {
+  return (
+    <>
+      <span
+        title={name}
+        className="flex-shrink-0 text-xl font-black font-sans tracking-[0.05em] text-stone opacity-90 transition-opacity hover:opacity-100"
+        // style={{ fontFamily: "'Helvetica Neue', 'Arial', sans-serif" }}
+      >
+        {abbr}
+      </span>
+      <span
+        className="flex-shrink-0 text-stone/30 select-none"
+        aria-hidden="true"
+      >
+        ·
+      </span>
+    </>
+  );
+}
 
 export function TrustBar() {
   return (
     <section className="w-full overflow-hidden py-10 lg:py-12">
-      {/* Subtle header */}
-      <p className="label-section mb-8 text-center text-xs lg:mb-10">
-        Trusted by teams across 8 major leagues
+      <p className="label-section mb-8 text-center text-sm lg:mb-10">
+        Trusted by teams across major professional &amp; collegiate leagues
       </p>
 
       <div className="flex animate-scroll">
-        {/* Render logos twice for seamless infinite loop */}
-        {[...logos, ...logos].map((logo, index) => (
+        {/* Two identical sets — translateX(-50%) jumps back seamlessly */}
+        {[0, 1].map((copy) => (
           <div
-            key={index}
-            className="mx-3 flex h-12 w-32 flex-shrink-0 items-center justify-center opacity-50 grayscale transition-all hover:opacity-100 hover:grayscale-0 lg:mx-6 lg:h-14 lg:w-40"
+            key={copy}
+            className="flex flex-shrink-0 items-center gap-6 lg:gap-8"
+            aria-hidden={copy === 1 || undefined}
           >
-            <Image
-              src={logo.src}
-              alt={logo.alt}
-              width={160}
-              height={64}
-              className="h-full w-auto object-contain"
-            />
+            {LEAGUES.map((league) => (
+              <LeagueItem
+                key={league.abbr}
+                abbr={league.abbr}
+                name={league.name}
+              />
+            ))}
           </div>
         ))}
       </div>
