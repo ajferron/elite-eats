@@ -31,6 +31,16 @@
   --color-sage-light: #E8EBE4;     /* Light sage for backgrounds */
   --color-stone: #9A9590;          /* Warmed up — borders, muted elements */
   --color-charcoal: #242424;       /* Warmed up — secondary text weight */
+
+  /* LAYOUT — Single source of truth for container dimensions */
+  --container-max-w: 88rem;
+  --container-px: 1.5rem;          /* px-6 */
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --container-px: 2rem;           /* lg:px-8 */
+  }
 }
 
 @theme inline {
@@ -143,7 +153,12 @@ body {
    ============================================ */
 
 @utility container-section {
-  @apply mx-auto max-w-[88rem] px-6 lg:px-8;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: var(--container-max-w);
+  padding-left: var(--container-px);
+  padding-right: var(--container-px);
 }
 
 @utility heading-section {
@@ -155,11 +170,11 @@ body {
 }
 
 @utility btn-primary {
-  @apply rounded-full bg-yellow-green px-7 py-3.5 font-sans text-sm font-medium text-charcoal transition-all hover:bg-yellow-green/90 hover:shadow-lg hover:shadow-yellow-green/25;
+  @apply rounded-full bg-yellow-green px-7 py-3.5 font-sans text-base font-medium text-charcoal transition-all hover:bg-yellow-green/90 hover:shadow-lg hover:shadow-yellow-green/25;
 }
 
 @utility btn-secondary {
-  @apply rounded-full bg-dark-azure px-6 py-2.5 font-sans text-sm font-medium text-white transition-colors hover:bg-dark-azure/90;
+  @apply rounded-full bg-dark-azure px-6 py-2.5 font-sans text-base font-medium text-white transition-colors hover:bg-dark-azure/90;
 }
 
 @utility badge-accent {
@@ -182,8 +197,8 @@ body {
    ============================================ */
 .testimonials-swiper {
   padding-bottom: 3rem !important;
-  padding-left: max(1.5rem, calc((100vw - 80rem) / 2 + 2rem)) !important;
-  padding-right: max(1.5rem, calc((100vw - 80rem) / 2 + 2rem)) !important;
+  padding-left: max(var(--container-px), calc((100vw - var(--container-max-w)) / 2 + var(--container-px))) !important;
+  padding-right: max(var(--container-px), calc((100vw - var(--container-max-w)) / 2 + var(--container-px))) !important;
 }
 
 .testimonials-swiper .swiper-wrapper {
@@ -191,19 +206,19 @@ body {
 }
 
 .testimonials-slide {
-  width: 360px !important;
+  width: 320px !important;
   height: auto !important;
 }
 
 @media (min-width: 640px) {
   .testimonials-slide {
-    width: 440px !important;
+    width: 380px !important;
   }
 }
 
 @media (min-width: 1024px) {
   .testimonials-slide {
-    width: 500px !important;
+    width: 420px !important;
   }
 }
 

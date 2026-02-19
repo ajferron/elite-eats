@@ -2,10 +2,9 @@ import Image from "next/image";
 
 export function CTA() {
   return (
-    <section className="relative overflow-hidden bg-charcoal px-8 py-20 lg:px-16 lg:py-28">
+    <section className="relative overflow-hidden bg-charcoal py-20 lg:py-28">
       {/* Background logo - blown up and angled */}
       <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
-      {/* <div className="pointer-events-none absolute right-[15%] inset-y-0 flex items-center"> */}
         <Image
           src="/logo-icon_lg.svg"
           alt=""
@@ -16,7 +15,7 @@ export function CTA() {
         />
       </div>
 
-      <div className="relative text-center">
+      <div className="container-section relative text-center">
         <h2 className="heading-section mx-auto max-w-2xl text-white">
           Have questions?
         </h2>

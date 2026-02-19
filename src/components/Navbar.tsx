@@ -90,7 +90,7 @@ export function Navbar() {
               <Link
                 key={link.label}
                 href={link.href}
-                className={`font-sans text-sm transition-colors ${linkColor}`}
+                className={`font-sans text-md transition-colors ${linkColor}`}
               >
                 {link.label}
               </Link>
@@ -101,13 +101,13 @@ export function Navbar() {
           <div className="hidden md:flex md:items-center md:gap-6">
             <Link
               href="#"
-              className={`font-sans text-sm transition-colors ${linkColor}`}
+              className={`font-sans text-md transition-colors ${linkColor}`}
             >
               Log In
             </Link>
             <Link
               href="#"
-              className={`rounded-full px-6 py-2.5 font-sans text-sm transition-all ${
+              className={`rounded-full px-6 py-2.5 font-sans text-md transition-all ${
                 isScrolled
                   ? "bg-charcoal text-white hover:bg-dark-azure/90"
                   : "bg-white text-charcoal hover:bg-white/90"

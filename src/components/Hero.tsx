@@ -50,12 +50,12 @@ export function Hero() {
       </div>
 
       {/* Content Overlay */}
-      <div className="relative z-10 mx-auto flex h-full max-w-7xl flex-col justify-between px-6 pb-12 pt-32 lg:px-8 lg:pb-16">
+      <div className="container-section relative z-10 flex h-full flex-col justify-between pb-12 pt-32 lg:pb-16">
         {/* Top Section */}
         <div className="flex items-start justify-between">
           {/* Headline - Top Left */}
           <div className="max-w-3xl">
-            <p className="mb-4 font-sans text-sm tracking-wide text-white/70">
+            <p className="mb-4 font-sans text-md tracking-wide text-white/85">
               {slides[activeSlide].categoryLabel}
             </p>
             <h1 className="font-display text-6xl font-semi leading-[1.1] tracking-[0.01em] text-white sm:text-5xl lg:text-6xl xl:text-7xl">
@@ -74,7 +74,7 @@ export function Hero() {
               </a>
               <a
                 href="#"
-                className="inline-block font-sans text-sm text-white/90 transition-colors hover:text-white"
+                className="inline-block font-sans text-md text-white/90 transition-colors hover:text-white"
               >
                 Learn More →
               </a>
