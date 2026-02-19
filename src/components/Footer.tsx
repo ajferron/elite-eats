@@ -29,7 +29,20 @@ export function Footer() {
   return (
     <footer className="bg-black">
       <div className="container-section py-16 lg:py-20">
-        <div className="grid grid-cols-2 gap-8 lg:grid-cols-5">
+        {/* CTA */}
+        <div className="mb-16 text-center">
+          <h2 className="heading-section text-white">Have questions?</h2>
+          <p className="mx-auto mt-4 max-w-xl text-base leading-relaxed text-white/60 lg:text-lg">
+            We&apos;d love to hear from you.
+          </p>
+          <div className="mt-8">
+            <a href="#" className="btn-primary px-8">
+              Contact Us
+            </a>
+          </div>
+        </div>
+
+        <div className="border-t border-white/10 pt-12 grid grid-cols-2 gap-8 lg:grid-cols-5">
           {/* Logo and tagline */}
           <div className="col-span-2 lg:col-span-1">
             <Link href="/" className="inline-block">

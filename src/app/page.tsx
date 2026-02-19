@@ -10,7 +10,7 @@ export default function Home() {
       <Testimonials />
       <TeamMap />
       <HowItWorks />
-      <CTA />
+      {/* <CTA /> */}
       <Footer />
     </>
   );
