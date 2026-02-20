@@ -126,6 +126,8 @@ export function ValueProposition() {
                 <p className="mt-4 text-lg leading-relaxed text-white/85">
                   {features[0].subheadline}
                 </p>
+              </div>
+              <div className="mt-12 flex gap-8 lg:gap-12">
                 <div className="mt-8 flex flex-wrap gap-2">
                   {features[0].tags.map((tag) => (
                     <span
@@ -136,16 +138,14 @@ export function ValueProposition() {
                     </span>
                   ))}
                 </div>
-              </div>
-              <div className="mt-12 flex gap-8 lg:gap-12">
-                {features[0].stats?.map((stat) => (
+                {/* {features[0].stats?.map((stat) => (
                   <div key={stat.label}>
                     <p className="font-sans text-3xl text-center font-medium text-yellow-green lg:text-5xl">
                       {stat.value}
                     </p>
                     <p className="mt-1 text-sm text-white/80 text-center">{stat.label}</p>
                   </div>
-                ))}
+                ))} */}
               </div>
             </div>
             <div className="relative min-h-[320px] lg:min-h-[480px]">
