@@ -16,7 +16,7 @@
   --color-dark-azure: #084664;     /* Primary anchor — buttons, headers, hero elements */
 
   /* ACCENT — Vibrant, used sparingly. Earns attention through restraint elsewhere. */
-  --color-yellow-green: #C4E500;   /* BOOSTED — Primary CTAs, highlights, energy */
+  --color-yellow-green: #9fc72e;   /* BOOSTED — Primary CTAs, highlights, energy */
 
   /* UTILITY — Secondary color, not competing for attention */
   --color-azure: #26abc7;          /* Links, hover states, subtle indicators */
@@ -117,7 +117,7 @@
     --color-dark-azure: #0A5A82;     /* Boosted for visibility on dark */
 
     /* ACCENT — Stays vibrant, earns attention */
-    --color-yellow-green: #C4E500;   /* Same vibrant accent */
+    --color-yellow-green: #9fc72e;   /* Same vibrant accent */
 
     /* UTILITY */
     --color-azure: #38BFD8;          /* Slightly boosted for dark bg */
