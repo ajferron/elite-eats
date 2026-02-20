@@ -58,7 +58,7 @@ export function Hero() {
             <p className="mb-4 font-sans text-md tracking-wide text-white/85">
               {slides[activeSlide].categoryLabel}
             </p>
-            <h1 className="font-display text-6xl font-semi leading-[1.1] tracking-[0.01em] text-white sm:text-5xl lg:text-6xl xl:text-7xl">
+            <h1 className="font-sans text-6xl font-medium leading-[1.1] -tracking-[0.08em] text-white sm:text-5xl lg:text-6xl xl:text-7xl">
               {slides[activeSlide].headline}
               <br />
               {slides[activeSlide].headlineAccent}
