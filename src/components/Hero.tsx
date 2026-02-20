@@ -6,8 +6,8 @@ import Image from "next/image";
 const slides = [
   {
     id: 1,
-    headline: "Your team's nutrition,",
-    headlineAccent: "handled.",
+    headline: "Team trusted",
+    headlineAccent: "athlete catering",
     categoryLabel: "Pro Team Catering",
     cardDescription:
       "Unlock your athletes' potential with vetted nutrition partners and world-class catering.",

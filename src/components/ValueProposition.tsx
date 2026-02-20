@@ -34,7 +34,7 @@ Created by a Sport RD.  Platform is specifically designed for athlete catering.`
       { value: "760+", label: "Fueling Partners" },
     ],
     tags: ["Credentialed", "Experienced", "Team-Approved"],
-    image: "/images/value-props/feature-1.png",
+    image: "/images/value-props/feature-4.png",
   },
   {
     id: 2,
@@ -185,10 +185,10 @@ export function ValueProposition() {
         <LargeFeatureCard feature={features[1]} />
 
         {/* Features 2 & 3 - Two-column cards */}
-        <div className="grid gap-6 lg:grid-cols-2">
+        {/* <div className="grid gap-6 lg:grid-cols-2">
           <FeatureCard feature={features[2]} />
           <FeatureCard feature={features[3]} />
-        </div>
+        </div> */}
       </div>
     </section>
   );
