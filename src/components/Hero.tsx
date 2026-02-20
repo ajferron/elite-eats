@@ -34,7 +34,7 @@ export function Hero() {
   const [activeSlide, setActiveSlide] = useState(0);
 
   return (
-    <section className="relative h-screen w-full">
+    <section className="relative h-[90vh] w-full">
       {/* Background Image - full viewport */}
       <div className="absolute inset-0">
         <Image
@@ -50,7 +50,7 @@ export function Hero() {
       </div>
 
       {/* Content Overlay */}
-      <div className="container-section relative z-10 flex h-full flex-col justify-between pb-12 pt-32 lg:pb-16">
+      <div className="container-section relative z-10 flex h-full flex-col justify-between pb-12 pt-32 mt-18 lg:pb-16">
         {/* Top Section */}
         <div className="flex items-start justify-between">
           {/* Headline - Top Left */}
