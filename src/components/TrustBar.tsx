@@ -17,7 +17,7 @@ function LeagueItem({ abbr, name }: { abbr: string; name: string }) {
     <>
       <span
         title={name}
-        className="flex-shrink-0 text-2xl lg:text-xl font-black font-sans tracking-[0.05em] text-stone opacity-90 transition-opacity hover:opacity-100"
+        className="flex-shrink-0 text-2xl lg:text-2xl font-black font-sans tracking-[0.05em] text-stone transition-opacity hover:opacity-100"
         // style={{ fontFamily: "'Helvetica Neue', 'Arial', sans-serif" }}
       >
         {abbr}
@@ -44,7 +44,7 @@ export function TrustBar() {
         {[0, 1].map((copy) => (
           <div
             key={copy}
-            className="flex flex-shrink-0 items-center gap-6 lg:gap-8"
+            className="flex flex-shrink-0 items-center gap-6 lg:gap-8 pr-6"
             aria-hidden={copy === 1 || undefined}
           >
             {LEAGUES.map((league) => (
