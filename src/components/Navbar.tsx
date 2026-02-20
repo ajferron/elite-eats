@@ -1,15 +1,8 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-
-const BLUR_STEPS = [
-  { blur: 2, stop: "100%" },
-  { blur: 4, stop: "80%" },
-  { blur: 8, stop: "55%" },
-  { blur: 16, stop: "30%" },
-];
 
 const NAV_LINKS = [
   { label: "Getting Started", href: "#" },
@@ -18,56 +11,13 @@ const NAV_LINKS = [
   { label: "Contact", href: "#" },
 ];
 
+const linkColor = "text-text-secondary hover:text-text-primary";
+
 export function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(true);
-
-  // useEffect(() => {
-  //   const handleScroll = () => {
-  //     setIsScrolled(window.scrollY > window.innerHeight * 0.85);
-  //   };
-
-  //   window.addEventListener("scroll", handleScroll, { passive: true });
-  //   return () => window.removeEventListener("scroll", handleScroll);
-  // }, []);
-
-  const linkColor = isScrolled
-    ? "text-text-secondary hover:text-text-primary"
-    : "text-white/80 hover:text-white";
 
   return (
-    <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-300 ${
-        isScrolled ? "bg-background border-b border-stone/20" : ""
-      }`}
-    >
-      {/* Progressive blur background — visible only over hero */}
-      <div
-        className="pointer-events-none absolute inset-x-0 top-0 -z-10 transition-opacity duration-300"
-        style={{ height: "10rem", opacity: isScrolled ? 0 : 1 }}
-      >
-        {BLUR_STEPS.map((step, i) => (
-          <div
-            key={i}
-            className="absolute inset-0"
-            style={{
-              backdropFilter: `blur(${step.blur}px)`,
-              WebkitBackdropFilter: `blur(${step.blur}px)`,
-              maskImage: `linear-gradient(to bottom, black 0%, transparent ${step.stop})`,
-              WebkitMaskImage: `linear-gradient(to bottom, black 0%, transparent ${step.stop})`,
-            }}
-          />
-        ))}
-        {/* Dark tint over hero for contrast */}
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              "linear-gradient(to bottom, rgba(0, 0, 0, 0.25) 30%, transparent 100%)",
-          }}
-        />
-      </div>
-
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-background border-b border-stone/20">
       <div className="container-section relative">
         <div className="flex h-20 items-center justify-between">
           {/* Logo */}
@@ -78,9 +28,7 @@ export function Navbar() {
               width={160}
               height={40}
               priority
-              className={`transition-all duration-300 ${
-                isScrolled ? "logo-adaptive" : "brightness-0 invert"
-              }`}
+              className="logo-adaptive"
             />
           </Link>
 
@@ -107,11 +55,7 @@ export function Navbar() {
             </Link>
             <Link
               href="#"
-              className={`rounded-full px-6 py-2.5 font-sans text-md transition-all ${
-                isScrolled
-                  ? "bg-charcoal text-white hover:bg-dark-azure/90"
-                  : "bg-white text-charcoal hover:bg-white/90"
-              }`}
+              className="rounded-full px-6 py-2.5 font-sans text-md transition-all bg-charcoal text-white hover:bg-dark-azure/90"
             >
               Sign Up
             </Link>
@@ -120,9 +64,7 @@ export function Navbar() {
           {/* Mobile menu button */}
           <button
             type="button"
-            className={`md:hidden p-2 transition-colors ${
-              isScrolled ? "text-text-secondary" : "text-white"
-            }`}
+            className="md:hidden p-2 text-text-secondary"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
             <span className="sr-only">Open menu</span>
@@ -160,13 +102,7 @@ export function Navbar() {
 
         {/* Mobile menu */}
         {mobileMenuOpen && (
-          <div
-            className={`md:hidden py-6 ${
-              isScrolled
-                ? "border-t border-stone/20 bg-background/90 backdrop-blur-md -mx-6 px-6"
-                : "border-t border-white/20 bg-charcoal/80 backdrop-blur-md -mx-6 px-6"
-            }`}
-          >
+          <div className="md:hidden py-6 border-t border-stone/20 bg-background/90 backdrop-blur-md -mx-6 px-6">
             <div className="flex flex-col gap-5">
               {NAV_LINKS.map((link) => (
                 <Link
@@ -177,13 +113,7 @@ export function Navbar() {
                   {link.label}
                 </Link>
               ))}
-              <div
-                className={`flex flex-col gap-4 pt-5 ${
-                  isScrolled
-                    ? "border-t border-stone/20"
-                    : "border-t border-white/20"
-                }`}
-              >
+              <div className="flex flex-col gap-4 pt-5 border-t border-stone/20">
                 <Link
                   href="#"
                   className={`font-sans text-base ${linkColor}`}
@@ -192,11 +122,7 @@ export function Navbar() {
                 </Link>
                 <Link
                   href="#"
-                  className={`rounded-full px-5 py-2.5 text-center font-sans text-sm ${
-                    isScrolled
-                      ? "bg-dark-azure text-white"
-                      : "bg-white text-charcoal"
-                  }`}
+                  className="rounded-full px-5 py-2.5 text-center font-sans text-sm bg-dark-azure text-white"
                 >
                   Sign Up
                 </Link>
