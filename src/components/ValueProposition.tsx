@@ -14,7 +14,7 @@ const features = [
       { value: "760+", label: "Fueling Partners" },
     ],
     tags: ["Credentialed", "Experienced", "Team-Approved"],
-    image: "/images/value-props/feature-1.jpg",
+    image: "/images/value-props/feature-1.png",
   },
   {
     id: 2,
@@ -112,7 +112,7 @@ export function ValueProposition() {
 
       <div className="container-section">
         {/* Feature 1 - Hero Card with dark-azure anchor */}
-        <div className="mb-6 overflow-hidden rounded-3xl bg-dark-azure">
+        <div className="mb-6 overflow-hidden rounded-3xl bg-darker-azure">
           <div className="grid lg:grid-cols-2">
             <div className="flex flex-col justify-between p-6 lg:p-8">
               <div>

@@ -14,6 +14,7 @@
 
   /* ANCHOR — Deep, saturated, premium. Grounds the brand. */
   --color-dark-azure: #084664;     /* Primary anchor — buttons, headers, hero elements */
+  --color-darker-azure: #032130;
 
   /* ACCENT — Vibrant, used sparingly. Earns attention through restraint elsewhere. */
   --color-yellow-green: #9fc72e;   /* BOOSTED — Primary CTAs, highlights, energy */
@@ -53,6 +54,7 @@
 
   /* ANCHOR — uses CSS vars so dark mode works */
   --color-dark-azure: var(--color-dark-azure);
+  --color-darker-azure: var(--color-darker-azure);
 
   /* ACCENT */
   --color-yellow-green: var(--color-yellow-green);
