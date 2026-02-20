@@ -17,7 +17,7 @@ function LeagueItem({ abbr, name }: { abbr: string; name: string }) {
     <>
       <span
         title={name}
-        className="flex-shrink-0 text-2xl lg:text-2xl font-black font-sans tracking-[0.05em] text-stone transition-opacity hover:opacity-100"
+        className="flex-shrink-0 text-2xl lg:text-2xl font-black font-sans tracking-[0.05em] text-dark-azure transition-opacity hover:opacity-100"
         // style={{ fontFamily: "'Helvetica Neue', 'Arial', sans-serif" }}
       >
         {abbr}
