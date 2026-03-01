@@ -1,0 +1,12 @@
+export { Navbar } from "./Navbar";
+export { Hero } from "./Hero";
+export { TrustBar } from "./TrustBar";
+export { ValueProposition } from "./ValueProposition";
+export { HowItWorks } from "./HowItWorks";
+export { Testimonials } from "./Testimonials";
+export { TeamMap } from "./TeamMap";
+export { USMap } from "./USMap";
+export { CTA } from "./CTA";
+export { FounderQuote } from "./FounderQuote";
+export { Footer } from "./Footer";
+export { SectionHeader } from "./SectionHeader";

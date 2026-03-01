@@ -1,0 +1,241 @@
+@import "tailwindcss";
+
+:root {
+  /* ==============================================
+     ELITE EATS COLOR SYSTEM
+     Three-tier hierarchy: Anchor + Foundation + Accent
+     ============================================== */
+
+  /* FOUNDATION — Warm neutrals that feel organic, not sterile */
+  --background: #F5F3EE;           /* Warmer than before, closer to sweetgreen's Spring Wood */
+  --foreground: #1C1917;           /* Warm near-black, not pure black */
+  --color-cream: #F5F3EE;          /* Primary surface */
+  --color-cream-dark: #EBE8E2;     /* Secondary surface, subtle depth */
+
+  /* ANCHOR — Deep, saturated, premium. Grounds the brand. */
+  --color-dark-azure: #084664;     /* Primary anchor — buttons, headers, hero elements */
+  --color-darker-azure: #032130;
+
+  /* ACCENT — Vibrant, used sparingly. Earns attention through restraint elsewhere. */
+  --color-yellow-green: #9fc72e;   /* BOOSTED — Primary CTAs, highlights, energy */
+
+  /* UTILITY — Secondary color, not competing for attention */
+  --color-azure: #26abc7;          /* Links, hover states, subtle indicators */
+
+  /* TINTED SURFACES — Section backgrounds with color, not grey */
+  --color-surface-sage: #DCE6DA;   /* Cool green tint — fresh, organic feel */
+  --color-surface-sand: #E8DCCA;   /* Warm tan tint — cozy, inviting */
+  --color-surface-azure: #DEEAEF;  /* Cool blue tint — derived from dark-azure */
+
+  /* NEUTRALS — Supporting cast */
+  --color-sage: #8B9A7D;           /* Muted green for subtle accents */
+  --color-sage-light: #E8EBE4;     /* Light sage for backgrounds */
+  --color-stone: #9A9590;          /* Warmed up — borders, muted elements */
+  --color-charcoal: #242424;       /* Warmed up — secondary text weight */
+
+  /* LAYOUT — Single source of truth for container dimensions */
+  --container-max-w: 88rem;
+  --container-px: 1.5rem;          /* px-6 */
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --container-px: 2rem;           /* lg:px-8 */
+  }
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-radnika);
+  --font-mono: var(--font-geist-mono);
+  --font-display: var(--font-boston-angel);
+  --font-accent: var(--font-have-heart);
+
+  /* ANCHOR — uses CSS vars so dark mode works */
+  --color-dark-azure: var(--color-dark-azure);
+  --color-darker-azure: var(--color-darker-azure);
+
+  /* ACCENT */
+  --color-yellow-green: var(--color-yellow-green);
+
+  /* UTILITY */
+  --color-azure: var(--color-azure);
+
+  /* SURFACES */
+  --color-cream: var(--color-cream);
+  --color-cream-dark: var(--color-cream-dark);
+
+  /* TINTED SURFACES — Section backgrounds */
+  --color-surface-sage: var(--color-surface-sage);
+  --color-surface-sand: var(--color-surface-sand);
+  --color-surface-azure: var(--color-surface-azure);
+
+  /* NEUTRALS */
+  --color-sage: var(--color-sage);
+  --color-sage-light: var(--color-sage-light);
+  --color-stone: var(--color-stone);
+  --color-charcoal: var(--color-charcoal);
+
+  /* TEXT — Warm hierarchy, not pure greys */
+  --color-text-primary: var(--color-text-primary);
+  --color-text-secondary: var(--color-text-secondary);
+  --color-text-tertiary: var(--color-text-tertiary);
+
+  /* Animations */
+  --animate-scroll: scroll 30s linear infinite;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Faster scroll animation on mobile */
+@media (max-width: 1023px) {
+  .animate-scroll {
+    animation-duration: 12s;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* ==============================================
+       DARK MODE COLOR SYSTEM
+       Inverted foundation, same accent energy
+       ============================================== */
+
+    /* FOUNDATION — Deep, warm darks */
+    --background: #0F0E0C;           /* Very dark warm brown */
+    --foreground: #E7E5E4;           /* Warm off-white */
+    --color-cream: #1A1816;          /* Primary dark surface */
+    --color-cream-dark: #121110;     /* Secondary dark surface */
+
+    /* ANCHOR — Slightly lighter for dark backgrounds */
+    --color-dark-azure: #0A5A82;     /* Boosted for visibility on dark */
+
+    /* ACCENT — Stays vibrant, earns attention */
+    --color-yellow-green: #9fc72e;   /* Same vibrant accent */
+
+    /* UTILITY */
+    --color-azure: #38BFD8;          /* Slightly boosted for dark bg */
+
+    /* TINTED SURFACES — Dark versions with subtle color */
+    --color-surface-sage: #1A211A;   /* Dark green tint */
+    --color-surface-sand: #221E18;   /* Dark tan tint */
+    --color-surface-azure: #141D24;  /* Dark blue tint */
+
+    /* NEUTRALS */
+    --color-sage: #7A8A6D;           /* Muted green, slightly lighter */
+    --color-sage-light: #252824;     /* Dark sage surface */
+    --color-stone: #6B6660;          /* Adjusted for dark mode */
+    --color-charcoal: #2A2724;       /* Elevated surface for cards/CTAs */
+
+    /* TEXT — Inverted hierarchy */
+    --color-text-primary: #E7E5E4;   /* Primary light text */
+    --color-text-secondary: #A8A29E; /* Secondary muted text */
+    --color-text-tertiary: #78716C;  /* Tertiary subtle text */
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ============================================
+   REUSABLE UTILITIES
+   ============================================ */
+
+@utility container-section {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: var(--container-max-w);
+  padding-left: var(--container-px);
+  padding-right: var(--container-px);
+}
+
+@utility heading-section {
+  @apply font-sans text-3xl font-medium -tracking-[0.02em] sm:text-4xl lg:text-5xl;
+}
+
+@utility label-section {
+  @apply font-sans text-sm tracking-widest uppercase text-text-tertiary;
+}
+
+@utility btn-primary {
+  @apply rounded-full bg-yellow-green px-7 py-3.5 font-sans text-base font-medium text-charcoal transition-all hover:bg-yellow-green/90 hover:shadow-lg hover:shadow-yellow-green/25;
+}
+
+@utility btn-secondary {
+  @apply rounded-full bg-dark-azure px-6 py-2.5 font-sans text-base font-medium text-white transition-colors hover:bg-dark-azure/90;
+}
+
+@utility badge-accent {
+  @apply inline-flex items-center gap-2 rounded-full bg-yellow-green px-3 py-1 font-sans text-xs font-medium text-charcoal;
+}
+
+@utility tag-azure {
+  @apply inline-flex items-center gap-1.5 rounded-full bg-dark-azure/10 px-3 py-1.5 font-sans text-xs text-dark-azure;
+}
+
+/* Logo inversion for dark mode */
+@media (prefers-color-scheme: dark) {
+  .logo-adaptive {
+    filter: invert(1) hue-rotate(180deg);
+  }
+}
+
+/* ============================================
+   TESTIMONIALS SWIPER OVERRIDES
+   ============================================ */
+.testimonials-swiper {
+  padding-bottom: 3rem !important;
+  padding-left: max(var(--container-px), calc((100vw - var(--container-max-w)) / 2 + var(--container-px))) !important;
+  padding-right: max(var(--container-px), calc((100vw - var(--container-max-w)) / 2 + var(--container-px))) !important;
+}
+
+.testimonials-swiper .swiper-wrapper {
+  align-items: stretch;
+}
+
+.testimonials-slide {
+  width: min(360px, calc(100vw - 2 * var(--container-px))) !important;
+  height: auto !important;
+}
+
+@media (min-width: 640px) {
+  .testimonials-slide {
+    width: 360px !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  .testimonials-slide {
+    width: 360px !important;
+  }
+}
+
+/* Pagination dots */
+.testimonials-swiper .swiper-pagination-bullet {
+  width: 8px;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.3);
+  opacity: 1;
+  transition: all 0.3s ease;
+}
+
+.testimonials-swiper .swiper-pagination-bullet-active {
+  background: rgba(255, 255, 255, 0.9);
+  width: 24px;
+  border-radius: 4px;
+}
+
