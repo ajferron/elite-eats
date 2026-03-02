@@ -27,7 +27,7 @@ const navigation: Record<string, { name: string; href: string }[]> = {
 
 export function Footer() {
   return (
-    <footer className="bg-black">
+    <footer className="bg-darker-azure">
       <div className="container-section py-16 lg:py-20">
         {/* CTA */}
         <div className="mb-16 text-center">
