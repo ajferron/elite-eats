@@ -10,3 +10,6 @@ export { CTA } from "./CTA";
 export { FounderQuote } from "./FounderQuote";
 export { Footer } from "./Footer";
 export { SectionHeader } from "./SectionHeader";
+export { GettingStartedHero } from "./GettingStartedHero";
+export { AudienceFeatures } from "./AudienceFeatures";
+export type { FeatureCard } from "./AudienceFeatures";

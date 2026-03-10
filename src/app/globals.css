@@ -187,6 +187,36 @@ body {
   @apply inline-flex items-center gap-1.5 rounded-full bg-dark-azure/10 px-3 py-1.5 font-sans text-xs text-dark-azure;
 }
 
+/* ============================================
+   AUDIENCE FEATURES SWIPER (Getting Started)
+   ============================================ */
+.features-swiper {
+  padding-left: 1.5rem !important;
+  padding-right: 1.5rem !important;
+}
+
+.features-slide {
+  width: min(248px, calc(100vw - 3rem)) !important;
+  height: auto !important;
+}
+
+@media (min-width: 640px) {
+  .features-slide {
+    width: 280px !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  .features-swiper {
+    padding-left: 2rem !important;
+    padding-right: 2rem !important;
+  }
+
+  .features-slide {
+    width: 300px !important;
+  }
+}
+
 /* Logo inversion for dark mode */
 @media (prefers-color-scheme: dark) {
   .logo-adaptive {
@@ -199,8 +229,8 @@ body {
    ============================================ */
 .testimonials-swiper {
   padding-bottom: 3rem !important;
-  padding-left: max(var(--container-px), calc((100vw - var(--container-max-w)) / 2 + var(--container-px))) !important;
-  padding-right: max(var(--container-px), calc((100vw - var(--container-max-w)) / 2 + var(--container-px))) !important;
+  padding-left: 1.5rem !important;
+  padding-right: 1.5rem !important;
 }
 
 .testimonials-swiper .swiper-wrapper {
