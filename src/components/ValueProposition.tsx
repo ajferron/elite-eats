@@ -43,7 +43,7 @@ function LargeFeatureCard({
             {feature.number}
           </span>
           <div>
-            <h3 className="mt-10 font-sans text-3xl font-medium -tracking-[0.02em] text-white lg:text-4xl">
+            <h3 className="mt-10 font-sans text-3xl font-medium -tracking-[0.08em] text-white lg:text-4xl">
               {feature.headline}
             </h3>
             <div className="mt-4 text-lg text-white/85">

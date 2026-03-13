@@ -46,10 +46,12 @@ export function AudienceFeatures({
 
           <Link
             href={ctaHref}
-            className="hidden shrink-0 items-center gap-2 rounded-full border border-yellow-green px-5 py-2.5 font-sans text-sm font-medium text-yellow-green transition-all hover:bg-yellow-green hover:text-charcoal sm:flex"
+            className="btn-primary hidden md:flex gap-2 py-2.5 px-5"
           >
             {ctaLabel}
-            <span aria-hidden="true">→</span>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3" />
+            </svg>
           </Link>
         </div>
 
@@ -57,10 +59,12 @@ export function AudienceFeatures({
         <div className="mt-6 sm:hidden">
           <Link
             href={ctaHref}
-            className="inline-flex items-center gap-2 rounded-full border border-yellow-green px-5 py-2.5 font-sans text-sm font-medium text-yellow-green transition-all hover:bg-yellow-green hover:text-charcoal"
+            className="btn-primary inline-flex gap-2 py-2.5 px-5"
           >
             {ctaLabel}
-            <span aria-hidden="true">→</span>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3" />
+            </svg>
           </Link>
         </div>
       </div>
@@ -82,13 +86,13 @@ export function AudienceFeatures({
                 className="object-cover"
               />
               {/* Gradient overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent" />
+              <div className="absolute inset-0" />
               {/* Text overlay */}
-              <div className="absolute bottom-0 left-0 right-0 p-5">
-                <h3 className="font-sans text-2xl font-medium leading-tight text-white">
+              <div className="absolute backdrop-blur-md bg-black/20 bottom-0 left-0 right-0 p-5 min-h-37">
+                <h3 className="font-sans text-3xl font-medium -tracking-[0.08em] leading-tight text-white">
                   {feature.title}
                 </h3>
-                <p className="mt-1.5 font-sans text-sm leading-snug text-white/75">
+                <p className="mt-1.5 font-sans text-md leading-snug text-white/80">
                   {feature.description}
                 </p>
               </div>

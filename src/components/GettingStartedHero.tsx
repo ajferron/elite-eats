@@ -15,11 +15,11 @@ export function GettingStartedHero() {
       />
 
       {/* Dark overlay */}
-      <div className="absolute inset-0 bg-charcoal/55" />
+      <div className="absolute inset-0 bg-charcoal/30" />
 
       {/* Content */}
       <div className="container-section relative z-10 flex min-h-[50vh] flex-col items-center justify-center py-16 text-center">
-        <h1 className="font-sans text-5xl font-medium -tracking-[0.04em] text-white sm:text-6xl lg:text-7xl">
+        <h1 className="font-sans text-5xl font-medium -tracking-[0.08em] text-white sm:text-6xl lg:text-7xl">
           Getting Started
         </h1>
 

@@ -34,7 +34,7 @@ export function Navbar() {
           </Link>
 
           {/* Desktop Navigation - Centered */}
-          <div className="hidden md:flex md:items-center md:gap-10">
+          <div className="hidden lg:flex md:items-center md:gap-10">
             {NAV_LINKS.map((link) => (
               <Link
                 key={link.label}
@@ -47,7 +47,7 @@ export function Navbar() {
           </div>
 
           {/* Right Side - Auth Buttons */}
-          <div className="hidden md:flex md:items-center md:gap-6">
+          <div className="hidden lg:flex md:items-center md:gap-6">
             <Link
               href="#"
               className={`font-sans text-md transition-colors ${linkColor}`}
@@ -65,7 +65,7 @@ export function Navbar() {
           {/* Mobile menu button */}
           <button
             type="button"
-            className="md:hidden p-2 text-text-secondary"
+            className="lg:hidden p-2 text-text-secondary"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
             <span className="sr-only">Open menu</span>
@@ -103,7 +103,7 @@ export function Navbar() {
 
         {/* Mobile menu */}
         {mobileMenuOpen && (
-          <div className="md:hidden py-6 border-t border-stone/20 bg-background/90 backdrop-blur-md -mx-6 px-6">
+          <div className="lg:hidden py-6 border-t border-stone/20 bg-background/90 backdrop-blur-md -mx-6 px-6">
             <div className="flex flex-col gap-5">
               {NAV_LINKS.map((link) => (
                 <Link

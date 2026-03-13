@@ -10,8 +10,11 @@ export function TeamMap() {
           {/* Text Content */}
           <div>
             <p className="mb-3 label-section text-white/80">Coverage</p>
-            <h2 className="font-sans text-5xl font-medium -tracking-[0.08em] text-white sm:text-6xl lg:text-7xl">
+            <h2 className="font-sans text-5xl hidden lg:block font-medium -tracking-[0.08em] text-white sm:text-6xl lg:text-7xl">
               Nationwide<br />Fueling<br />Partners
+            </h2>
+            <h2 className="font-sans text-5xl lg:hidden font-medium -tracking-[0.08em] text-white sm:text-6xl lg:text-7xl">
+              Nationwide Fueling Partners
             </h2>
 
             <div className="mt-10">

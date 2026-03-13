@@ -196,24 +196,14 @@ body {
 }
 
 .features-slide {
-  width: min(248px, calc(100vw - 3rem)) !important;
+  width: min(340px, calc(100vw - 3rem)) !important;
   height: auto !important;
-}
-
-@media (min-width: 640px) {
-  .features-slide {
-    width: 280px !important;
-  }
 }
 
 @media (min-width: 1024px) {
   .features-swiper {
     padding-left: 2rem !important;
     padding-right: 2rem !important;
-  }
-
-  .features-slide {
-    width: 300px !important;
   }
 }
 
