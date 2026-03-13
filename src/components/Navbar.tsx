@@ -6,10 +6,10 @@ import Link from "next/link";
 
 const NAV_LINKS = [
   { label: "Getting Started", href: "/getting-started" },
-  { label: "About Us", href: "#" },
+  { label: "About Us", href: "/about" },
   { label: "Press", href: "#" },
   { label: "Our Partners", href: "#" },
-  { label: "Contact", href: "#" },
+  { label: "Contact", href: "/contact" },
 ];
 
 const linkColor = "text-text-secondary hover:text-text-primary";
@@ -24,9 +24,9 @@ export function Navbar() {
           {/* Logo */}
           <Link href="/" className="flex items-center">
             <Image
-              src="/logo.svg"
+              src="/logo.png"
               alt="Elite Eats"
-              width={160}
+              width={32}
               height={40}
               priority
               className="logo-adaptive"

@@ -9,10 +9,10 @@ const navigation: Record<string, { name: string; href: string }[]> = {
     { name: "Pricing", href: "#" },
   ],
   Company: [
-    { name: "About", href: "#" },
+    { name: "About", href: "/about" },
     { name: "Press", href: "#" },
     { name: "Careers", href: "#" },
-    { name: "Contact", href: "#" },
+    { name: "Contact", href: "/contact" },
   ],
   Resources: [
     { name: "Blog", href: "#" },
@@ -36,7 +36,7 @@ export function Footer() {
             We&apos;d love to hear from you.
           </p>
           <div className="mt-8">
-            <a href="#" className="btn-primary px-8">
+            <a href="/contact" className="btn-primary px-8">
               Contact Us
             </a>
           </div>
