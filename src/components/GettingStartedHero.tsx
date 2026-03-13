@@ -6,7 +6,7 @@ export function GettingStartedHero() {
     <section className="relative min-h-[50vh] w-full pt-20">
       {/* Background image */}
       <Image
-        src="/images/getting-started/getting-started_1920.png"
+        src="/images/getting-started/getting-started_1920.jpg"
         alt="Professional sports stadium"
         fill
         priority
