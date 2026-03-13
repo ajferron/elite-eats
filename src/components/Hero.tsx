@@ -1,8 +1,12 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useCallback } from "react";
 import Image from "next/image";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 import { USMap } from "./USMap";
+
+gsap.registerPlugin(useGSAP);
 
 const slides = [
   {
@@ -34,24 +38,229 @@ const slides = [
   },
 ];
 
+const SLIDE_DURATION = 5;
+const TRANSITION_DURATION = 0.8;
+
 export function Hero() {
-  const [activeSlide, setActiveSlide] = useState(0);
+  const containerRef = useRef<HTMLElement>(null);
+  const bgRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const textRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const dotRefs = useRef<(HTMLButtonElement | null)[]>([]);
+  const progressRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const goToSlideRef = useRef<(index: number) => void>(() => {});
+
+  const setBgRef = useCallback((el: HTMLDivElement | null, i: number) => {
+    bgRefs.current[i] = el;
+  }, []);
+  const setTextRef = useCallback((el: HTMLDivElement | null, i: number) => {
+    textRefs.current[i] = el;
+  }, []);
+  const setDotRef = useCallback(
+    (el: HTMLButtonElement | null, i: number) => {
+      dotRefs.current[i] = el;
+    },
+    [],
+  );
+  const setProgressRef = useCallback(
+    (el: HTMLDivElement | null, i: number) => {
+      progressRefs.current[i] = el;
+    },
+    [],
+  );
+
+  useGSAP(
+    () => {
+      const activeIndex = { value: 0 };
+      let autoPlayTween: gsap.core.Tween | null = null;
+      let kenBurnsTween: gsap.core.Tween | null = null;
+
+      function startKenBurns(index: number) {
+        kenBurnsTween?.kill();
+
+        const bg = bgRefs.current[index];
+        if (!bg) return;
+
+        const inner = bg.querySelector("[data-bg-inner]") as HTMLElement | null;
+        if (!inner) return;
+
+        gsap.set(inner, { scale: 1 });
+        kenBurnsTween = gsap.to(inner, {
+          scale: 1.03,
+          duration: SLIDE_DURATION + TRANSITION_DURATION,
+          ease: "none",
+        });
+      }
+
+      function startAutoPlay() {
+        autoPlayTween?.kill();
+
+        // Reset all progress bars
+        progressRefs.current.forEach((bar) => {
+          if (bar) gsap.set(bar, { scaleX: 0 });
+        });
+
+        // Animate active progress bar
+        const activeBar = progressRefs.current[activeIndex.value];
+        if (activeBar) {
+          gsap.set(activeBar, { scaleX: 0 });
+        }
+
+        autoPlayTween = gsap.to(activeBar, {
+          scaleX: 1,
+          duration: SLIDE_DURATION,
+          ease: "none",
+          onComplete: () => {
+            const next = (activeIndex.value + 1) % slides.length;
+            goToSlide(next);
+          },
+        });
+      }
+
+      function goToSlide(nextIndex: number) {
+        const currentIndex = activeIndex.value;
+        if (nextIndex === currentIndex) return;
+
+        autoPlayTween?.kill();
+
+        const currentBg = bgRefs.current[currentIndex];
+        const nextBg = bgRefs.current[nextIndex];
+        const currentText = textRefs.current[currentIndex];
+        const nextText = textRefs.current[nextIndex];
+
+        if (!currentBg || !nextBg || !currentText || !nextText) return;
+
+        activeIndex.value = nextIndex;
+
+        // Update dot styles
+        dotRefs.current.forEach((dot, i) => {
+          if (!dot) return;
+          if (i === nextIndex) {
+            dot.classList.remove("bg-white/30", "hover:bg-white/50", "w-2");
+            dot.classList.add("bg-white", "w-6");
+          } else {
+            dot.classList.remove("bg-white", "w-6");
+            dot.classList.add("bg-white/30", "hover:bg-white/50", "w-2");
+          }
+        });
+
+        const tl = gsap.timeline({
+          onComplete: () => {
+            startAutoPlay();
+          },
+        });
+
+        // Fade out current text
+        const currentTextEls = currentText.querySelectorAll("[data-animate]");
+        tl.to(currentTextEls, {
+          y: -20,
+          opacity: 0,
+          duration: 0.4,
+          stagger: 0.04,
+          ease: "power2.in",
+        });
+
+        // Crossfade backgrounds
+        tl.to(
+          currentBg,
+          {
+            opacity: 0,
+            duration: TRANSITION_DURATION,
+            ease: "power2.inOut",
+            onComplete: () => {
+              gsap.set(currentBg, { visibility: "hidden" });
+            },
+          },
+          "<",
+        );
+
+        gsap.set(nextBg, { visibility: "visible" });
+        tl.to(
+          nextBg,
+          {
+            opacity: 1,
+            duration: TRANSITION_DURATION,
+            ease: "power2.inOut",
+          },
+          "<",
+        );
+
+        // Start Ken Burns on new slide
+        tl.call(() => startKenBurns(nextIndex), [], "<");
+
+        // Fade in next text
+        gsap.set(nextText, { visibility: "visible", opacity: 1 });
+        const nextTextEls = nextText.querySelectorAll("[data-animate]");
+        gsap.set(nextTextEls, { y: 30, opacity: 0 });
+        tl.to(
+          nextTextEls,
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.6,
+            stagger: 0.1,
+            ease: "power2.out",
+          },
+          "-=0.3",
+        );
+
+        // Hide current text container after fade
+        tl.set(currentText, { visibility: "hidden", opacity: 0 });
+      }
+
+      // Expose goToSlide for dot click handlers
+      goToSlideRef.current = goToSlide;
+
+      // Initialize: first slide visible, rest hidden
+      slides.forEach((_, i) => {
+        const bg = bgRefs.current[i];
+        const text = textRefs.current[i];
+        if (!bg || !text) return;
+
+        if (i === 0) {
+          gsap.set(bg, { opacity: 1, visibility: "visible" });
+          gsap.set(text, { opacity: 1, visibility: "visible" });
+          // Stagger in the first slide's text elements
+          const textEls = text.querySelectorAll("[data-animate]");
+          gsap.fromTo(
+            textEls,
+            { y: 30, opacity: 0 },
+            {
+              y: 0,
+              opacity: 1,
+              duration: 0.7,
+              stagger: 0.12,
+              ease: "power2.out",
+              delay: 0.2,
+            },
+          );
+        } else {
+          gsap.set(bg, { opacity: 0, visibility: "hidden" });
+          gsap.set(text, { opacity: 0, visibility: "hidden" });
+        }
+      });
+
+      // Ken Burns on first slide background
+      startKenBurns(0);
+
+      // Start auto-advance
+      startAutoPlay();
+    },
+    { scope: containerRef },
+  );
 
   return (
-    <section className="relative h-[90vh] w-full pt-20">
-      {/* Slide Backgrounds — all rendered, opacity-controlled for transitions */}
+    <section ref={containerRef} className="relative overflow-hidden h-[90vh] w-full pt-20">
+      {/* Slide Backgrounds — all rendered, GSAP-controlled */}
       {slides.map((slide, index) => (
         <div
           key={slide.id}
-          className={`absolute inset-0 transition-opacity duration-700 ease-in-out ${
-            activeSlide === index
-              ? "opacity-100"
-              : "pointer-events-none opacity-0"
-          }`}
-          aria-hidden={activeSlide !== index}
+          ref={(el) => setBgRef(el, index)}
+          className="absolute inset-0"
+          style={{ visibility: "hidden", opacity: 0 }}
+          aria-hidden={index !== 0}
         >
           {slide.background ? (
-            <>
+            <div data-bg-inner className="h-full w-full origin-center">
               <Image
                 src={slide.background}
                 alt="Professional athlete nutrition"
@@ -61,9 +270,12 @@ export function Hero() {
                 className="object-cover object-top"
               />
               <div className="absolute inset-0 bg-gradient-to-r from-charcoal/80 via-charcoal/50 to-charcoal/20" />
-            </>
+            </div>
           ) : (
-            <div className="absolute inset-0 overflow-hidden bg-dark-azure">
+            <div
+              data-bg-inner
+              className="absolute inset-0 origin-center overflow-hidden bg-dark-azure"
+            >
               {/* Map — positioned right, vertically centered */}
               <div className="absolute inset-y-0 right-0 flex w-2/3 items-center">
                 <USMap id="hero" scale={1000} strokeOpacity={0.3} />
@@ -79,46 +291,70 @@ export function Hero() {
       <div className="container-section relative z-10 flex h-full flex-col justify-between py-12 lg:pb-16">
         {/* Top Section */}
         <div className="flex items-start justify-between">
-          {/* Headline - Top Left */}
-          <div className="max-w-3xl">
-            <p className="mb-4 font-sans text-md tracking-wide text-white/85">
-              {slides[activeSlide].categoryLabel}
-            </p>
-            <h1 className="font-sans text-7xl font-medium leading-[1] -tracking-[0.08em] text-white sm:text-5xl lg:text-6xl xl:text-7xl">
-              {slides[activeSlide].headline}
-              <br />
-              {slides[activeSlide].headlineAccent}
-            </h1>
-            <p className="mt-4 max-w-lg font-sans text-base leading-relaxed text-white/80 lg:text-lg">
-              {slides[activeSlide].cardDescription}
-            </p>
-
-            {/* CTA Button - yellow-green accent */}
-            <div className="mt-10 flex items-center gap-4">
-              <a href="#" className="btn-primary inline-block">
-                Log In
-              </a>
-              <a
-                href="#"
-                className="inline-block font-sans text-md text-white/90 transition-colors hover:text-white"
+          {/* Per-slide text blocks — all rendered, GSAP-controlled */}
+          <div className="relative max-w-3xl">
+            {slides.map((slide, index) => (
+              <div
+                key={slide.id}
+                ref={(el) => setTextRef(el, index)}
+                className={index === 0 ? "" : "absolute inset-0"}
+                style={{ visibility: "hidden", opacity: 0 }}
               >
-                Learn More →
-              </a>
-            </div>
+                <p
+                  data-animate
+                  className="mb-4 font-sans text-md tracking-wide text-white/85"
+                >
+                  {slide.categoryLabel}
+                </p>
+                <h1
+                  data-animate
+                  className="font-sans text-7xl font-medium leading-[1] -tracking-[0.08em] text-white sm:text-5xl lg:text-6xl xl:text-7xl"
+                >
+                  {slide.headline}
+                  <br />
+                  {slide.headlineAccent}
+                </h1>
+                <p
+                  data-animate
+                  className="mt-4 max-w-lg font-sans text-base leading-relaxed text-white/80 lg:text-lg"
+                >
+                  {slide.cardDescription}
+                </p>
+
+                {/* CTA Button */}
+                <div data-animate className="mt-10 flex items-center gap-4">
+                  <a href="#" className="btn-primary inline-block">
+                    Log In
+                  </a>
+                  <a
+                    href="#"
+                    className="inline-block font-sans text-md text-white/90 transition-colors hover:text-white"
+                  >
+                    Learn More →
+                  </a>
+                </div>
+              </div>
+            ))}
           </div>
 
-          {/* Carousel Dots - Top Right */}
+          {/* Carousel Dots with progress bars - Top Right */}
           <div className="hidden items-center gap-2 sm:flex">
             {slides.map((slide, index) => (
               <button
                 key={slide.id}
-                onClick={() => setActiveSlide(index)}
-                className={`h-2 w-2 rounded-full transition-all ${
-                  activeSlide === index
+                ref={(el) => setDotRef(el, index)}
+                onClick={() => goToSlideRef.current(index)}
+                className={`relative h-2 overflow-hidden rounded-full transition-[width] duration-300 ${
+                  index === 0
                     ? "w-6 bg-white"
-                    : "bg-white/30 hover:bg-white/50"
+                    : "w-2 bg-white/30 hover:bg-white/50"
                 }`}
               >
+                <div
+                  ref={(el) => setProgressRef(el, index)}
+                  className="absolute inset-0 origin-left rounded-full bg-white/60"
+                  style={{ transform: "scaleX(0)" }}
+                />
                 <span className="sr-only">Go to slide {index + 1}</span>
               </button>
             ))}
