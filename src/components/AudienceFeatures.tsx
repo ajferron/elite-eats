@@ -16,6 +16,8 @@ interface AudienceFeaturesProps {
   headingBefore: string;
   headingAccent: string;
   headingAfter: string;
+  textAccentColor: string;
+  bgAccentColor: string;
   ctaLabel: string;
   ctaHref: string;
   features: FeatureCard[];
@@ -26,6 +28,8 @@ export function AudienceFeatures({
   headingBefore,
   headingAccent,
   headingAfter,
+  textAccentColor,
+  bgAccentColor,
   ctaLabel,
   ctaHref,
   features,
@@ -39,14 +43,14 @@ export function AudienceFeatures({
             <p className="mb-3 label-section">{label}</p>
             <h2 className="heading-section -tracking-[0.08em]">
               {headingBefore}{" "}
-              <span className="text-yellow-green">{headingAccent}</span>{" "}
+              <span className={textAccentColor}>{headingAccent}</span>{" "}
               {headingAfter}
             </h2>
           </div>
 
           <Link
             href={ctaHref}
-            className="btn-primary hidden md:flex gap-2 py-2.5 px-5"
+            className={`btn-primary hidden md:flex gap-2 py-2.5 px-5 ${bgAccentColor}`}
           >
             {ctaLabel}
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
@@ -59,7 +63,7 @@ export function AudienceFeatures({
         <div className="mt-6 sm:hidden">
           <Link
             href={ctaHref}
-            className="btn-primary inline-flex gap-2 py-2.5 px-5"
+            className={`btn-primary inline-flex gap-2 py-2.5 px-5 ${bgAccentColor}`}
           >
             {ctaLabel}
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
