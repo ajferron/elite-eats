@@ -5,6 +5,7 @@ import Image from "next/image";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { USMap } from "./USMap";
+import { cn } from "@/lib/utils";
 
 gsap.registerPlugin(useGSAP);
 
@@ -15,6 +16,7 @@ const slides = [
     headlineAccent: "Athlete Catering",
     categoryLabel: "Elite Eats Inc",
     background: "/images/hero/hero-A_2560.jpg",
+    showStats: true,
     cardDescription:
       "Dietitian Designed Athlete Catering Platform Connecting Professional Teams with Vetted Vendors.",
   },
@@ -24,8 +26,9 @@ const slides = [
     headlineAccent: "the Pros",
     categoryLabel: "Elite Eats Inc",
     background: "/images/hero/hero-B_2560.jpg",
+    showStats: false,
     cardDescription:
-      "From coast to coast, access elite fueling partners in 65 cities across 8 major leagues.",
+      '“Elite Eats was a game changer for streamlining all of our catering needs during our Bowl Game. ... The platform is intuitive to navigate and does an excellent job of keeping all of your catering details centralized in one place. Most importantly, the Elite Eats team keeps tabs on your orders throughout the process which gives you peace of mind in knowing that nothing will fall between the cracks.”',
   },
   {
     id: 3,
@@ -33,12 +36,13 @@ const slides = [
     headlineAccent: "Fueling Partners",
     categoryLabel: "Elite Eats Inc",
     background: "",
+    showStats: true,
     cardDescription:
       "Our team vetted fueling partners specialize in athlete-specific catering, ensuring consistent quality, nutritional precision, and operational reliability. We have you covered with over 700 partner locations across all major pro team cities.",
   },
 ];
 
-const SLIDE_DURATION = 5;
+const SLIDE_DURATION = 7;
 const TRANSITION_DURATION = 0.8;
 
 export function Hero() {
@@ -290,126 +294,145 @@ export function Hero() {
       {/* Content Overlay */}
       <div className="container-section relative z-10 flex h-full flex-col justify-between py-12 lg:pb-16">
         {/* Top Section */}
-        <div className="flex items-start justify-between">
+        <div className="flex items-start justify-between h-full">
           {/* Per-slide text blocks — all rendered, GSAP-controlled */}
-          <div className="relative max-w-3xl">
+          <div className="relative max-w-4xl h-full">
             {slides.map((slide, index) => (
               <div
                 key={slide.id}
                 ref={(el) => setTextRef(el, index)}
-                className={index === 0 ? "" : "absolute inset-0"}
+                className={cn("flex flex-col justify-between h-full", index === 0 ? "" : "absolute inset-0")}
                 style={{ visibility: "hidden", opacity: 0 }}
               >
-                <p
-                  data-animate
-                  className="mb-4 font-sans text-md tracking-wide text-white/85"
-                >
-                  {slide.categoryLabel}
-                </p>
-                <h1
-                  data-animate
-                  className="font-sans text-7xl font-medium leading-[1] -tracking-[0.08em] text-white sm:text-5xl lg:text-6xl xl:text-7xl"
-                >
-                  {slide.headline}
-                  <br />
-                  {slide.headlineAccent}
-                </h1>
-                <p
-                  data-animate
-                  className="mt-4 max-w-lg font-sans text-base leading-relaxed text-white/80 lg:text-lg"
-                >
-                  {slide.cardDescription}
-                </p>
-
-                {/* CTA Button */}
-                <div data-animate className="mt-10 flex items-center gap-4">
-                  <a href="#" className="btn-primary inline-block">
-                    Log In
-                  </a>
-                  <a
-                    href="#"
-                    className="inline-block font-sans text-md text-white/90 transition-colors hover:text-white"
+                <div className="flex flex-col">
+                  <p
+                    data-animate
+                    className="mb-4 font-sans text-md tracking-wide text-white/85"
                   >
-                    Learn More →
-                  </a>
+                    {slide.categoryLabel}
+                  </p>
+                  <h1
+                    data-animate
+                    className="font-sans text-7xl font-medium leading-[1] -tracking-[0.08em] text-white sm:text-5xl lg:text-6xl xl:text-7xl"
+                  >
+                    {slide.headline}
+                    <br />
+                    {slide.headlineAccent}
+                  </h1>
+                  <p
+                    data-animate
+                    className="mt-4 max-w-lg font-sans text-base leading-relaxed text-white/80 lg:text-lg"
+                  >
+                    {slide.cardDescription}
+                  </p>
+
+                  {slide.id === 2 && (
+                    <div data-animate className="mt-6">
+                      <p className="font-display text-2xl text-white lg:text-3xl">
+                        Jake Anthony, MS, RD, CSSD
+                      </p>
+                      <p className="mt-1 font-sans text-base text-white/80">
+                        Director of Football Performance Nutrition
+                      </p>
+                      <p className="font-sans text-base text-white/80">
+                        University of Illinois
+                      </p>
+                    </div>
+                  )}
+
+                  {/* CTA Button */}
+                  <div data-animate className="mt-10 flex items-center gap-4">
+                    <a href="#" className="btn-primary inline-block">
+                      Log In
+                    </a>
+                    <a
+                      href="#"
+                      className="inline-block font-sans text-md text-white/90 transition-colors hover:text-white"
+                    >
+                      Learn More →
+                    </a>
+                  </div>
                 </div>
+
+                {slide.showStats && (
+                  <div data-animate className="flex items-center gap-8">
+                    <div className="text-center">
+                      <p className="font-sans text-3xl font-medium text-white lg:text-4xl">
+                        150
+                      </p>
+                      <p className="mt-1 font-sans text-sm text-white/80">
+                        Pro Teams
+                      </p>
+                    </div>
+                    <div className="h-8 w-px bg-white/20"></div>
+                    <div className="text-center">
+                      <p className="font-sans text-3xl font-medium text-white lg:text-4xl">
+                        760
+                      </p>
+                      <p className="mt-1 font-sans text-sm text-white/80">
+                        Fueling Partners
+                      </p>
+                    </div>
+                    <div className="h-8 w-px bg-white/20"></div>
+                    <div className="text-center">
+                      <p className="font-sans text-3xl font-medium text-white lg:text-4xl">
+                        65
+                      </p>
+                      <p className="mt-1 font-sans text-sm text-white/80">
+                        Cities
+                      </p>
+                    </div>
+                  </div>
+                )}
               </div>
             ))}
           </div>
 
-          {/* Carousel Dots with progress bars - Top Right */}
-          <div className="hidden items-center gap-2 sm:flex">
-            {slides.map((slide, index) => (
-              <button
-                key={slide.id}
-                ref={(el) => setDotRef(el, index)}
-                onClick={() => goToSlideRef.current(index)}
-                className={`relative h-2 overflow-hidden rounded-full transition-[width] duration-300 ${
-                  index === 0
-                    ? "w-6 bg-white"
-                    : "w-2 bg-white/30 hover:bg-white/50"
-                }`}
-              >
-                <div
-                  ref={(el) => setProgressRef(el, index)}
-                  className="absolute inset-0 origin-left rounded-full bg-white/60"
-                  style={{ transform: "scaleX(0)" }}
-                />
-                <span className="sr-only">Go to slide {index + 1}</span>
-              </button>
-            ))}
-          </div>
-        </div>
-
-        {/* Bottom Section - stats */}
-        <div className="flex items-end justify-between">
-          <div className="flex items-center gap-8">
-            <div className="text-center">
-              <p className="font-sans text-3xl font-medium text-white lg:text-4xl">
-                150+
-              </p>
-              <p className="mt-1 mr-1 font-sans text-sm text-white/80">
-                Pro Teams
-              </p>
+          <div className="flex flex-col items-end justify-between h-full">
+            {/* Carousel Dots with progress bars - Top Right */}
+            <div className="hidden items-center gap-2 sm:flex">
+              {slides.map((slide, index) => (
+                <button
+                  key={slide.id}
+                  ref={(el) => setDotRef(el, index)}
+                  onClick={() => goToSlideRef.current(index)}
+                  className={`relative h-2 overflow-hidden rounded-full transition-[width] duration-300 ${
+                    index === 0
+                      ? "w-6 bg-white"
+                      : "w-2 bg-white/30 hover:bg-white/50"
+                  }`}
+                >
+                  <div
+                    ref={(el) => setProgressRef(el, index)}
+                    className="absolute inset-0 origin-left rounded-full bg-white/60"
+                    style={{ transform: "scaleX(0)" }}
+                  />
+                  <span className="sr-only">Go to slide {index + 1}</span>
+                </button>
+              ))}
             </div>
-            <div className="h-8 w-px bg-white/20"></div>
-            <div className="text-center">
-              <p className="font-sans text-3xl font-medium text-white lg:text-4xl">
-                760
-              </p>
-              <p className="mt-1 font-sans text-sm text-white/80">
-                Fueling Partners
-              </p>
+            {/* Bottom Section - stats */}
+            <div className="flex items-end justify-end">
+              {/* Scroll indicator */}
+              <div className="hidden items-center gap-2 text-white/80 lg:flex">
+                <span className="font-sans text-xs uppercase tracking-wider">
+                  Scroll
+                </span>
+                <svg
+                  className="h-4 w-4 animate-bounce"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M19 14l-7 7m0 0l-7-7m7 7V3"
+                  />
+                </svg>
+              </div>
             </div>
-            <div className="h-8 w-px bg-white/20"></div>
-            <div className="text-center">
-              <p className="font-sans text-3xl font-medium text-white lg:text-4xl">
-                65
-              </p>
-              <p className="mt-1 font-sans text-sm text-white/80">
-                Cities
-              </p>
-            </div>
-          </div>
-
-          {/* Scroll indicator */}
-          <div className="hidden items-center gap-2 text-white/80 lg:flex">
-            <span className="font-sans text-xs uppercase tracking-wider">
-              Scroll
-            </span>
-            <svg
-              className="h-4 w-4 animate-bounce"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M19 14l-7 7m0 0l-7-7m7 7V3"
-              />
-            </svg>
           </div>
         </div>
       </div>
