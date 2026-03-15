@@ -8,9 +8,7 @@ const features = [
     number: "01",
     headline: "The Problem",
     subheadline: [
-      'Trusted fueling partners with athlete catering experience are hard to locate & evaluate.',
-      'Placing athlete catering orders is complicated & time intensive.',
-      'No online marketplace exclusively for the unique needs of athlete catering.',
+      'Finding trusted athlete catering partners is difficult, and evaluating their experience takes time. Placing team meal orders is complex, involves multiple steps, and can be a major drain on performance staff. On top of that, there is no centralized marketplace built specifically to meet the unique needs of athlete catering, leaving teams to manage a fragmented and inefficient process.',
     ],
     image: "/images/ee-advantage-A_1280.jpg",
   },
@@ -19,9 +17,7 @@ const features = [
     number: "02",
     headline: "Our Solution",
     subheadline: [
-      'Only vetted & team recommended fueling partners with athlete catering experience are invited to join the platform.',
-      'Our platform streamlines and organizes your ordering, expenses & communication.',
-      'Created by a Sport RD.  Platform is specifically designed for athlete catering.',
+      'Elite Eats connects teams with only vetted, team-recommended fueling partners who have proven experience in athlete catering. Our platform streamlines and organizes orders, expenses, and communication, making the process simple and efficient. Built by a sport dietitian, it’s designed specifically to meet the unique demands of athlete catering.',
     ],
     image: "/images/ee-advantage-B_720.jpg",
   },
