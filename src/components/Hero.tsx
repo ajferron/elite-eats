@@ -449,7 +449,7 @@ export function Hero() {
             target="_blank"
             rel="noreferrer"
             aria-label="Elite Eats on LinkedIn"
-            className="text-white/80 transition hover:text-white"
+            className="opacity-70 transition hover:opacity-100"
           >
             <LinkedInLogo />
           </a>
@@ -458,7 +458,7 @@ export function Hero() {
             target="_blank"
             rel="noreferrer"
             aria-label="Elite Eats on Instagram"
-            className="text-white/80 transition hover:text-white"
+            className="opacity-70 transition hover:opacity-100"
           >
             <InstagramLogo />
           </a>
