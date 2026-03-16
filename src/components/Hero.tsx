@@ -6,6 +6,7 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { USMap } from "./USMap";
 import { cn } from "@/lib/utils";
+import { InstagramLogo, LinkedInLogo } from "./SocialLogos";
 
 gsap.registerPlugin(useGSAP);
 
@@ -253,7 +254,10 @@ export function Hero() {
   );
 
   return (
-    <section ref={containerRef} className="relative overflow-hidden h-[90vh] w-full pt-20">
+    <section
+      ref={containerRef}
+      className="relative h-[90vh] w-full overflow-hidden pt-20"
+    >
       {/* Slide Backgrounds — all rendered, GSAP-controlled */}
       {slides.map((slide, index) => (
         <div
@@ -434,6 +438,30 @@ export function Hero() {
               </div>
             </div>
           </div>
+        </div>
+      </div>
+
+      {/* Social Icons - attached to hero (right side overlay) */}
+      <div className="pointer-events-none absolute right-0 top-1/2 z-20 hidden -translate-y-1/2 lg:block">
+        <div className="pointer-events-auto flex flex-col items-center gap-4 bg-charcoal/10 px-3 py-4 shadow-lg shadow-black/10 backdrop-blur-md">
+          <a
+            href="https://www.linkedin.com/company/elite-eats-inc/"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Elite Eats on LinkedIn"
+            className="text-white/80 transition hover:text-white"
+          >
+            <LinkedInLogo />
+          </a>
+          <a
+            href="https://www.instagram.com/eliteeatsinc/"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Elite Eats on Instagram"
+            className="text-white/80 transition hover:text-white"
+          >
+            <InstagramLogo />
+          </a>
         </div>
       </div>
     </section>

@@ -17,3 +17,4 @@ export { ContactHero } from "./ContactHero";
 export { ContactForm } from "./ContactForm";
 export { PressHero } from "./PressHero";
 export { PressReleases } from "./PressReleases";
+export { InstagramLogo, LinkedInLogo } from "./SocialLogos";
