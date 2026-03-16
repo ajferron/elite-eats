@@ -263,3 +263,53 @@ body {
   border-radius: 4px;
 }
 
+/* ============================================
+   HOVER MICRO-INTERACTIONS
+   ============================================ */
+
+/* ValueProposition cards — lift + shadow */
+[data-section="vp"] .bg-darker-azure {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+@media (hover: hover) {
+  [data-section="vp"] .bg-darker-azure:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+  }
+}
+
+/* Testimonial cards — shadow + image zoom on hover */
+.testimonials-slide > div {
+  transition: box-shadow 0.3s ease;
+}
+
+.testimonials-slide > div img {
+  transition: transform 0.4s ease;
+}
+
+@media (hover: hover) {
+  .testimonials-slide > div:hover {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  }
+
+  .testimonials-slide > div:hover img {
+    transform: scale(1.04);
+  }
+}
+
+/* Feature slides (Getting Started) — image zoom on hover */
+.features-slide .rounded-2xl {
+  overflow: hidden;
+}
+
+.features-slide .rounded-2xl img {
+  transition: transform 0.4s ease;
+}
+
+@media (hover: hover) {
+  .features-slide .rounded-2xl:hover img {
+    transform: scale(1.04);
+  }
+}
+
