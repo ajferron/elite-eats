@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, type FormEvent } from "react";
+import { useRef, useState, type FormEvent } from "react";
 import Image from "next/image";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
@@ -14,6 +14,7 @@ gsap.registerPlugin(useGSAP, ScrollTrigger);
 export function ContactForm() {
   const sectionRef = useRef<HTMLElement>(null);
   const formRef = useRef<HTMLFormElement>(null);
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
 
   useGSAP(
     () => {
@@ -45,8 +46,10 @@ export function ContactForm() {
     { scope: sectionRef }
   );
 
-  function handleSubmit(e: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    setStatus("loading");
+
     const formData = new FormData(e.currentTarget);
     const data = {
       firstName: formData.get("firstName"),
@@ -54,7 +57,21 @@ export function ContactForm() {
       email: formData.get("email"),
       message: formData.get("message"),
     };
-    console.log("Contact form submitted:", data);
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+
+      if (!res.ok) throw new Error("Submission failed");
+
+      setStatus("success");
+      formRef.current?.reset();
+    } catch {
+      setStatus("error");
+    }
   }
 
   return (
@@ -121,8 +138,21 @@ export function ContactForm() {
             </div>
 
             <div className="contact-field">
-              <Button type="submit">Send</Button>
+              <Button type="submit" disabled={status === "loading"}>
+                {status === "loading" ? "Sending..." : "Send"}
+              </Button>
             </div>
+
+            {status === "success" && (
+              <p className="font-sans text-sm text-green-600">
+                Thank you! Your message has been sent.
+              </p>
+            )}
+            {status === "error" && (
+              <p className="font-sans text-sm text-red-600">
+                Something went wrong. Please try again.
+              </p>
+            )}
           </form>
 
           {/* Image */}

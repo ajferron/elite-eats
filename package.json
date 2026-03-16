@@ -11,6 +11,10 @@
   "dependencies": {
     "@gsap/react": "^2.1.2",
     "@heroicons/react": "^2.2.0",
+    "@wix/crm": "^1.0.1494",
+    "@wix/data": "^1.0.421",
+    "@wix/forms": "^1.0.407",
+    "@wix/sdk": "^1.21.4",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "gsap": "^3.14.2",

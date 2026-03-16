@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useEffect, useState } from "react";
 import Image from "next/image";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
@@ -9,44 +9,13 @@ import InstagramProfile from "./InstagramProfile";
 
 gsap.registerPlugin(ScrollTrigger);
 
-// Mock data — will be replaced with Wix CMS fetch
-const pressReleases: PressRelease[] = [
-  {
-    id: "1",
-    title: "Partnership with sweetgreen",
-    summary:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    date: "2026-01-09",
-    image: "/images/getting-started/team-1_trusted-partners.jpg",
-    href: "#",
-  },
-  {
-    id: "2",
-    title: "Elite Eats in Major League Soccer",
-    summary:
-      "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    date: "2026-01-22",
-    image: "/images/getting-started/team-2_efficiency.jpg",
-    href: "#",
-  },
-  {
-    id: "3",
-    title: "Why Teams Love Our Vendors",
-    summary:
-      "Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas.",
-    date: "2026-02-03",
-    image: "/images/getting-started/team-3_rd-designed.jpg",
-    href: "#",
-  },
-];
-
 interface PressRelease {
   id: string;
   title: string;
-  summary: string;
+  description: string;
   date: string;
   image: string;
-  href: string;
+  imageAlt: string;
 }
 
 function formatDate(dateString: string) {
@@ -60,27 +29,25 @@ function formatDate(dateString: string) {
 function PressCard({ release }: { release: PressRelease }) {
   return (
     <article className="press-card flex gap-6">
-      <a
-        href={release.href}
-        className="relative aspect-[4/3] w-40 shrink-0 overflow-hidden rounded-lg sm:w-48"
-      >
-        <Image
-          src={release.image}
-          alt={release.title}
-          fill
-          sizes="(max-width: 640px) 160px, 192px"
-          className="object-cover transition-transform duration-300 hover:scale-105"
-        />
-      </a>
+      <div className="relative aspect-[4/3] w-40 shrink-0 overflow-hidden rounded-lg sm:w-48">
+        {release.image && (
+          <Image
+            src={release.image}
+            alt={release.imageAlt || release.title}
+            fill
+            sizes="(max-width: 640px) 160px, 192px"
+            className="object-cover transition-transform duration-300 hover:scale-105"
+          />
+        )}
+      </div>
       <div className="flex flex-col justify-center">
-        <a href={release.href}>
-          <h3 className="font-display text-lg leading-tight text-foreground transition-colors hover:text-dark-azure sm:text-xl">
-            {release.title}
-          </h3>
-        </a>
-        <p className="mt-2 line-clamp-3 font-sans text-sm leading-relaxed text-text-secondary">
-          {release.summary}
-        </p>
+        <h3 className="font-display text-xl leading-tight text-foreground sm:text-2xl">
+          {release.title}
+        </h3>
+        <div
+          className="mt-2 line-clamp-3 font-sans text-sm leading-relaxed text-text-secondary prose prose-sm"
+          dangerouslySetInnerHTML={{ __html: release.description }}
+        />
         <time
           dateTime={release.date}
           className="mt-3 font-sans text-xs tracking-wide text-text-tertiary"
@@ -94,9 +61,31 @@ function PressCard({ release }: { release: PressRelease }) {
 
 export function PressReleases() {
   const sectionRef = useRef<HTMLElement>(null);
+  const [pressReleases, setPressReleases] = useState<PressRelease[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function fetchPressReleases() {
+      try {
+        const res = await fetch("/api/press");
+        const data = await res.json();
+        if (data.success) {
+          setPressReleases(data.articles);
+        }
+      } catch (error) {
+        console.error("Failed to fetch press releases:", error);
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    fetchPressReleases();
+  }, []);
 
   useGSAP(
     () => {
+      if (loading) return;
+
       gsap.from(".press-card", {
         y: 30,
         opacity: 0,
@@ -121,7 +110,7 @@ export function PressReleases() {
         },
       });
     },
-    { scope: sectionRef }
+    { scope: sectionRef, dependencies: [loading] }
   );
 
   return (
@@ -130,9 +119,19 @@ export function PressReleases() {
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
           {/* Press releases list */}
           <div className="flex flex-col gap-10">
-            {pressReleases.map((release) => (
-              <PressCard key={release.id} release={release} />
-            ))}
+            {loading ? (
+              <p className="font-sans text-sm text-text-secondary">
+                Loading press releases...
+              </p>
+            ) : pressReleases.length === 0 ? (
+              <p className="font-sans text-sm text-text-secondary">
+                No press releases available.
+              </p>
+            ) : (
+              pressReleases.map((release) => (
+                <PressCard key={release.id} release={release} />
+              ))
+            )}
           </div>
 
           {/* Instagram profile embed */}
