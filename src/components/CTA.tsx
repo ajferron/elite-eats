@@ -23,7 +23,7 @@ export function CTA() {
           We&apos;d love to hear from you.
         </p>
         <div className="mt-10">
-          <a href="#" className="btn-primary px-8">
+          <a href="/contact" className="btn-primary px-8">
             Contact Us
           </a>
         </div>

@@ -3,21 +3,15 @@ import Link from "next/link";
 
 const navigation: Record<string, { name: string; href: string }[]> = {
   Platform: [
-    { name: "Getting Started", href: "#" },
-    { name: "For Teams", href: "#" },
-    { name: "For Vendors", href: "#" },
-    { name: "Pricing", href: "#" },
+    { name: "Getting Started", href: "/getting-started" },
+    { name: "For Teams", href: "https://eliteeatsinc.com/team-main" },
+    { name: "For Vendors", href: "https://eliteeatsinc.com/vendor-main" },
   ],
   Company: [
     { name: "About", href: "/about" },
     { name: "Press", href: "/press" },
-    { name: "Careers", href: "#" },
+    { name: "Partners", href: "https://www.canva.com/design/DAG-bMhgxvo/-w_KamgpTQ1V1dAm0TD0Ng/view?utm_content=DAG-bMhgxvo&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=hc82324a515" },
     { name: "Contact", href: "/contact" },
-  ],
-  Resources: [
-    { name: "Blog", href: "#" },
-    { name: "Help Center", href: "#" },
-    { name: "Partners", href: "#" },
   ],
   Legal: [
     { name: "Privacy", href: "#" },

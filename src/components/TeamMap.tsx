@@ -18,7 +18,7 @@ export function TeamMap() {
             </h2>
 
             <div className="mt-10">
-              <a href="#" className="btn-primary px-8">
+              <a href="https://www.canva.com/design/DAG-bMhgxvo/-w_KamgpTQ1V1dAm0TD0Ng/view?utm_content=DAG-bMhgxvo&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=hc82324a515" className="btn-primary px-8">
                 See Our Partners
               </a>
             </div>

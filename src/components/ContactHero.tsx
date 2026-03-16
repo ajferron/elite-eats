@@ -85,7 +85,7 @@ export function ContactHero() {
           {/* Social icons */}
           <div className="contact-hero-animate flex items-center gap-4 shrink-0">
             <a
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/company/elite-eats-inc"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn"
@@ -94,7 +94,7 @@ export function ContactHero() {
               <LinkedInIcon />
             </a>
             <a
-              href="https://instagram.com"
+              href="https://www.instagram.com/elite_eats_inc"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Instagram"

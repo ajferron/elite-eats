@@ -342,11 +342,11 @@ export function Hero() {
 
                   {/* CTA Button */}
                   <div data-animate className="mt-10 flex items-center gap-4">
-                    <a href="#" className="btn-primary inline-block">
+                    <a href="https://eliteeatsinc.com/" className="btn-primary inline-block">
                       Log In
                     </a>
                     <a
-                      href="#"
+                      href="/getting-started"
                       className="inline-block font-sans text-md text-white/90 transition-colors hover:text-white"
                     >
                       Learn More →
