@@ -178,7 +178,7 @@ export function Testimonials() {
           <SwiperSlide key={testimonial.id} className="testimonials-slide">
             <div className="flex h-full flex-col overflow-hidden rounded-2xl">
               {/* Dietitian Photo */}
-              <div className="relative aspect-[4/3] w-full flex-shrink-0">
+              <div className="relative aspect-[4/3] w-full flex-shrink-0 overflow-hidden">
                 <Image
                   src={testimonial.image}
                   alt={testimonial.name}
