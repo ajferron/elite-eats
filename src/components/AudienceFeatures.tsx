@@ -77,6 +77,7 @@ export function AudienceFeatures({
       <Swiper
         spaceBetween={16}
         slidesPerView="auto"
+        grabCursor
         className="features-swiper"
       >
         {features.map((feature) => (
