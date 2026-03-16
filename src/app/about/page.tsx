@@ -9,7 +9,6 @@ export default function AboutPage() {
     <>
       <Navbar />
       <AboutHero />
-      {/* <AboutQuote /> */}
       <FounderQuote dark hideSectionHeader />
       <AboutFounders />
       <AboutTeam />

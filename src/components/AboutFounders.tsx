@@ -106,9 +106,9 @@ const founders = [
         </li>
       </ul>,
       <p>
-        Stephanie received her Bachelors of Science Degree in Chemistry with a
-        Minor in Business from Eastern Illinois University. In her spare time,
-        she is an avid equestrian athlete competing in the sport of Dressage
+        Stephanie received her <strong>Bachelors of Science Degree in Chemistry</strong> with a
+        <strong>Minor in Business</strong> from <strong>Eastern Illinois University</strong>. In her spare time,
+        she is an <strong>avid equestrian athlete</strong> competing in the sport of Dressage
         with her horse Totoro.
       </p>,
     ],
