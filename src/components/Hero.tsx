@@ -370,8 +370,8 @@ export function Hero() {
                     </div>
                     <div className="h-8 w-px bg-white/20"></div>
                     <div className="text-center">
-                      <p className="font-sans text-3xl font-medium text-white lg:text-4xl">
-                        760
+                      <p className="font-sans text-3xl ml-1 font-medium text-white lg:text-4xl">
+                        870+
                       </p>
                       <p className="mt-1 font-sans text-sm text-white/80">
                         Fueling Partners

@@ -17,7 +17,7 @@ Elite Eats is a **sports nutrition catering marketplace** connecting professiona
 
 - 150 professional teams across 8 leagues: MLB, NHL, NFL, MLS, NBA, WNBA, NWSL, MLR
 - 65 cities
-- 760 fueling partners
+- 870+ fueling partners
 
 **Founder:** Jennifer Gibson, MS, RD, CSSD—performance dietitian with 18 years of experience
 
