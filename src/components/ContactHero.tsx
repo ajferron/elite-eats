@@ -75,10 +75,7 @@ export function ContactHero() {
               Contact Us
             </h1>
             <p className="contact-hero-animate mt-4 font-sans text-base leading-relaxed text-text-secondary lg:text-lg lg:leading-relaxed">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-              ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-              aliquip ex ea commodo consequat.
+            Whether you&apos;re a <strong>team looking for trusted fueling partners</strong> or a <strong>vendor interested in supporting athlete performance</strong>, we&apos;d love to connect. Reach out to learn more about the platform and how to get started.
             </p>
           </div>
 

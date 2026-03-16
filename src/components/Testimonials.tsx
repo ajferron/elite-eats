@@ -58,7 +58,7 @@ const testimonials = [
     teamLogo: "cleveland-cavs.png",
     image: "/images/testimonials/kylene-bogden.jpg",
     quote:
-      "Elite Eats is a game-changer! I complete flight catering orders in half the time now, the entire process is more organized, I’ve discovered new restaurants without spending hours of research, and this platform has made it much easier for our organization to save on food costs.",
+      "Elite Eats is a game-changer! I complete flight catering orders in half the time now, the entire process is more organized, I've discovered new restaurants without spending hours of research, and this platform has made it much easier for our organization to save on food costs.",
   },
   {
     id: 6,

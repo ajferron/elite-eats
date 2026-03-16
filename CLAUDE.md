@@ -19,7 +19,7 @@ Elite Eats is a **sports nutrition catering marketplace** connecting professiona
 - 65 cities
 - 870+ fueling partners
 
-**Founder:** Jennifer Gibson, MS, RD, CSSD—performance dietitian with 18 years of experience
+**Founder:** Jennifer Gibson, MS, RD, CSSD—performance dietitian with 20 years of experience
 
 ### Key Domain Terms
 

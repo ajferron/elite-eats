@@ -33,7 +33,7 @@ const founders = [
         Her consulting work has included the{" "}
         <strong>
           New Orleans Saints, Colorado Rapids MLS, Vancouver Whitecaps MLS,
-          Women’s Tennis Association Pro Tour
+          Women's Tennis Association Pro Tour
         </strong>{" "}
         and within the <strong>NBA</strong>. She has traveled to over 20
         countries to service her athletes including 2 Olympic Games (2010,

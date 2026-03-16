@@ -17,7 +17,7 @@ const features = [
     number: "02",
     headline: "Our Solution",
     subheadline: [
-      'Elite Eats connects teams with only vetted, team-recommended fueling partners who have proven experience in athlete catering. Our platform streamlines and organizes orders, expenses, and communication, making the process simple and efficient. Built by a sport dietitian, it’s designed specifically to meet the unique demands of athlete catering.',
+      'Elite Eats connects teams with only vetted, team-recommended fueling partners who have proven experience in athlete catering. Our platform streamlines and organizes orders, expenses, and communication, making the process simple and efficient. Built by a sport dietitian, it\'s designed specifically to meet the unique demands of athlete catering.',
     ],
     image: "/images/ee-advantage-B_720.jpg",
   },

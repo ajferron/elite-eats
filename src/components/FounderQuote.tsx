@@ -79,7 +79,7 @@ export function FounderQuote({ dark = false, hideSectionHeader = false }: Founde
                 Co-founder and CEO
               </p>
               <p className={`font-sans text-base ${dark ? "text-white/80" : "text-text-secondary"}`}>
-                Performance Dietitian, 18 Years Experience
+                Performance Dietitian, 20 Years Experience
               </p>
             </div>
           </div>

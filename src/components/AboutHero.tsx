@@ -42,7 +42,7 @@ export function AboutHero() {
           Who We Are
         </h1>
         <p className="about-hero-animate mt-6 max-w-3xl font-sans text-lg leading-relaxed text-white/95 lg:text-xl lg:leading-relaxed">
-          Elite Eats Inc. is the first online catering marketplace purpose-built for professional sports teams. Our exclusive, invite-only platform connects teams with vetted fueling partners who specialize in athlete-specific catering, ensuring consistent quality, nutritional precision, and operational reliability. Unlike high volume platforms, we focus on quality, partnering only with elite, athlete experienced caterers. Our mix includes top local providers and national restaurant partners; all vetted for performance and reliability.
+          Elite Eats Inc. is the first online catering marketplace purpose-built for professional sports teams. Our exclusive, invite-only platform connects teams with vetted fueling partners who specialize in athlete-specific catering, ensuring consistent quality, nutritional precision, and operational reliability.
         </p>
       </div>
     </section>

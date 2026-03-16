@@ -17,7 +17,7 @@ const team = [
   {
     name: "Jeff Cummings",
     title: "Senior Software Developer",
-    bio: "With Elite Eats since day one, Jeff oversees all software development and engineering. He brings more than 35 years of experience, with a specialization in sports technology platforms, including work with Kinduct and United States Soccer Federation. When Jeff isn’t writing code, you can find him cruising the streets of Halifax on his motorbike.",
+    bio: "With Elite Eats since day one, Jeff oversees all software development and engineering. He brings more than 35 years of experience, with a specialization in sports technology platforms, including work with Kinduct and United States Soccer Federation. When Jeff isn't writing code, you can find him cruising the streets of Halifax on his motorbike.",
   },
   {
     name: "Chris A. Meeks",
