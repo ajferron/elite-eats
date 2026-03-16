@@ -17,12 +17,12 @@ const team = [
   {
     name: "Jeff Cummings",
     title: "Senior Software Developer",
-    bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    bio: "With Elite Eats since day one, Jeff oversees all software development and engineering. He brings more than 35 years of experience, with a specialization in sports technology platforms, including work with Kinduct and United States Soccer Federation. When Jeff isn’t writing code, you can find him cruising the streets of Halifax on his motorbike.",
   },
   {
     name: "Chris A. Meeks",
     title: "Legal Counsel",
-    bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    bio: "Chris is a native of New Orleans and a graduate of the Paul M. Hebert Law Center at Louisiana State University, where he earned his Juris Doctor and a Graduate Diploma in Comparative Law. He is an experienced attorney in commercial and construction litigation and, through his marriage to a sport dietitian, has a strong understanding of the sport catering landscape.",
   },
 ];
 
