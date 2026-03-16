@@ -4,11 +4,14 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
+const LOGIN_LINK = "https://eliteeatsinc.com/";
+const SIGNUP_LINK = "https://eliteeatsinc.com/";
+
 const NAV_LINKS = [
   { label: "Getting Started", href: "/getting-started" },
   { label: "About Us", href: "/about" },
   { label: "Press", href: "#" },
-  { label: "Our Partners", href: "#" },
+  { label: "Our Partners", target: '_blank', href: "https://www.canva.com/design/DAG-bMhgxvo/-w_KamgpTQ1V1dAm0TD0Ng/view?utm_content=DAG-bMhgxvo&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=hc82324a515" },
   { label: "Contact", href: "/contact" },
 ];
 
@@ -39,6 +42,7 @@ export function Navbar() {
               <Link
                 key={link.label}
                 href={link.href}
+                target={link.target}
                 className={`font-sans text-md transition-colors ${linkColor}`}
               >
                 {link.label}
@@ -49,13 +53,15 @@ export function Navbar() {
           {/* Right Side - Auth Buttons */}
           <div className="hidden lg:flex md:items-center md:gap-6">
             <Link
-              href="#"
+              href={LOGIN_LINK}
+              target="_blank"
               className={`font-sans text-md transition-colors ${linkColor}`}
             >
               Log In
             </Link>
             <Link
-              href="#"
+              href={SIGNUP_LINK}
+              target="_blank"
               className="rounded-full px-6 py-2.5 font-sans text-md transition-all bg-charcoal text-white hover:bg-dark-azure/90"
             >
               Sign Up
@@ -116,13 +122,15 @@ export function Navbar() {
               ))}
               <div className="flex flex-col gap-4 pt-5 border-t border-stone/20">
                 <Link
-                  href="#"
+                  href={LOGIN_LINK}
+                  target="_blank"
                   className={`font-sans text-base ${linkColor}`}
                 >
                   Log In
                 </Link>
                 <Link
-                  href="#"
+                  href={SIGNUP_LINK}
+                  target="_blank"
                   className="rounded-full px-5 py-2.5 text-center font-sans text-sm bg-dark-azure text-white"
                 >
                   Sign Up
