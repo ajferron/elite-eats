@@ -29,7 +29,7 @@ export function Navbar() {
             <Image
               src="/logo.png"
               alt="Elite Eats"
-              width={32}
+              width={150}
               height={40}
               priority
               className="logo-adaptive"

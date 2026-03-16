@@ -1,11 +1,7 @@
 {
   "permissions": {
     "allow": [
-      "Bash(npx tsc --noEmit)",
-      "Bash(bunx shadcn@latest init -d)",
-      "Bash(npx shadcn@latest init -d)",
-      "Bash(npm install clsx tailwind-merge class-variance-authority tw-animate-css lucide-react)",
-      "Bash(npm install --legacy-peer-deps clsx tailwind-merge class-variance-authority tw-animate-css lucide-react)"
+      "Bash(npx tsc --noEmit)"
     ],
     "additionalDirectories": [
       "/Users/ajferron/Documents/ajferron/projects/elite-eats/src"
