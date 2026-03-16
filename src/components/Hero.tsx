@@ -256,7 +256,7 @@ export function Hero() {
   return (
     <section
       ref={containerRef}
-      className="relative h-[90vh] w-full overflow-hidden pt-20"
+      className="relative h-[100svh] w-full overflow-hidden pt-20 lg:h-[90vh]"
     >
       {/* Slide Backgrounds — all rendered, GSAP-controlled */}
       {slides.map((slide, index) => (
@@ -284,8 +284,8 @@ export function Hero() {
               data-bg-inner
               className="absolute inset-0 origin-center overflow-hidden bg-dark-azure"
             >
-              {/* Map — positioned right, vertically centered */}
-              <div className="absolute inset-y-0 right-0 flex w-2/3 items-center">
+              {/* Map — full-width on mobile, right-aligned on desktop */}
+              <div className="absolute inset-y-0 right-0 flex w-full items-center lg:w-2/3">
                 <USMap id="hero" scale={1000} strokeOpacity={0.3} />
               </div>
               {/* Gradient fade — ensures left-side text readability */}
@@ -296,28 +296,28 @@ export function Hero() {
       ))}
 
       {/* Content Overlay */}
-      <div className="container-section relative z-10 flex h-full flex-col justify-between py-12 lg:pb-16">
+      <div className="container-section relative z-10 flex h-full flex-col py-10 lg:py-12 lg:pb-16">
         {/* Top Section */}
-        <div className="flex items-start justify-between h-full">
+        <div className="flex h-full items-start justify-between pb-6 lg:pb-0">
           {/* Per-slide text blocks — all rendered, GSAP-controlled */}
-          <div className="relative max-w-4xl h-full">
+          <div className="relative h-full max-w-4xl">
             {slides.map((slide, index) => (
               <div
                 key={slide.id}
                 ref={(el) => setTextRef(el, index)}
-                className={cn("flex flex-col justify-between h-full", index === 0 ? "" : "absolute inset-0")}
+                className={cn("flex flex-col h-full", index === 0 ? "" : "absolute inset-0")}
                 style={{ visibility: "hidden", opacity: 0 }}
               >
-                <div className="flex flex-col">
+                <div className="flex flex-col h-full">
                   <p
                     data-animate
-                    className="mb-4 font-sans text-md tracking-wide text-white/85"
+                    className="mb-4 font-sans text-sm tracking-wide text-white/85 lg:text-md"
                   >
                     {slide.categoryLabel}
                   </p>
                   <h1
                     data-animate
-                    className="font-sans text-7xl font-medium leading-[1] -tracking-[0.08em] text-white sm:text-5xl lg:text-6xl xl:text-7xl"
+                    className="font-sans text-[2.5rem] font-medium leading-[1] -tracking-[0.08em] text-white sm:text-5xl lg:text-6xl xl:text-7xl"
                   >
                     {slide.headline}
                     <br />
@@ -331,21 +331,21 @@ export function Hero() {
                   </p>
 
                   {slide.id === 2 && (
-                    <div data-animate className="mt-6">
+                    <div data-animate className="mt-5 lg:mt-6">
                       <p className="font-display text-2xl text-white lg:text-3xl">
                         Jake Anthony, MS, RD, CSSD
                       </p>
-                      <p className="mt-1 font-sans text-base text-white/80">
+                      <p className="mt-1 font-sans text-sm text-white/80 lg:text-base">
                         Director of Football Performance Nutrition
                       </p>
-                      <p className="font-sans text-base text-white/80">
+                      <p className="font-sans text-sm text-white/80 lg:text-base">
                         University of Illinois
                       </p>
                     </div>
                   )}
 
                   {/* CTA Button */}
-                  <div data-animate className="mt-10 flex items-center gap-4">
+                  <div data-animate className="mt-8 flex items-center gap-4 lg:mt-10">
                     <a href="https://eliteeatsinc.com/" className="btn-primary inline-block">
                       Log In
                     </a>
@@ -359,30 +359,30 @@ export function Hero() {
                 </div>
 
                 {slide.showStats && (
-                  <div data-animate className="flex items-center gap-8">
+                  <div data-animate className="mt-auto flex items-center gap-6 lg:gap-8">
                     <div className="text-center">
-                      <p className="font-sans text-3xl font-medium text-white lg:text-4xl">
+                      <p className="font-sans text-2xl font-medium text-white lg:text-4xl">
                         150
                       </p>
-                      <p className="mt-1 font-sans text-sm text-white/80">
+                      <p className="mt-1 font-sans text-xs text-white/80 lg:text-sm">
                         Pro Teams
                       </p>
                     </div>
                     <div className="h-8 w-px bg-white/20"></div>
                     <div className="text-center">
-                      <p className="font-sans text-3xl ml-1 font-medium text-white lg:text-4xl">
+                      <p className="font-sans text-2xl ml-1 font-medium text-white lg:text-4xl">
                         870+
                       </p>
-                      <p className="mt-1 font-sans text-sm text-white/80">
+                      <p className="mt-1 font-sans text-xs text-white/80 lg:text-sm">
                         Fueling Partners
                       </p>
                     </div>
                     <div className="h-8 w-px bg-white/20"></div>
                     <div className="text-center">
-                      <p className="font-sans text-3xl font-medium text-white lg:text-4xl">
+                      <p className="font-sans text-2xl font-medium text-white lg:text-4xl">
                         65
                       </p>
-                      <p className="mt-1 font-sans text-sm text-white/80">
+                      <p className="mt-1 font-sans text-xs text-white/80 lg:text-sm">
                         Cities
                       </p>
                     </div>
@@ -392,7 +392,7 @@ export function Hero() {
             ))}
           </div>
 
-          <div className="flex flex-col items-end justify-between h-full">
+          <div className="hidden h-full shrink-0 flex-col items-end justify-between sm:flex">
             {/* Carousel Dots with progress bars - Top Right */}
             <div className="hidden items-center gap-2 sm:flex">
               {slides.map((slide, index) => (
