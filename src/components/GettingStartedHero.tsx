@@ -22,16 +22,15 @@ export function GettingStartedHero() {
         <h1 className="font-sans text-5xl font-medium -tracking-[0.08em] text-white sm:text-6xl lg:text-7xl">
           Getting Started
         </h1>
-
         <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
           <Link
-            href="#"
+            href="#teams"
             className="rounded-full border border-white/60 px-6 py-3 font-sans text-sm font-medium text-white backdrop-blur-sm transition-all hover:bg-white/10 hover:border-white/90 sm:text-base"
           >
             I&apos;m a Team
           </Link>
           <Link
-            href="#"
+            href="#fueling-partners"
             className="rounded-full border border-white/60 px-6 py-3 font-sans text-sm font-medium text-white backdrop-blur-sm transition-all hover:bg-white/10 hover:border-white/90 sm:text-base"
           >
             I&apos;m a Fueling Partner

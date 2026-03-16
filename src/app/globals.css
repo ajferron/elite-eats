@@ -38,6 +38,10 @@
   --container-px: 1.5rem;          /* px-6 */
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 @media (min-width: 1024px) {
   :root {
     --container-px: 2rem;           /* lg:px-8 */

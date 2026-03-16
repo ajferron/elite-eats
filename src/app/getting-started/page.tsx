@@ -73,28 +73,32 @@ export default function GettingStartedPage() {
     <>
       <Navbar />
       <GettingStartedHero />
-      <AudienceFeatures
-        label="For Teams"
-        headingBefore="Why"
-        headingAccent="Teams"
-        headingAfter="Choose Elite Eats"
-        ctaLabel="Register Your Team"
-        textAccentColor="text-yellow-green"
-        bgAccentColor="bg-yellow-green"
-        ctaHref="#"
-        features={teamFeatures}
-      />
-      <AudienceFeatures
-        label="For Teams"
-        headingBefore="Why"
-        headingAccent="Fueling Partners"
-        headingAfter="Choose Elite Eats"
-        ctaLabel="Create Your Account"
-        textAccentColor="text-azure"
-        bgAccentColor="bg-azure"
-        ctaHref="#"
-        features={vendorFeatures}
-      />
+      <section id="teams">
+        <AudienceFeatures
+          label="For Teams"
+          headingBefore="Why"
+          headingAccent="Teams"
+          headingAfter="Choose Elite Eats"
+          ctaLabel="Register Your Team"
+          textAccentColor="text-yellow-green"
+          bgAccentColor="bg-yellow-green"
+          ctaHref="https://eliteeatsinc.com/team-main"
+          features={teamFeatures}
+        />
+      </section>
+      <section id="fueling-partners">
+        <AudienceFeatures
+          label="For Teams"
+          headingBefore="Why"
+          headingAccent="Fueling Partners"
+          headingAfter="Choose Elite Eats"
+          ctaLabel="Create Your Account"
+          textAccentColor="text-azure"
+          bgAccentColor="bg-azure hover:bg-azure/90 hover:shadow-azure/25"
+          ctaHref="https://eliteeatsinc.com/vendor-main"
+          features={vendorFeatures}
+        />
+      </section>
       <Footer />
     </>
   );
