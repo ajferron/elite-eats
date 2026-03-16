@@ -164,6 +164,7 @@ export function Testimonials() {
         modules={[Pagination]}
         spaceBetween={20}
         slidesPerView="auto"
+        grabCursor
         pagination={{ clickable: true }}
         onSwiper={(swiper) => {
           setSwiperInstance(swiper);

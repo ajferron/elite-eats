@@ -1,6 +1,14 @@
+"use client";
+
+import { useRef } from "react";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Navbar, Footer } from "@/components";
 import { GettingStartedHero } from "@/components/GettingStartedHero";
 import { AudienceFeatures, type FeatureCard } from "@/components/AudienceFeatures";
+
+gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 const teamFeatures: FeatureCard[] = [
   {
@@ -66,14 +74,126 @@ const vendorFeatures: FeatureCard[] = [
       "Feeding elite athletes at the highest level is an honor and privilege.",
     image: "/images/getting-started/vendor-5_credibility.jpg",
   },
-]
+];
 
 export default function GettingStartedPage() {
+  const pageRef = useRef<HTMLDivElement>(null);
+
+  useGSAP(
+    () => {
+      const prefersReducedMotion = window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+      ).matches;
+      if (prefersReducedMotion) return;
+
+      // ── Hero: above-fold entrance (no ScrollTrigger) ──
+      const heroSection = pageRef.current?.querySelector(
+        "[data-section='hero']"
+      );
+      if (heroSection) {
+        const heroH1 = heroSection.querySelector("h1");
+        const heroButtons = heroSection.querySelector(
+          ".flex.flex-wrap"
+        );
+
+        const heroTargets = [heroH1, heroButtons].filter(Boolean);
+        if (heroTargets.length) {
+          gsap.from(heroTargets, {
+            y: 30,
+            opacity: 0,
+            duration: 0.7,
+            stagger: 0.15,
+            ease: "power2.out",
+            delay: 0.2,
+          });
+        }
+      }
+
+      // ── Teams section: header then swiper carousel ──
+      // Note: we animate the whole .features-swiper container rather than
+      // individual .features-slide elements to avoid conflicts with Swiper's
+      // internal layout transforms (which cause a blink/jump on init).
+      const teamsSection = pageRef.current?.querySelector(
+        "[data-section='teams']"
+      ) as HTMLElement | null;
+
+      if (teamsSection) {
+        const teamsHeader = teamsSection.querySelector(".container-section");
+        const teamsSwiper = teamsSection.querySelector(".features-swiper");
+
+        if (teamsHeader) {
+          gsap.from(teamsHeader, {
+            y: 30,
+            opacity: 0,
+            duration: 0.7,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: teamsSection,
+              start: "top 80%",
+            },
+          });
+        }
+
+        if (teamsSwiper) {
+          gsap.from(teamsSwiper, {
+            y: 40,
+            opacity: 0,
+            duration: 0.8,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: teamsSection,
+              start: "top 75%",
+            },
+          });
+        }
+      }
+
+      // ── Fueling Partners section: header then swiper carousel ──
+      const vendorSection = pageRef.current?.querySelector(
+        "[data-section='vendors']"
+      ) as HTMLElement | null;
+
+      if (vendorSection) {
+        const vendorHeader = vendorSection.querySelector(".container-section");
+        const vendorSwiper = vendorSection.querySelector(".features-swiper");
+
+        if (vendorHeader) {
+          gsap.from(vendorHeader, {
+            y: 30,
+            opacity: 0,
+            duration: 0.7,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: vendorSection,
+              start: "top 80%",
+            },
+          });
+        }
+
+        if (vendorSwiper) {
+          gsap.from(vendorSwiper, {
+            y: 40,
+            opacity: 0,
+            duration: 0.8,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: vendorSection,
+              start: "top 75%",
+            },
+          });
+        }
+      }
+    },
+    { scope: pageRef }
+  );
+
   return (
-    <>
+    <div ref={pageRef}>
       <Navbar />
-      <GettingStartedHero />
-      <section id="teams">
+      <div data-section="hero">
+        <GettingStartedHero />
+      </div>
+      <div data-section="teams" id="teams">
         <AudienceFeatures
           label="For Teams"
           headingBefore="Why"
@@ -85,8 +205,8 @@ export default function GettingStartedPage() {
           ctaHref="https://eliteeatsinc.com/team-main"
           features={teamFeatures}
         />
-      </section>
-      <section id="fueling-partners">
+      </div>
+      <div data-section="vendors" id="fueling-partners">
         <AudienceFeatures
           label="For Teams"
           headingBefore="Why"
@@ -98,8 +218,8 @@ export default function GettingStartedPage() {
           ctaHref="https://eliteeatsinc.com/vendor-main"
           features={vendorFeatures}
         />
-      </section>
+      </div>
       <Footer />
-    </>
+    </div>
   );
 }
