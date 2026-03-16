@@ -10,7 +10,7 @@ const navigation: Record<string, { name: string; href: string }[]> = {
   ],
   Company: [
     { name: "About", href: "/about" },
-    { name: "Press", href: "#" },
+    { name: "Press", href: "/press" },
     { name: "Careers", href: "#" },
     { name: "Contact", href: "/contact" },
   ],

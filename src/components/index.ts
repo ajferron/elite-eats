@@ -15,3 +15,5 @@ export { AudienceFeatures } from "./AudienceFeatures";
 export type { FeatureCard } from "./AudienceFeatures";
 export { ContactHero } from "./ContactHero";
 export { ContactForm } from "./ContactForm";
+export { PressHero } from "./PressHero";
+export { PressReleases } from "./PressReleases";

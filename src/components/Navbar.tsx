@@ -10,7 +10,7 @@ const SIGNUP_LINK = "https://eliteeatsinc.com/";
 const NAV_LINKS = [
   { label: "Getting Started", href: "/getting-started" },
   { label: "About Us", href: "/about" },
-  { label: "Press", href: "#" },
+  { label: "Press", href: "/press" },
   { label: "Our Partners", target: '_blank', href: "https://www.canva.com/design/DAG-bMhgxvo/-w_KamgpTQ1V1dAm0TD0Ng/view?utm_content=DAG-bMhgxvo&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=hc82324a515" },
   { label: "Contact", href: "/contact" },
 ];
