@@ -20,9 +20,9 @@ export default function InstagramProfile() {
   }, []);
 
   return (
-    <div className="pb-12">
+    <div className="max-w-full overflow-hidden pb-12">
       <blockquote
-        className="instagram-media w-128"
+        className="instagram-media max-w-full! w-128"
         data-instgrm-permalink="https://www.instagram.com/elite_eats_inc/"
         data-instgrm-version="14"
       />
