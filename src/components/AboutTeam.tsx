@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef } from "react";
+import Image from "next/image";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -12,17 +13,20 @@ const team = [
   {
     name: "Avery Ferron",
     title: "Marketing and Operations Manager",
-    bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    bio: "Canadian-born and now living in Toronto, Avery graduated from Mount St. Mary's University with a BA in Communication and competed as a Division I track athlete. Her experience as an athlete fuels her passion for working in the sports world, while her creativity drives her love for marketing.",
+    imageSrc: "/images/avery.avif",
   },
   {
     name: "Jeff Cummings",
     title: "Senior Software Developer",
     bio: "With Elite Eats since day one, Jeff oversees all software development and engineering. He brings more than 35 years of experience, with a specialization in sports technology platforms, including work with Kinduct and United States Soccer Federation. When Jeff isn't writing code, you can find him cruising the streets of Halifax on his motorbike.",
+    imageSrc: "/images/jeff.avif",
   },
   {
     name: "Chris A. Meeks",
     title: "Legal Counsel",
     bio: "Chris is a native of New Orleans and a graduate of the Paul M. Hebert Law Center at Louisiana State University, where he earned his Juris Doctor and a Graduate Diploma in Comparative Law. He is an experienced attorney in commercial and construction litigation and, through his marriage to a sport dietitian, has a strong understanding of the sport catering landscape.",
+    imageSrc: "/images/chris.avif",
   },
 ];
 
@@ -52,14 +56,18 @@ export function AboutTeam() {
         <SectionHeader label="Our Team" heading="The People Behind Elite Eats" />
 
         <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:mt-16 lg:grid-cols-3 lg:gap-10">
-          {team.map((member) => (
+          {team.map((member, index) => (
             <article key={member.name} className="team-card">
-              {/* Placeholder photo — replace with real image */}
-              <div
-                className="aspect-square w-full rounded-2xl bg-dark-azure/10"
-                role="img"
-                aria-label={`Photo of ${member.name} — coming soon`}
-              />
+              <div className="relative aspect-square w-full overflow-hidden rounded-2xl bg-dark-azure/10">
+                <Image
+                  src={member.imageSrc}
+                  alt={`Photo of ${member.name}`}
+                  fill
+                  sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                  className="object-cover"
+                  priority={index === 0}
+                />
+              </div>
               <div className="mt-5">
                 <h3 className="font-display text-xl text-text-primary lg:text-2xl">
                   {member.name}
