@@ -17,6 +17,13 @@ export function TeamMap() {
               Nationwide Fueling Partners
             </h2>
 
+            <p className="mt-4 max-w-lg font-sans text-base leading-relaxed text-white/90 lg:text-lg">
+              Our team vetted fueling partners specialize in athlete-specific
+              catering, ensuring consistent quality, nutritional precision, and
+              operational reliability. We have you covered with over 700 partner
+              locations across all major pro team cities.
+            </p>
+
             <div className="mt-10">
               <a target="_blank" href="https://www.canva.com/design/DAG-bMhgxvo/-w_KamgpTQ1V1dAm0TD0Ng/view?utm_content=DAG-bMhgxvo&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=hc82324a515" className="btn-primary px-8">
                 See Our Partners
