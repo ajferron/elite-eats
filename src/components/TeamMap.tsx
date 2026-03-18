@@ -20,7 +20,7 @@ export function TeamMap() {
             <p className="mt-4 max-w-lg font-sans text-base leading-relaxed text-white/90 lg:text-lg">
               Our team vetted fueling partners specialize in athlete-specific
               catering, ensuring consistent quality, nutritional precision, and
-              operational reliability. We have you covered with over 700 partner
+              operational reliability. We have you covered with over 870 partner
               locations across all major pro team cities.
             </p>
 

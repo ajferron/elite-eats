@@ -208,7 +208,7 @@ export default function GettingStartedPage() {
       </div>
       <div data-section="vendors" id="fueling-partners">
         <AudienceFeatures
-          label="For Teams"
+          label="For Fueling Partners"
           headingBefore="Why"
           headingAccent="Fueling Partners"
           headingAfter="Choose Elite Eats"

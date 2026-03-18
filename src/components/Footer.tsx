@@ -5,7 +5,7 @@ const navigation: Record<string, { name: string; href: string }[]> = {
   Platform: [
     { name: "Getting Started", href: "/getting-started" },
     { name: "For Teams", href: "https://eliteeatsinc.com/team-main" },
-    { name: "For Vendors", href: "https://eliteeatsinc.com/vendor-main" },
+    { name: "For Fueling Partners", href: "https://eliteeatsinc.com/vendor-main" },
   ],
   Company: [
     { name: "About", href: "/about" },

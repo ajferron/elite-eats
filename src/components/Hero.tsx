@@ -39,7 +39,7 @@ const slides = [
     background: "",
     showStats: true,
     cardDescription:
-      "Our team vetted fueling partners specialize in athlete-specific catering, ensuring consistent quality, nutritional precision, and operational reliability. We have you covered with over 700 partner locations across all major pro team cities.",
+      "Our team vetted fueling partners specialize in athlete-specific catering, ensuring consistent quality, nutritional precision, and operational reliability. We have you covered with over 870 partner locations across all major pro team cities.",
   },
 ];
 
