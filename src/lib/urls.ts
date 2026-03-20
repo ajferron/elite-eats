@@ -10,7 +10,7 @@ export const PLATFORM_VENDORS = "https://eliteeatsinc.com/vendor-main";
 
 // Partners
 export const PARTNERS_PAGE =
-  "https://www.canva.com/design/DAG-bMhgxvo/-w_KamgpTQ1V1dAm0TD0Ng/view?utm_content=DAG-bMhgxvo&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=hc82324a515";
+  "https://drive.google.com/file/d/1tTpjQjje2Ck8fBBJuuDAk3Jsr5A6HCsV/preview";
 
 // Social
 export const SOCIAL_LINKEDIN =
