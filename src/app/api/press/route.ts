@@ -5,7 +5,7 @@ export async function GET() {
   try {
     const result = await wixClient.items
       .query(process.env.WIX_ARTICLES_COLLECTION_ID!)
-      .descending("_publishDate")
+      .descending("publishDate")
       .find();
 
     const articles = (result.items ?? []).map((item) => {
@@ -21,7 +21,7 @@ export async function GET() {
         id: item._id,
         title: item.title_fld,
         description: item.description_fld ?? "",
-        date: item._publishDate,
+        date: item.publishDate,
         link: item.link,
         image: imageUrl,
         imageAlt,
