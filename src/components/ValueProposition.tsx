@@ -12,7 +12,7 @@ const features = [
       <>Placing athlete catering orders is <strong>complicated and time-intensive</strong>.</>,
       <>No online marketplace exists exclusively for the <strong>unique needs of athlete catering</strong>.</>,
     ],
-    image: "/images/ee-advantage-A_1280.jpg",
+    image: "/images/problem.jpg",
   },
   {
     id: 2,
@@ -23,7 +23,7 @@ const features = [
       <>Our platform <strong>streamlines and organizes</strong> your <strong>ordering, expenses &amp; communication</strong>.</>,
       <><strong>Created by a Sport RD.</strong> Platform is specifically designed for athlete catering.</>,
     ],
-    image: "/images/ee-advantage-B_720.jpg",
+    image: "/images/solution.jpg",
   },
 ];
 
