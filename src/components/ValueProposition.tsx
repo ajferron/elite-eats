@@ -1,23 +1,27 @@
 import Image from "next/image";
 import { SectionHeader } from "./SectionHeader";
-import { Fragment } from "react/jsx-runtime";
+import type { ReactNode } from "react";
 
 const features = [
   {
     id: 1,
     number: "01",
     headline: "The Problem",
-    subheadline: [
-      'Finding trusted athlete catering partners is difficult, and evaluating their experience takes time. Placing team meal orders is complex, involves multiple steps, and can be a major drain on performance staff. On top of that, there is no centralized marketplace built specifically to meet the unique needs of athlete catering, leaving teams to manage a fragmented and inefficient process.',
+    bullets: [
+      <>Trusted fueling partners with athlete catering experience are <strong>hard to find and evaluate</strong>.</>,
+      <>Placing athlete catering orders is <strong>complicated and time-intensive</strong>.</>,
+      <>No online marketplace exists exclusively for the <strong>unique needs of athlete catering</strong>.</>,
     ],
     image: "/images/ee-advantage-A_1280.jpg",
   },
   {
-    id: 1,
+    id: 2,
     number: "02",
     headline: "Our Solution",
-    subheadline: [
-      'Elite Eats connects teams with only vetted, team-recommended fueling partners who have proven experience in athlete catering. Our platform streamlines and organizes orders, expenses, and communication, making the process simple and efficient. Built by a sport dietitian, it\'s designed specifically to meet the unique demands of athlete catering.',
+    bullets: [
+      <><strong>Only vetted &amp; team recommended</strong> fueling partners with athlete catering experience are invited to join the platform.</>,
+      <>Our platform <strong>streamlines and organizes</strong> your <strong>ordering, expenses &amp; communication</strong>.</>,
+      <><strong>Created by a Sport RD.</strong> Platform is specifically designed for athlete catering.</>,
     ],
     image: "/images/ee-advantage-B_720.jpg",
   },
@@ -27,7 +31,7 @@ function LargeFeatureCard({
   feature,
   flipped = false
 }: {
-  feature: (typeof features)[0] | (typeof features)[1];
+  feature: { number: string; headline: string; bullets: ReactNode[]; image: string };
   flipped?: boolean;
 }) {
   return (
@@ -42,13 +46,14 @@ function LargeFeatureCard({
             <h3 className="mt-10 font-sans text-3xl font-medium -tracking-[0.08em] text-white lg:text-4xl">
               {feature.headline}
             </h3>
-            <div className="mt-4 text-lg text-white/85">
-              {feature.subheadline.map((line, index) => (
-                <Fragment key={index}>
-                  <p className="mb-2 leading-relaxed">{line}</p>
-                </Fragment>
+            <ul className="mt-4 space-y-3 text-lg text-white/85">
+              {feature.bullets.map((bullet, index) => (
+                <li key={index} className="flex items-start gap-3 leading-relaxed">
+                  <span className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-white/60" />
+                  <span>{bullet}</span>
+                </li>
               ))}
-            </div>
+            </ul>
           </div>
         </div>
         <div className={`relative min-h-[320px] lg:min-h-[400px]${!flipped ? " lg:order-first" : ""}`}>
