@@ -39,7 +39,7 @@ const teamFeatures: FeatureCard[] = [
   {
     title: "Nationwide",
     description:
-      "870 fueling partners across all sport league cities",
+      "870 fueling partners across sport league cities",
     image: "/images/getting-started/team-5_nationwide.jpg",
   },
 ];
