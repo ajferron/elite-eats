@@ -3,8 +3,6 @@ import { wixClient } from "@/lib/wix";
 
 export async function GET() {
   try {
-
-    console.log(process.env.WIX_ARTICLES_COLLECTION_ID!);
     const result = await wixClient.items
       .query(process.env.WIX_ARTICLES_COLLECTION_ID!)
       .descending("_publishDate")
@@ -24,6 +22,7 @@ export async function GET() {
         title: item.title_fld,
         description: item.description_fld ?? "",
         date: item._publishDate,
+        link: item.link,
         image: imageUrl,
         imageAlt,
       };

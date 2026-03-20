@@ -14,6 +14,7 @@ interface PressRelease {
   title: string;
   description: string;
   date: string;
+  link: string;
   image: string;
   imageAlt: string;
 }
@@ -28,7 +29,12 @@ function formatDate(dateString: string) {
 
 function PressCard({ release }: { release: PressRelease }) {
   return (
-    <article className="press-card flex gap-6">
+    <a
+      href={release.link}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="press-card flex gap-6"
+    >
       <div className="relative aspect-[4/3] w-40 shrink-0 overflow-hidden rounded-lg sm:w-48">
         {release.image && (
           <Image
@@ -55,7 +61,7 @@ function PressCard({ release }: { release: PressRelease }) {
           {formatDate(release.date)}
         </time>
       </div>
-    </article>
+    </a>
   );
 }
 
