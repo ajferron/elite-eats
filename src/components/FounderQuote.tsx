@@ -8,7 +8,7 @@ interface FounderQuoteProps {
 
 export function FounderQuote({ dark = false, hideSectionHeader = false }: FounderQuoteProps) {
   return (
-    <section className={dark ? "bg-charcoal py-20 lg:py-28" : "bg-cream py-20 lg:py-28"}>
+    <section className={dark ? "bg-dark-azure py-20 lg:py-28" : "bg-cream py-20 lg:py-28"}>
       <div className="container-section">
         <div className="grid items-center gap-24 lg:grid-cols-[1fr_auto] lg:gap-32">
           {/* Founder Image — desktop only (in grid) */}
