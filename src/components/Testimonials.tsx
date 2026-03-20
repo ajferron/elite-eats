@@ -80,6 +80,14 @@ const testimonials = [
     quote:
       'I appreciate the benefit of all communications in one landing spot, the invoicing is so simple and the reassurance of delivery. I have zero worries when I have order placed via Elite Eats. One of the easiest parts of the platform is sending a message like "here is my budget and what I need to feed - help!"',
   },
+  {
+    id: 8,
+    name: "Hillary Ake, MS, RD, LD, CSSD",
+    role: "Performance Dietitian, MLB & College",
+    image: "/images/testimonials/hillary-ake.jpg",
+    quote:
+      'I highly recommend Elite Eats as a time- and stress-saver. My favorite parts are the transparent pricing and amounts. I always know exactly how much protein I will receive and never have to worry about last-minute surprise fees. And the support from Jenn and Stephanie is unmatched!',
+  },
 ];
 
 function ChevronLeft({ className = "" }: { className?: string }) {
@@ -200,16 +208,19 @@ export function Testimonials() {
                       {testimonial.name}
                     </p>
                     <p className="font-sans text-md text-white/65">
-                      {testimonial.role} &middot; {testimonial.team}
+                      {testimonial.role}
+                      {testimonial.team && <> &middot; {testimonial.team}</>}
                     </p>
                   </div>
-                  <Image
-                    src={`/images/testimonials/team-logos/${testimonial.teamLogo}`}
-                    alt={testimonial.team}
-                    width={56}
-                    height={56}
-                    className="h-12 w-12 flex-shrink-0  object-contain"
-                  />
+                  {testimonial.teamLogo && testimonial.team && (
+                    <Image
+                      src={`/images/testimonials/team-logos/${testimonial.teamLogo}`}
+                      alt={testimonial.team}
+                      width={56}
+                      height={56}
+                      className="h-12 w-12 flex-shrink-0 object-contain"
+                    />
+                  )}
                 </div>
               </div>
             </div>
