@@ -35,6 +35,9 @@ export function AboutHero() {
         className="object-cover object-center"
       />
 
+      {/* Dark overlay for text readability on lg and below */}
+      <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/30 xl:hidden" />
+
       {/* Content */}
       <div className="container-section relative z-10">
         <p className="about-hero-animate label-section text-white/50">About Us</p>
