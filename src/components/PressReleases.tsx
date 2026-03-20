@@ -5,6 +5,7 @@ import Image from "next/image";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { Skeleton } from "@/components/ui/skeleton";
 import InstagramProfile from "./InstagramProfile";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -33,7 +34,7 @@ function PressCard({ release }: { release: PressRelease }) {
       href={release.link}
       target="_blank"
       rel="noopener noreferrer"
-      className="press-card flex gap-6"
+      className="press-card group flex gap-6"
     >
       <div className="relative aspect-[4/3] w-40 shrink-0 overflow-hidden rounded-lg sm:w-48">
         {release.image && (
@@ -42,7 +43,7 @@ function PressCard({ release }: { release: PressRelease }) {
             alt={release.imageAlt || release.title}
             fill
             sizes="(max-width: 640px) 160px, 192px"
-            className="object-cover transition-transform duration-300 hover:scale-105"
+            className="object-cover transition-transform duration-300 group-hover:scale-105"
           />
         )}
       </div>
@@ -126,9 +127,17 @@ export function PressReleases() {
           {/* Press releases list */}
           <div className="flex flex-col gap-10">
             {loading ? (
-              <p className="font-sans text-sm text-text-secondary">
-                Loading press releases...
-              </p>
+              Array.from({ length: 3 }).map((_, i) => (
+                <div key={i} className="flex gap-6">
+                  <Skeleton className="aspect-[4/3] w-40 shrink-0 rounded-lg sm:w-48" />
+                  <div className="flex flex-1 flex-col justify-center gap-3">
+                    <Skeleton className="h-6 w-full sm:h-7" />
+                    <Skeleton className="h-4 w-full" />
+                    <Skeleton className="h-4 w-3/4" />
+                    <Skeleton className="h-3 w-24" />
+                  </div>
+                </div>
+              ))
             ) : pressReleases.length === 0 ? (
               <p className="font-sans text-sm text-text-secondary">
                 No press releases available.
