@@ -4,6 +4,7 @@ import { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { SOCIAL_LINKEDIN, SOCIAL_INSTAGRAM_EMBED } from "@/lib/urls";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
@@ -82,7 +83,7 @@ export function ContactHero() {
           {/* Social icons */}
           <div className="contact-hero-animate flex items-center gap-4 shrink-0">
             <a
-              href="https://www.linkedin.com/company/elite-eats-inc"
+              href={SOCIAL_LINKEDIN}
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn"
@@ -91,7 +92,7 @@ export function ContactHero() {
               <LinkedInIcon />
             </a>
             <a
-              href="https://www.instagram.com/elite_eats_inc"
+              href={SOCIAL_INSTAGRAM_EMBED}
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Instagram"

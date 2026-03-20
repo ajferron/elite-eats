@@ -5,15 +5,16 @@ import Image from "next/image";
 import Link from "next/link";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import { PLATFORM_LOGIN, PLATFORM_SIGNUP, PARTNERS_PAGE } from "@/lib/urls";
 
-const LOGIN_LINK = "https://eliteeatsinc.com/";
-const SIGNUP_LINK = "https://eliteeatsinc.com/";
+const LOGIN_LINK = PLATFORM_LOGIN;
+const SIGNUP_LINK = PLATFORM_SIGNUP;
 
 const NAV_LINKS = [
   { label: "Getting Started", href: "/getting-started" },
   { label: "About Us", href: "/about" },
   { label: "Press", href: "/press" },
-  { label: "Our Partners", target: '_blank', href: "https://www.canva.com/design/DAG-bMhgxvo/-w_KamgpTQ1V1dAm0TD0Ng/view?utm_content=DAG-bMhgxvo&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=hc82324a515" },
+  { label: "Our Partners", target: '_blank', href: PARTNERS_PAGE },
   { label: "Contact", href: "/contact" },
 ];
 

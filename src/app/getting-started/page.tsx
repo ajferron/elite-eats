@@ -7,6 +7,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Navbar, Footer } from "@/components";
 import { GettingStartedHero } from "@/components/GettingStartedHero";
 import { AudienceFeatures, type FeatureCard } from "@/components/AudienceFeatures";
+import { PLATFORM_TEAMS, PLATFORM_VENDORS } from "@/lib/urls";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
@@ -202,7 +203,7 @@ export default function GettingStartedPage() {
           ctaLabel="Register Your Team"
           textAccentColor="text-yellow-green"
           bgAccentColor="bg-yellow-green"
-          ctaHref="https://eliteeatsinc.com/team-main"
+          ctaHref={PLATFORM_TEAMS}
           features={teamFeatures}
         />
       </div>
@@ -215,7 +216,7 @@ export default function GettingStartedPage() {
           ctaLabel="Create Your Account"
           textAccentColor="text-azure"
           bgAccentColor="bg-azure hover:bg-azure/90 hover:shadow-azure/25"
-          ctaHref="https://eliteeatsinc.com/vendor-main"
+          ctaHref={PLATFORM_VENDORS}
           features={vendorFeatures}
         />
       </div>

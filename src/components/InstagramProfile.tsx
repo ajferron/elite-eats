@@ -1,5 +1,6 @@
 'use client';
 import { useEffect } from 'react';
+import { SOCIAL_INSTAGRAM_EMBED } from '@/lib/urls';
 
 declare global {
   interface Window {
@@ -23,7 +24,7 @@ export default function InstagramProfile() {
     <div className="max-w-full overflow-hidden pb-12">
       <blockquote
         className="instagram-media max-w-full! w-128"
-        data-instgrm-permalink="https://www.instagram.com/elite_eats_inc/"
+        data-instgrm-permalink={SOCIAL_INSTAGRAM_EMBED}
         data-instgrm-version="14"
       />
     </div>

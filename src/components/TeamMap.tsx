@@ -1,6 +1,7 @@
 "use client";
 
 import { USMap } from "./USMap";
+import { PARTNERS_PAGE } from "@/lib/urls";
 
 export function TeamMap() {
   return (
@@ -25,7 +26,7 @@ export function TeamMap() {
             </p>
 
             <div className="mt-10">
-              <a target="_blank" href="https://www.canva.com/design/DAG-bMhgxvo/-w_KamgpTQ1V1dAm0TD0Ng/view?utm_content=DAG-bMhgxvo&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=hc82324a515" className="btn-primary px-8">
+              <a target="_blank" href={PARTNERS_PAGE} className="btn-primary px-8">
                 See Our Partners
               </a>
             </div>

@@ -1,16 +1,17 @@
 import Image from "next/image";
 import Link from "next/link";
+import { PLATFORM_TEAMS, PLATFORM_VENDORS, PARTNERS_PAGE } from "@/lib/urls";
 
 const navigation: Record<string, { name: string; href: string }[]> = {
   Platform: [
     { name: "Getting Started", href: "/getting-started" },
-    { name: "For Teams", href: "https://eliteeatsinc.com/team-main" },
-    { name: "For Fueling Partners", href: "https://eliteeatsinc.com/vendor-main" },
+    { name: "For Teams", href: PLATFORM_TEAMS },
+    { name: "For Fueling Partners", href: PLATFORM_VENDORS },
   ],
   Company: [
     { name: "About", href: "/about" },
     { name: "Press", href: "/press" },
-    { name: "Partners", href: "https://www.canva.com/design/DAG-bMhgxvo/-w_KamgpTQ1V1dAm0TD0Ng/view?utm_content=DAG-bMhgxvo&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=hc82324a515" },
+    { name: "Partners", href: PARTNERS_PAGE },
     { name: "Contact", href: "/contact" },
   ],
   Legal: [

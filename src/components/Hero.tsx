@@ -7,6 +7,7 @@ import { useGSAP } from "@gsap/react";
 import { USMap } from "./USMap";
 import { cn } from "@/lib/utils";
 import { InstagramLogo, LinkedInLogo } from "./SocialLogos";
+import { PLATFORM_LOGIN, SOCIAL_LINKEDIN, SOCIAL_INSTAGRAM } from "@/lib/urls";
 
 gsap.registerPlugin(useGSAP);
 
@@ -346,7 +347,7 @@ export function Hero() {
 
                   {/* CTA Button */}
                   <div data-animate className="mt-8 flex items-center gap-4 lg:mt-10">
-                    <a href="https://eliteeatsinc.com/" className="btn-primary inline-block">
+                    <a href={PLATFORM_LOGIN} className="btn-primary inline-block">
                       Log In
                     </a>
                     <a
@@ -445,7 +446,7 @@ export function Hero() {
       <div className="pointer-events-none absolute right-0 top-1/2 z-20 hidden -translate-y-1/2 lg:block">
         <div className="pointer-events-auto flex flex-col items-center gap-4 bg-charcoal/10 px-3 py-4 shadow-lg shadow-black/10 backdrop-blur-md">
           <a
-            href="https://www.linkedin.com/company/elite-eats-inc/"
+            href={SOCIAL_LINKEDIN}
             target="_blank"
             rel="noreferrer"
             aria-label="Elite Eats on LinkedIn"
@@ -454,7 +455,7 @@ export function Hero() {
             <LinkedInLogo />
           </a>
           <a
-            href="https://www.instagram.com/eliteeatsinc/"
+            href={SOCIAL_INSTAGRAM}
             target="_blank"
             rel="noreferrer"
             aria-label="Elite Eats on Instagram"
