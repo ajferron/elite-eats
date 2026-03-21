@@ -7,7 +7,7 @@ export function TeamMap() {
   return (
     <section className="overflow-hidden bg-dark-azure py-14 lg:py-8">
       <div className="container-section">
-        <div className="grid items-center gap-8 overflow-visible lg:grid-cols-4 lg:gap-0">
+        <div className="grid items-center gap-8 overflow-hidden lg:grid-cols-4 lg:gap-0">
           {/* Text Content */}
           <div>
             <p className="mb-3 label-section text-white/80">Coverage</p>
