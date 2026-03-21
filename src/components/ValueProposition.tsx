@@ -41,7 +41,7 @@ function LargeFeatureCard({
           <h3 className="font-sans text-3xl font-medium -tracking-[0.08em] text-white lg:text-4xl">
             {feature.headline}
           </h3>
-          <ul className="mt-4 space-y-3 text-lg text-white/85">
+          <ul className="mt-3 lg:mt-4 space-y-3 text-lg text-white/85">
             {feature.bullets.map((bullet, index) => (
               <li key={index} className="flex items-start gap-3 leading-relaxed">
                 <Image src="/images/bullet.png" alt="" width={16} height={16} className="mt-1 shrink-0" />

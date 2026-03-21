@@ -178,18 +178,18 @@ export function Navbar() {
                 {link.label}
               </Link>
             ))}
-            <div className="flex flex-col gap-4 pt-5 border-t border-stone/20">
+            <div className="flex flex-row gap-3 pt-5 border-t border-stone/20">
               <Link
                 href={LOGIN_LINK}
                 target="_blank"
-                className={`font-sans text-base ${linkColor}`}
+                className="flex-1 rounded-full px-5 py-2.5 text-center font-sans text-sm border border-stone/30 text-text-secondary hover:text-text-primary transition-colors"
               >
                 Log In
               </Link>
               <Link
                 href={SIGNUP_LINK}
                 target="_blank"
-                className="rounded-full px-5 py-2.5 text-center font-sans text-sm bg-dark-azure text-white"
+                className="flex-1 rounded-full px-5 py-2.5 text-center font-sans text-sm bg-dark-azure text-white"
               >
                 Sign Up
               </Link>
