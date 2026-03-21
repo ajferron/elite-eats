@@ -33,7 +33,7 @@ export function TeamMap() {
           </div>
 
           {/* Map */}
-          <div className="relative w-[112vw] ml-[calc(50%-56vw)] lg:col-span-3 lg:-my-12 lg:-mr-8 lg:ml-0 lg:w-auto">
+          <div className="relative -mx-6 lg:col-span-3 lg:-my-12 lg:-mr-8 lg:mx-0">
             <USMap id="section" />
           </div>
         </div>
