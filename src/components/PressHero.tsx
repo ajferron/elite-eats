@@ -30,13 +30,7 @@ export function PressHero() {
             Press &amp; Media
           </h1>
           <p className="press-hero-animate mt-4 font-sans text-base leading-relaxed text-text-secondary lg:text-lg lg:leading-relaxed">
-            Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque
-            faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi
-            pretium tellus duis convallis. Tempus leo eu aenean sed diam urna
-            tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas.
-            Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut
-            hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent
-            per conubia nostra inceptos himenaeos.
+            The latest news, milestones, and moments from the Elite Eats team.
           </p>
         </div>
 
